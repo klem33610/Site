@@ -40,5 +40,4 @@
     </div>
   </nav>
 </head>
-<?php include('Footer.php'); ?>
 </html>

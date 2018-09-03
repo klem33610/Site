@@ -1,6 +1,6 @@
 <div class="col-sm-6">
   <h5 class="text-center">FORMULAIRE POUR ENGAGER UN VERSEMENT MENSUEL</h5>
-  <form class="border border-warning rounded" style="padding : 20px 20px">
+  <form action="static/mysql/post_BDD.php" method="post" class="border border-warning rounded" style="padding : 20px 20px">
     <h4 class="text-center font-weight-bold">Versement mensuel "Aide d'urgence"</h4>
     <p><small>Vous pouvez concrétiser votre engagement en remplissant le présent formulaire et en programmant un versement mensuel avec le RIB qui est ici : <br>
       <a href="http://accueilmigrantsvalfy.free.fr/docs/JarezSolidarites/JarezSolidaritesRIB.pdf">http://accueilmigrantsvalfy.free.fr/docs/JarezSolidarites/JarezSolidaritesRIB.pdf</a><br>
@@ -185,4 +185,3 @@
       </div>
     </form>
   </div>
-  <hr>

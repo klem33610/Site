@@ -1,4 +1,4 @@
-<?php
+<!-- <?php
 try
 {
 	// On se connecte à MySQL
@@ -30,4 +30,4 @@ while ($donnees = $reponse->fetch())
 
 $reponse->closeCursor(); // Termine le traitement de la requête
 
-?>
+?> -->

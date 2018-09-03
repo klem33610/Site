@@ -1,11 +1,10 @@
 <?php
 // Connexion à la base de données
-$_POST['submit'];
 try
 
 {
 
-    $bdd = new PDO('mysql:host=localhost;dbname=test;charset=utf8', 'root', '');
+    $bdd = new PDO('mysql:host=localhost;dbname=Adhérents JS;charset=utf8', 'root', '1Do9muL1');
 
 }
 
@@ -16,17 +15,42 @@ catch(Exception $e)
         die('Erreur : '.$e->getMessage());
 
 }
+$Nom = $_POST['Nom'];
+$Prenom = $_POST['Prenom'];
+$Tel_Fixe = $_POST['Tel_fix'];
+$Tel_Mobile = $_POST['Tel_mobile'];
+$Mail = $_POST['Mail'];
+$Adresse = $_POST['Adresse'];
+$Adresse2 = $_POST['Adresse2'];
+$Ville = $_POST['Ville'];
+$CP = $_POST['CP'];
+$Montant = $_POST['Montant'];
+$Montant_Autre = $_POST['Montant_Autre'];
+$Duree = $_POST['Duree'];
+$Duree_Autre = $_POST['Duree_Autre'];
+$Aide_Urgence = $_POST['Aide_Urgence'];
+$Commentaire = $_POST['Commentaire'];
+$Annonymat = $_POST['Anonymat'];
+$Pseudo = $_POST['Pseudo'];
 
+$id = $Nom . $Prenom . $CP;
+echo $id;
 
+// On récupère tout le contenu de la table jeux_video
+$reponse = $bdd->query('SELECT * FROM Adhérents');
+
+// On affiche chaque entrée une à une
+while ($donnees = $reponse->fetch())
+{
+  if ($donnees['id'] == $id)
+  {
+    $bdd("UPDATE `Adhérents` SET `Mail`=$Mail WHERE `id`=$id");
+  }
 // Insertion du message à l'aide d'une requête préparée
+}
+$req = $bdd->prepare('INSERT INTO Adhérents (id, Nom, Prenom, Mail) VALUES(?, ?, ?, ?)');
 
-$req = $bdd->prepare('INSERT INTO minichat (pseudo, message) VALUES(?, ?)');
+$req->execute(array($id, $Nom, $Prenom, $Mail));
 
-$req->execute(array($_POST['pseudo'], $_POST['message']));
-
-
-// Redirection du visiteur vers la page du minichat
-
-header('Location: minichat.php');
 
 ?>

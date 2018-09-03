@@ -43,3 +43,5 @@
     </div>
   </div>
 </body>
+<hr>
+<?php include('Footer.php'); ?>
