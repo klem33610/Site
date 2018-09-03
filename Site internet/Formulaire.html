@@ -1,5 +1,4 @@
 <!doctype html>
-<php?>
 <html lang="fr">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
@@ -81,45 +80,45 @@
         <div class="form-row">
           <div class="form-group col-md-6">
             <label for="Prenom">Prénom</label>
-            <input type="text" class="form-control" id="Prenom" placeholder="Prénom">
+            <input type="text" class="form-control" name="Prenom" placeholder="Prénom">
           </div>
           <div class="form-group col-md-6">
             <label for="Nom">Nom</label>
-            <input type="Nom" class="form-control" id="Nom" placeholder="Nom">
+            <input type="Nom" class="form-control" name="Nom" placeholder="Nom">
           </div>
         </div>
         <div class="form-row">
           <div class="form-group col-md-6">
             <label for="tel-fix" class="form-label">Telephone Fixe</label>
-            <input class="form-control" type="tel" placeholder="05" id="tel-fix">
+            <input class="form-control" type="tel" placeholder="05...." name="Tel_fix">
           </div>
           <div class="form-group col-md-6">
             <label for="tel-mobile" class="form-label">Telephone Portable</label>
-            <input class="form-control" type="tel" placeholder="06" id="tel-mobile">
+            <input class="form-control" type="tel" placeholder="06...." name="Tel_mobile">
           </div>
         </div>
         <div class="form-row">
           <div class="form-group col-md-6">
             <label for="example-email-input" class="col-form-label">Email</label>
-            <input class="form-control" type="email" value="exemple@example.com" id="example-email-input">
+            <input class="form-control" type="email" value="exemple@example.com" name="Mail">
           </div>
         </div>
         <div class="form-group">
           <label for="inputAddress">Addresse</label>
-          <input type="text" class="form-control" id="inputAddress" placeholder="N° et rue">
+          <input type="text" class="form-control" name="Adresse" placeholder="N° et rue">
         </div>
         <div class="form-group">
           <label for="inputAddress2">Addresse 2</label>
-          <input type="text" class="form-control" id="inputAddress2" placeholder="Bâtiment, Appartement, étage,...">
+          <input type="text" class="form-control" name="Adresse2" placeholder="Bâtiment, Appartement, étage,...">
         </div>
         <div class="form-row">
           <div class="form-group col-md-6">
             <label for="inputCity">Ville</label>
-            <input type="text" class="form-control" id="inputCity">
+            <input type="text" class="form-control" name="Ville">
           </div>
           <div class="form-group col-md-6">
             <label for="inputState">Code Postal</label>
-            <input type="text" id="inputState" class="form-control">
+            <input type="text" name="CP" class="form-control">
           </div>
         </div>
         <hr>
@@ -132,38 +131,38 @@
         <div class="form mt-3">
           <div class="form-group">
             <h5 class="font-weight-bold">Quel montant mensuel ? <span style="color : red">*</span></h5>
-            <h9>Si vous l'avez oublié, contacter jarezsolidarites@free .fr</h9>
+            <h9>Si vous l'avez oublié, contacter jarezsolnamearites@free .fr</h9>
           </div>
           <div class="form-group">
             <div class="form-check form-check-inline">
               <label class="form-check-label">
-                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1"> 5
+                <input class="form-check-input" type="radio" name="Montant" id="inlineRadio1" value="option1"> 5
               </label>
             </div>
             <div class="form-check form-check-inline">
               <label class="form-check-label">
-                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2"> 10
+                <input class="form-check-input" type="radio" name="Montant" id="inlineRadio2" value="option2"> 10
               </label>
             </div>
             <div class="form-check form-check-inline">
               <label class="form-check-label">
-                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3"> 20
+                <input class="form-check-input" type="radio" name="Montant" id="inlineRadio3" value="option3"> 20
               </label>
             </div>
             <div class="form-check form-check-inline">
               <label class="form-check-label">
-                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio4" value="option4"> 50
+                <input class="form-check-input" type="radio" name="Montant" id="inlineRadio4" value="option4"> 50
               </label>
             </div>
             <div class="form-check form-check-inline">
               <label class="form-check-label">
-                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio5" value="option5"> 100
+                <input class="form-check-input" type="radio" name="Montant" id="inlineRadio5" value="option5"> 100
               </label>
             </div>
             <div class="form-check form-check-inline">
               <label class="form-check-label form-group">
-                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio6" value="option6"> Autre
-                <input type="text" class="form-control" id="Autre">
+                <input class="form-check-input" type="radio" name="Montant" id="inlineRadio6" value="option6"> Autre
+                <input type="text" class="form-control" name="Montant_Autre">
               </label>
             </div>
           </div>
@@ -171,28 +170,28 @@
         <div class="form mt-3">
           <div class="form-group">
             <h5 class ="font-weight-bold">Pendant quelle durée ? <span style="color : red">*</span></h5>
-            <h9>Si vous l'avez oublié, contacter jarezsolidarites@free .fr</h9>
+            <h9>Si vous l'avez oublié, contacter jarezsolnamearites@free .fr</h9>
           </div>
           <div class="form-group">
             <div class="form-check form-check-inline">
               <label class="form-check-label">
-                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="Duree1" value="option1"> 6 mois
+                <input class="form-check-input" type="radio" name="Duree" id="Duree1" value="option1"> 6 mois
               </label>
             </div>
             <div class="form-check form-check-inline">
               <label class="form-check-label">
-                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="Duree2" value="option2"> 1 an
+                <input class="form-check-input" type="radio" name="Duree" id="Duree2" value="option2"> 1 an
               </label>
             </div>
             <div class="form-check form-check-inline">
               <label class="form-check-label">
-                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="Duree3" value="option3"> 2 ans
+                <input class="form-check-input" type="radio" name="Duree" id="Duree3" value="option3"> 2 ans
               </label>
             </div>
             <div class="form-check form-check-inline">
               <label class="form-check-label form-group">
-                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="Duree3" value="option3"> Autre
-                <input type="text" class="form-control" id="Autre">
+                <input class="form-check-input" type="radio" name="Duree" id="Duree3" value="option3"> Autre
+                <input type="text" class="form-control" name="Duree_Autre">
               </label>
             </div>
           </div>
@@ -213,12 +212,12 @@
           <div class="form-group">
             <div class="form-check form-check-inline">
               <label class="form-check-label">
-                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="Duree1" value="option1"> Oui
+                <input class="form-check-input" type="radio" name="Aide_Urgence" id="Duree1" value="option1"> Oui
               </label>
             </div>
             <div class="form-check form-check-inline">
               <label class="form-check-label">
-                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="Duree2" value="option2"> Non
+                <input class="form-check-input" type="radio" name="Aide_Urgence" id="Duree2" value="option2"> Non
               </label>
             </div>
           </div>
@@ -227,22 +226,22 @@
         <div class="form mt-4">
           <div class="form-group">
             <h5 class="font-weight-bold">Je souhaite faire un commentaire ou apporter une précision</h5>
-            <input type="text" class="form-control" id="Autre" placeholder="Votre réponse">
+            <input type="text" class="form-control" name="Commentaire" placeholder="Votre réponse">
           </div>
         </div>
         <p class="text-center">Les informations recueillies sur ce formulaire sont destinées exclusivement à vous tenir informé(e). Conformément à la loi n° 78-17 du 6 janvier 1978 modifiée, vous disposez d’un droit d’accès, de modification, de rectification et de suppression des données vous concernant. Pour exercer ce droit veuillez écrire à jarezsolidarites@free .fr. Merci !</p>
         <div class="form-group mt-3">
           <div class="form-check form-check-inline">
             <label class="form-check-label font-weight-bold">
-              <input class="form-check-input" type="radio" name="inlineRadioOptions" id="Duree1" value="option1"> J'accepte que mes Nom et Prénom figurent sur notre site Web
+              <input class="form-check-input" type="radio" name="Anonymat" id="Duree1" value="option1"> J'accepte que mes Nom et Prénom figurent sur notre site Web
             </label>
           </div>
           <div class="form-check form-check-inline">
             <label class="form-check-label font-weight-bold">
-              <input class="form-check-input" type="radio" name="inlineRadioOptions" id="Duree2" value="option2"> Je préfère être anonyme avec le pseudo ci-dessous
+              <input class="form-check-input" type="radio" name="Anonymat" id="Duree2" value="option2"> Je préfère être anonyme avec le pseudo ci-dessous
             </label>
           </div>
-          <input type="text" class="form-control mt-2 col-sm-6" id="Autre" placeholder="Votre pseudo">
+          <input type="text" class="form-control mt-2 col-sm-6" name="Pseudo" placeholder="Votre pseudo">
         </div>
           <hr></hr>
         <div class="mt-4 form-group border border-info rounded-top col-sm-5 bg-info">
