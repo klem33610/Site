@@ -1,13 +1,15 @@
-function verifForm(f)
+function verifForm()
 {
-  $(".needed").each(function(){
-    if ($(this).val().length < 2 || !$(this).val())
+  $(".other").each(function(){
+    if ($(this).prop('checked') == true && $(this).siblings().val() == "")
     {
-      $(this).val("culé")
-       $(this).css("background-color","#fba");
-       return false
+      $(this).siblings().addClass('is-invalid')
+      return false
     }
-  });
+    else {
+      return true
+    }
+  })
 }
 
 // function surligne(champ, erreur)
