@@ -1,4 +1,5 @@
 <?php
+date_default_timezone_set('UTC');
 // Connexion à la base de données
 try
 
@@ -34,7 +35,8 @@ $Annonymat = $_POST['Anonymat'];
 $Pseudo = $_POST['Pseudo'];
 
 $id = $Nom . $Prenom . $CP;
-echo $id;
+$Date = date('l jS \of F Y h:i:s A');
+
 
 // On récupère tout le contenu de la table jeux_video
 $reponse = $bdd->query('SELECT * FROM Adhérents');
@@ -44,13 +46,16 @@ while ($donnees = $reponse->fetch())
 {
   if ($donnees['id'] == $id)
   {
-    $bdd("UPDATE `Adhérents` SET `Mail`=$Mail WHERE `id`=$id");
+    $req = $bdd->prepare('UPDATE Adhérents SET Mail = :Mail WHERE id = :id');
+    $req->execute(array(
+	    'Mail' => $Mail,
+      'id' => $id
+	   ));
+  } else {
+  // Insertion du message à l'aide d'une requête préparée
+  $req = $bdd->prepare('INSERT INTO Adhérents (id, Nom, Prenom, Mail) VALUES(?, ?, ?, ?)');
+
+  $req->execute(array($id, $Nom, $Prenom, $Mail));
   }
-// Insertion du message à l'aide d'une requête préparée
 }
-$req = $bdd->prepare('INSERT INTO Adhérents (id, Nom, Prenom, Mail) VALUES(?, ?, ?, ?)');
-
-$req->execute(array($id, $Nom, $Prenom, $Mail));
-
-
 ?>
