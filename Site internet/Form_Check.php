@@ -1,4 +1,4 @@
-<?php include('../../Aide_Urgence.php'); ?>
+<?php include('Aide_Urgence.php'); ?>
 <div class="modal show" tabindex="-1" role="dialog">
   <div class="modal-dialog" role="document">
     <div class="modal-content">

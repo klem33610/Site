@@ -44,7 +44,7 @@ $reponse = $bdd->query('SELECT * FROM Adhérents');
 // On affiche chaque entrée une à une
 while ($donnees = $reponse->fetch())
 {
-  if ($donnees['id'] == $id)
+  if (strtoupper($donnees['id']) == strtoupper($id))
   {
     $req = $bdd->prepare('UPDATE Adhérents SET Mail = :Mail WHERE id = :id');
     $req->execute(array(
@@ -60,5 +60,5 @@ while ($donnees = $reponse->fetch())
 }
 $reponse->closeCursor(); // Termine le traitement de la requête
 
-header('Location: Form_Check.php')
+header('Location: ../../Form_Check.php')
 ?>

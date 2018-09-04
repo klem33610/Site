@@ -1,6 +1,6 @@
 <div class="col-sm-6">
   <h5 class="text-center">FORMULAIRE POUR ENGAGER UN VERSEMENT MENSUEL</h5>
-  <form onsubmit="return verifForm(this)" action="static/mysql/post_BDD.php" method="post" class="border border-warning rounded" style="padding : 20px 20px">
+  <form onsubmit="verifForm()" action="static/mysql/post_BDD.php" method="post" class="border border-warning rounded" style="padding : 20px 20px">
     <h4 class="text-center font-weight-bold">Versement mensuel "Aide d'urgence"</h4>
     <p><small>Vous pouvez concrétiser votre engagement en remplissant le présent formulaire et en programmant un versement mensuel avec le RIB qui est ici : <br>
       <a href="http://accueilmigrantsvalfy.free.fr/docs/JarezSolidarites/JarezSolidaritesRIB.pdf">http://accueilmigrantsvalfy.free.fr/docs/JarezSolidarites/JarezSolidaritesRIB.pdf</a><br>
@@ -12,11 +12,11 @@
       <div class="form-row">
         <div class="form-group col-md-6">
           <label for="Prenom">Prénom</label>
-          <input onblur="verifPrenom(this)" type="text" class="form-control" name="Prenom" placeholder="Prénom">
+          <input id="Prenom" type="text" class="form-control" name="Prenom" placeholder="Prénom" required>
         </div>
         <div class="form-group col-md-6">
           <label for="Nom">Nom</label>
-          <input onblur="verifNom(this)" type="Nom" class="form-control" name="Nom" placeholder="Nom">
+          <input id="Nom" type="Nom" class="form-control" name="Nom" placeholder="Nom" required>
         </div>
       </div>
       <div class="form-row">
@@ -32,7 +32,7 @@
       <div class="form-row">
         <div class="form-group col-md-6">
           <label for="example-email-input" class="col-form-label">Email (mettre 0 si pas de mail)</label>
-          <input onblur="verifMail(this)" class="form-control" type="email" value="exemple@example.com" name="Mail">
+          <input class="form-control" type="text" placeholder="exemple@example.com" name="Mail" required>
         </div>
       </div>
       <div class="form-group">
@@ -50,7 +50,7 @@
         </div>
         <div class="form-group col-md-6">
           <label for="inputState">Code Postal</label>
-          <input onblur="verifCP(this)" type="text" name="CP" class="form-control">
+          <input type="text" name="CP" class="form-control"required>
         </div>
       </div>
       <hr>
@@ -63,7 +63,7 @@
       <div class="form mt-3">
         <div class="form-group">
           <h5 class="font-weight-bold">Quel montant mensuel ? <span style="color : red">*</span></h5>
-          <h9>Si vous l'avez oublié, contacter jarezsolnamearites@free .fr</h9>
+          <h9>Si vous l'avez oublié, contacter jarezsolidarites@free .fr</h9>
         </div>
         <div class="form-group">
           <div class="form-check form-check-inline">
@@ -102,7 +102,7 @@
       <div class="form mt-3">
         <div class="form-group">
           <h5 class ="font-weight-bold">Pendant quelle durée ? <span style="color : red">*</span></h5>
-          <h9>Si vous l'avez oublié, contacter jarezsolnamearites@free .fr</h9>
+          <h9>Si vous l'avez oublié, contacter jarezsolidarites@free .fr</h9>
         </div>
         <div class="form-group">
           <div class="form-check form-check-inline">
