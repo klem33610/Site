@@ -1,6 +1,6 @@
 <div class="col-sm-6">
   <h5 class="text-center">FORMULAIRE POUR ENGAGER UN VERSEMENT MENSUEL</h5>
-  <form action="static/mysql/post_BDD.php" method="post" class="border border-warning rounded" style="padding : 20px 20px">
+  <form onsubmit="return verifForm(this)" action="static/mysql/post_BDD.php" method="post" class="border border-warning rounded" style="padding : 20px 20px">
     <h4 class="text-center font-weight-bold">Versement mensuel "Aide d'urgence"</h4>
     <p><small>Vous pouvez concrétiser votre engagement en remplissant le présent formulaire et en programmant un versement mensuel avec le RIB qui est ici : <br>
       <a href="http://accueilmigrantsvalfy.free.fr/docs/JarezSolidarites/JarezSolidaritesRIB.pdf">http://accueilmigrantsvalfy.free.fr/docs/JarezSolidarites/JarezSolidaritesRIB.pdf</a><br>
@@ -12,11 +12,11 @@
       <div class="form-row">
         <div class="form-group col-md-6">
           <label for="Prenom">Prénom</label>
-          <input type="text" class="form-control" name="Prenom" placeholder="Prénom">
+          <input onblur="verifPrenom(this)" type="text" class="form-control" name="Prenom" placeholder="Prénom">
         </div>
         <div class="form-group col-md-6">
           <label for="Nom">Nom</label>
-          <input type="Nom" class="form-control" name="Nom" placeholder="Nom">
+          <input onblur="verifNom(this)" type="Nom" class="form-control" name="Nom" placeholder="Nom">
         </div>
       </div>
       <div class="form-row">
@@ -31,8 +31,8 @@
       </div>
       <div class="form-row">
         <div class="form-group col-md-6">
-          <label for="example-email-input" class="col-form-label">Email</label>
-          <input class="form-control" type="email" value="exemple@example.com" name="Mail">
+          <label for="example-email-input" class="col-form-label">Email (mettre 0 si pas de mail)</label>
+          <input onblur="verifMail(this)" class="form-control" type="email" value="exemple@example.com" name="Mail">
         </div>
       </div>
       <div class="form-group">
@@ -50,7 +50,7 @@
         </div>
         <div class="form-group col-md-6">
           <label for="inputState">Code Postal</label>
-          <input type="text" name="CP" class="form-control">
+          <input onblur="verifCP(this)" type="text" name="CP" class="form-control">
         </div>
       </div>
       <hr>
@@ -68,33 +68,33 @@
         <div class="form-group">
           <div class="form-check form-check-inline">
             <label class="form-check-label">
-              <input class="form-check-input" type="radio" name="Montant" id="inlineRadio1" value="option1"> 5
+              <input class="form-check-input" type="radio" name="Montant" id="Montant_Choice1" value="option1"> 5
             </label>
           </div>
           <div class="form-check form-check-inline">
             <label class="form-check-label">
-              <input class="form-check-input" type="radio" name="Montant" id="inlineRadio2" value="option2"> 10
+              <input class="form-check-input" type="radio" name="Montant" id="Montant_Choice2" value="option2"> 10
             </label>
           </div>
           <div class="form-check form-check-inline">
             <label class="form-check-label">
-              <input class="form-check-input" type="radio" name="Montant" id="inlineRadio3" value="option3"> 20
+              <input class="form-check-input" type="radio" name="Montant" id="Montant_Choice3" value="option3"> 20
             </label>
           </div>
           <div class="form-check form-check-inline">
             <label class="form-check-label">
-              <input class="form-check-input" type="radio" name="Montant" id="inlineRadio4" value="option4"> 50
+              <input class="form-check-input" type="radio" name="Montant" id="Montant_Choice4" value="option4"> 50
             </label>
           </div>
           <div class="form-check form-check-inline">
             <label class="form-check-label">
-              <input class="form-check-input" type="radio" name="Montant" id="inlineRadio5" value="option5"> 100
+              <input class="form-check-input" type="radio" name="Montant" id="Montant_Choice5" value="option5"> 100
             </label>
           </div>
           <div class="form-check form-check-inline">
             <label class="form-check-label form-group">
-              <input class="form-check-input" type="radio" name="Montant" id="inlineRadio6" value="option6"> Autre
-              <input type="text" class="form-control" name="Montant_Autre">
+              <input class="form-check-input" type="radio" name="Montant" id="Montant_Choice6" value="option6"> Autre
+              <input type="text" class="form-control" id="Montant_Autre" name="Montant_Autre">
             </label>
           </div>
         </div>
@@ -123,7 +123,7 @@
           <div class="form-check form-check-inline">
             <label class="form-check-label form-group">
               <input class="form-check-input" type="radio" name="Duree" id="Duree3" value="option3"> Autre
-              <input type="text" class="form-control" name="Duree_Autre">
+              <input type="text" class="form-control" id="Duree_Autre" name="Duree_Autre">
             </label>
           </div>
         </div>

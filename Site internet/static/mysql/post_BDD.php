@@ -58,4 +58,7 @@ while ($donnees = $reponse->fetch())
   $req->execute(array($id, $Nom, $Prenom, $Mail));
   }
 }
+$reponse->closeCursor(); // Termine le traitement de la requête
+
+header('Location: Form_Check.php')
 ?>
