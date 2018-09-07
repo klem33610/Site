@@ -54,7 +54,6 @@ while ($donnees = $reponse->fetch())
   } else {
   // Insertion du message à l'aide d'une requête préparée
   $req = $bdd->prepare('INSERT INTO Adhérents (id, Nom, Prenom, Mail) VALUES(?, ?, ?, ?)');
-
   $req->execute(array($id, $Nom, $Prenom, $Mail));
   }
 }

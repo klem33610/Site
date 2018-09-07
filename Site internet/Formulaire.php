@@ -1,187 +1,161 @@
-<div class="col-sm-6">
-  <h5 class="text-center">FORMULAIRE POUR ENGAGER UN VERSEMENT MENSUEL</h5>
-  <form onsubmit="return verifForm()" action="static/mysql/post_BDD.php" method="post" class="border border-warning rounded" style="padding : 20px 20px">
-    <h4 class="text-center font-weight-bold">Versement mensuel "Aide d'urgence"</h4>
-    <p><small>Vous pouvez concrétiser votre engagement en remplissant le présent formulaire et en programmant un versement mensuel avec le RIB qui est ici : <br>
-      <a href="http://accueilmigrantsvalfy.free.fr/docs/JarezSolidarites/JarezSolidaritesRIB.pdf">http://accueilmigrantsvalfy.free.fr/docs/JarezSolidarites/JarezSolidaritesRIB.pdf</a><br>
-      - Soit en ligne depuis votre espace bancaire<br>
-      - Soit en passant à votre agence<br>
-      Si difficulté : Jacques Thizy, trésorier 06 40 89 46 02<br>
-      Ou bien, remplir le présent formulaire et lui envoyer un chèque au nom de Jarez Solidarités pour x mois au 624 Ch de la Thiollière 42320 Saint-Christo-en-Jarez
-      <br><br>Avec nos remerciements Solidaires et fraternels !</small></p>
-      <div class="form-row">
-        <div class="form-group col-md-6">
-          <label for="Prenom">Prénom</label>
-          <input id="Prenom" type="text" class="form-control" name="Prenom" placeholder="Prénom" required>
-        </div>
-        <div class="form-group col-md-6">
-          <label for="Nom">Nom</label>
-          <input id="Nom" type="Nom" class="form-control" name="Nom" placeholder="Nom" required>
-        </div>
-      </div>
-      <div class="form-row">
-        <div class="form-group col-md-6">
-          <label for="tel-fix" class="form-label">Telephone Fixe</label>
-          <input class="form-control" type="tel" placeholder="05...." name="Tel_fix">
-        </div>
-        <div class="form-group col-md-6">
-          <label for="tel-mobile" class="form-label">Telephone Portable</label>
-          <input class="form-control" type="tel" placeholder="06...." name="Tel_mobile">
-        </div>
-      </div>
-      <div class="form-row">
-        <div class="form-group col-md-6">
-          <label for="example-email-input" class="col-form-label">Email (mettre 0 si pas de mail)</label>
-          <input class="form-control" type="text" placeholder="exemple@example.com" name="Mail" required>
-        </div>
-      </div>
-      <div class="form-group">
-        <label for="inputAddress">Addresse</label>
-        <input type="text" class="form-control" name="Adresse" placeholder="N° et rue">
-      </div>
-      <div class="form-group">
-        <label for="inputAddress2">Addresse 2</label>
-        <input type="text" class="form-control" name="Adresse2" placeholder="Bâtiment, Appartement, étage,...">
-      </div>
-      <div class="form-row">
-        <div class="form-group col-md-6">
-          <label for="inputCity">Ville</label>
-          <input type="text" class="form-control" name="Ville">
-        </div>
-        <div class="form-group col-md-6">
-          <label for="inputState">Code Postal</label>
-          <input type="text" name="CP" class="form-control"required>
-        </div>
-      </div>
-      <hr>
-      <div class="mt-3 form-group border border-info rounded-top col-sm-8 bg-info">
-        <h5 style="color:white">Je m'engage à verser régulièrement</h5>
-      </div>
-      <div class="text-center">
-        NOTA : les dons pour ce projet ouvrent droit à réduction d'impôts sur le revenu de 66% Si vous êtes imposable et si vous versez 100€, il ne vous en coûtera que 34€
-      </div>
-      <div class="form mt-3">
-        <div class="form-group">
-          <h5 class="font-weight-bold">Quel montant mensuel ? <span style="color : red">*</span></h5>
-          <h9>Si vous l'avez oublié, contacter jarezsolidarites@free .fr</h9>
-        </div>
-        <div class="form-group">
-          <div class="form-check form-check-inline">
-            <label class="form-check-label">
-              <input class="form-check-input" type="radio" name="Montant" id="Montant_Choice" required> 5
-            </label>
-          </div>
-          <div class="form-check form-check-inline">
-            <label class="form-check-label">
-              <input class="form-check-input" type="radio" name="Montant" id="Montant_Choice"> 10
-            </label>
-          </div>
-          <div class="form-check form-check-inline">
-            <label class="form-check-label">
-              <input class="form-check-input" type="radio" name="Montant" id="Montant_Choice"> 20
-            </label>
-          </div>
-          <div class="form-check form-check-inline">
-            <label class="form-check-label">
-              <input class="form-check-input" type="radio" name="Montant" id="Montant_Choice"> 50
-            </label>
-          </div>
-          <div class="form-check form-check-inline">
-            <label class="form-check-label">
-              <input class="form-check-input" type="radio" name="Montant" id="Montant_Choice"> 100
-            </label>
-          </div>
-          <div class="form-check form-check-inline">
-            <label class="form-check-label form-group">
-              <input class="other form-check-input" type="radio" name="Montant" id="Montant_Choice"> Autre
-              <input type="text" class="form-control" id="Montant_Autre" name="Montant_Autre">
-            </label>
-          </div>
-        </div>
-      </div>
-      <div class="form mt-3">
-        <div class="form-group">
-          <h5 class ="font-weight-bold">Pendant quelle durée ? <span style="color : red">*</span></h5>
-          <h9>Si vous l'avez oublié, contacter jarezsolidarites@free .fr</h9>
-        </div>
-        <div class="form-group">
-          <div class="form-check form-check-inline">
-            <label class="form-check-label">
-              <input class="form-check-input" type="radio" name="Duree" id="Duree" required> 6 mois
-            </label>
-          </div>
-          <div class="form-check form-check-inline">
-            <label class="form-check-label">
-              <input class="form-check-input" type="radio" name="Duree" id="Duree"> 1 an
-            </label>
-          </div>
-          <div class="form-check form-check-inline">
-            <label class="form-check-label">
-              <input class="form-check-input" type="radio" name="Duree" id="Duree"> 2 ans
-            </label>
-          </div>
-          <div class="form-check form-check-inline">
-            <label class="form-check-label form-group">
-              <input class="other form-check-input" type="radio" name="Duree" id="Duree"> Autre
-              <input type="text" class="form-control" id="Duree_Autre" name="Duree_Autre">
-            </label>
-          </div>
-        </div>
-      </div>
-      <hr>
-      <div class="mt-3 form-group border border-info rounded-top col-sm-6 bg-info">
-        <h5 class="font-weight-bold" style="color:white">Envie de faire plus ?...</h5>
-      </div>
-      <div class="text-center">
-        Rejoignez la Commission “Aide d’urgence” !
-        Vous pourrez ainsi créer des liens humains (visites, accompagnement, soutien moral...) et participer concrètement à la gestion de cette action (location et aides).
-      </div>
-      <div class="form mt-4">
-        <div class="form-group">
-          <h5 class="font-weight-bold">Je rejoins la Commission "Aide d'urgence" <span style="color : red">*</span></h5>
-          <h9>et je contacte Florence 06 60 37 48 66</h9>
-        </div>
-        <div class="form-group">
-          <div class="form-check form-check-inline">
-            <label class="form-check-label">
-              <input class="form-check-input" type="radio" name="Aide_Urgence" id="Aide_Urgence" required> Oui
-            </label>
-          </div>
-          <div class="form-check form-check-inline">
-            <label class="form-check-label">
-              <input class="form-check-input" type="radio" name="Aide_Urgence" id="Aide_Urgence"> Non
-            </label>
-          </div>
-        </div>
-      </div>
-      <hr>
-      <div class="form mt-4">
-        <div class="form-group">
-          <h5 class="font-weight-bold">Je souhaite faire un commentaire ou apporter une précision</h5>
-          <input type="text" class="form-control" name="Commentaire" placeholder="Votre réponse">
-        </div>
-      </div>
-      <p class="text-center">Les informations recueillies sur ce formulaire sont destinées exclusivement à vous tenir informé(e). Conformément à la loi n° 78-17 du 6 janvier 1978 modifiée, vous disposez d’un droit d’accès, de modification, de rectification et de suppression des données vous concernant. Pour exercer ce droit veuillez écrire à jarezsolidarites@free .fr. Merci !</p>
-      <div class="form-group mt-3">
-        <div class="form-check form-check-inline">
-          <label class="form-check-label font-weight-bold">
-            <input class="form-check-input" type="radio" name="Anonymat" id="Duree1" value="option1"> J'accepte que mes Nom et Prénom figurent sur notre site Web
-          </label>
-        </div>
-        <div class="form-check form-check-inline">
-          <label class="form-check-label font-weight-bold">
-            <input class="form-check-input" type="radio" name="Anonymat" id="Duree2" value="option2"> Je préfère être anonyme avec le pseudo ci-dessous
-          </label>
-        </div>
-        <input type="text" class="form-control mt-2 col-sm-6" name="Pseudo" placeholder="Votre pseudo">
-      </div>
-      <hr></hr>
-      <div class="mt-4 form-group border border-info rounded-top col-sm-5 bg-info">
-        <h5 class="font-weight-bold" style="color:white">Merci d'avance !</h5>
-      </div>
-      <p class="text-center">Solidairement et à bientôt...</p>
-      <div class="text-center">
-        <button type="submit" class="btn btn-warning btn-lg">Envoyer</button>
-      </div>
-    </form>
-  </div>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="fr-fr"><head>
+<meta content="text/html; charset=UTF-8" http-equiv="content-type"><title>Association Jarez Solidarites</title>
+
+<meta name="robots" content="all">
+<link rel="icon" type="image/png" href="favicon.png">
+<meta name="Description" content="Initier, organiser, mettre en œuvre, accompagner, coordonner toutes actions de solidarité envers les personnes en difficulté">
+<meta name="Keywords" content="solidarite, benevoles, accueil, migrants, valfleury, loire, 42, citoyen, collectif, groupe, action, animation, culturel, humanitaire">
+<meta name="Author" content="Benevoles Accueil Migrants Valfleury">
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-86980741-1', 'auto');
+ga('send', 'pageview');
+</script>
+<meta name="viewport" content="width=device-width, initial-scale=1"></head>
+<body style="direction: ltr;">
+<div style="text-align: center; font-family: Calibri;">
+<table style="width: 100%; text-align: left; margin-left: auto; margin-right: auto;" border="0" cellpadding="0" cellspacing="0">
+<tbody>
+<tr>
+<td style="text-align: center; vertical-align: middle;"><a href="index.html"><img title="Pour une Terre humaine" style="border: 0px solid ; width: 1100px; height: 110px;" alt="Bandeau Pour une Terre humaine" src="images/bandeau.jpg"></a></td>
+</tr>
+<tr style="font-family: Arial;">
+<td style="text-align: center; vertical-align: middle;">
+<table style="width: 100%; text-align: left; margin-left: auto; margin-right: auto;" border="0" cellpadding="0" cellspacing="0">
+<tbody>
+<tr>
+<td style="text-align: center; vertical-align: middle; width: 300px;"><a href="index.html">Accueil</a></td>
+<td style="text-align: center; vertical-align: middle; width: 300px;"><a href="../SITE%20Accueilmigrantsvalfly/actions.html">Actions</a></td>
+<td style="text-align: center; vertical-align: middle; width: 300px;"><a href="medias.html">Médias</a></td>
+<td style="width: 300px; text-align: center; vertical-align: middle;"><a href="nouvelles.xml" target="_blank">Nouveautés</a><a href="nouvelles.xml" target="_blank"><img style="border: 0px solid ; width: 28px; height: 28px;" alt="Icône RSS" title="Cliquer pour voir le flux RSS" src="images/rss.png" align="middle" hspace="5"></a></td>
+<td>
+<form method="get" action="http://www.google.com/custom" target="_blank" class="google_form"><input class="google_box" name="q" maxlength="50" value="" type="text"><input value="Chercher" type="submit"><input name="domains" value="http://accueilmigrantsvalfy.free.fr/" type="hidden"><input name="sitesearch" value="http://accueilmigrantsvalfy.free.fr/" checked="checked" type="hidden"><input name="meta" value="lr=lang_fr" type="hidden"></form>
+</td>
+<td><a href="admin/intranet/accueil.html" target="_blank">Intranet</a></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr>
+<td style="text-align: left; vertical-align: top;">
+<div style="text-align: center;"><font size="+2"><span style="color: rgb(204, 153, 51);"><span style="font-weight: bold;">ASSOCIATION JAREZ
+SOLIDARITÉS</span><br></span></font><font size="-1">La solidarité est un sentiment d’unité et de
+responsabilité commune</font><br><br>
+<table style="width: 670px; text-align: left; margin-left: auto; margin-right: auto;" border="0" cellpadding="0" cellspacing="0">
+<tbody>
+<tr>
+<td style="text-align: center; vertical-align: top;">
+<table style="text-align: left; width: 100%;" border="0" cellpadding="2" cellspacing="2">
+<tbody>
+<tr>
+<td><img style="width: 150px; height: 150px; float: left;" alt="Logo Jarez Solidarités" src="images/LogoJarezSolidarite150.jpg" hspace="5">Son
+objet &nbsp;est d'initier, organiser , mettre en oeuvre ,
+accompagner,
+coordonner &nbsp;toutes actions de solidarités envers les personnes
+en
+difficulté, quelles que soient leurs origines, leur culture, leur
+religion.<br>
+<br>
+Elle est un outil matériel et logistique&nbsp;pour accompagner les
+Migrants ayant séjourné à Valfleury et aider toutes personnes en
+difficulté.<br><br><div style="text-align: center;">Parmi ses actions : le programme<br>"Aide d'urgence"</div><table style="background-color: rgb(0, 153, 0); text-align: left; margin-left: auto; margin-right: auto;" border="0" cellpadding="2" cellspacing="0">
+<tbody>
+<tr>
+<td style="text-align: center; vertical-align: middle;"><a href="aide_urgence/projet.html"><small style="font-weight: bold; color: white;">En savoir plus</small></a></td>
+</tr>
+</tbody>
+</table></td>
+<td>Elle
+est de forme collégiale : le Conseil
+d'Administration&nbsp;est un Collège Solidaire, dans lequel il n’y
+a
+pas de titre de président, de trésorier, de secrétaire.<br>
+<br>
+Tous les membres du Collège sont solidairement responsables de
+l’association.<br>
+Les tâches se répartissent au bon vouloir et à la compétence de chacun.<br><br><div style="text-align: center;"><small>Contact : jarezsolidarites(*AT*)free.fr</small>
+</div></td>
+</tr>
+<tr>
+<td>
+<ul>
+<li><a href="docs/JarezSolidarites/2017-02-26JarezSolidaritesStatuts.pdf" target="_blank">Statuts</a></li>
+<li><a href="http://www.journal-officiel.gouv.fr/association/index.php?ACTION=Rechercher&amp;HI_PAGE=1&amp;HI_COMPTEUR=0&amp;original_method=get&amp;WHAT=JAREZ+SOLIDARITES&amp;JTH_ID=&amp;JAN_BD_CP=&amp;JRE_ID=&amp;JAN_LIEU_DECL=&amp;JTY_ID=&amp;JTY_WALDEC=&amp;JTY_SIREN=&amp;JPA_D_D=&amp;JPA_D_F=&amp;rechercher.x=32&amp;rechercher.y=9" target="_blank">Déclaration en préfecture</a></li>
+<li><a href="docs/JarezSolidarites/2017-03-25JarezSolidaritesParutionJO.pdf" target="_blank">Parution au JO</a></li>
+<li><a href="reunions.html">Comptes
+rendus de
+réunions</a></li>
+<li><a href="docs/JarezSolidarites/2018-03-21JarezSolidaritesMembresCollegeSolidaire.pdf" target="_blank">Composition du Collège Solidaire</a></li>
+<li><a href="docs/JarezSolidarites/JarezSolidaritesRIB.pdf" target="_blank">RIB</a><br>
+</li>
+</ul>
+</td>
+<td style="text-align: center;"><br><table style="background-color: rgb(0, 153, 0); text-align: left; margin-left: auto; margin-right: auto;" border="0" cellpadding="2" cellspacing="0">
+<tbody>
+<tr>
+<td style="text-align: center; vertical-align: middle;"><a href="reunions.html"><small style="font-weight: bold; color: white;">Assemblée Générale 21 mars 2018</small></a></td>
+</tr>
+</tbody>
+</table><a href="images/2018-03-21Jarez-SolidaritesAG.jpg" target="_blank"><img style="border: 0px solid ; width: 250px; height: 88px;" alt="Assemblée Générale Jarez Solidarités 21 mars 2018" src="images/2018-03-21Jarez-SolidaritesAGmin.jpg"></a><br><hr style="height: 1px; width: 30%;"><br><img style="width: 200px; height: 79px;" alt="AG Association Jarez Solidarités 29-3-2017" src="images/JarezSolidarites/2017-03-29AccMigrantsValfleuryRencontre.jpg" hspace="5"><br>
+<font size="-1">1ère Assemblée Générale<br>29-3-2018</font><br>
+<small><br></small></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr style="color: white;">
+<td style="text-align: center; vertical-align: middle; background-color: rgb(122, 31, 15);"><a name="AdhesionJS"></a>Si
+vous souhaitez&nbsp;participer à cette
+démarche, merci d'avance de bien vouloir&nbsp; remplir le
+formulaire
+ci-dessous !</td>
+</tr>
+<tr>
+<td style="text-align: center; vertical-align: top; width: 366px;">
+<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSe7u4EDDjLla1cSvix-7uw4EB348NiWgEMbQpmTEB9DID0zew/viewform?embedded=true" marginheight="0" marginwidth="0" frameborder="0" height="600" width="670">Chargement en cours...</iframe><br>
+<br>
+<br>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</td>
+</tr>
+<tr>
+<td style="text-align: center; vertical-align: middle;"></td>
+</tr>
+<tr>
+<td style="text-align: center;">
+<hr style="width: 100%; height: 2px;">
+<table style="width: 100%; text-align: left; margin-left: auto; margin-right: auto;" border="0" cellpadding="2" cellspacing="0">
+<tbody>
+<tr>
+<td style="width: 120px;"><a href="legal.html"><small>Mentions
+légales</small></a></td>
+<td style="width: 280px;"><small>Contact
+:&nbsp;accueilmigrantsvalfy(*AT*)free.fr</small></td>
+<td style="text-align: center; vertical-align: middle; width: 952px;"><small>Ce
+site utilise l'outil d'analyse d'audience Google Analytics qui collecte
+des informations anonymes au moyen de cookies. <a href="https://support.google.com/analytics/answer/6004245" target="_blank">En savoir plus &gt;&gt;</a><br>
+Vous
+pouvez refuser et/ou supprimer les cookies via les Options de votre
+navigateur. Les fonctionnalités du présent site n'en seront pas
+affectées.</small></td>
+<td style="text-align: right; vertical-align: middle; width: 140px;"><small>Dernière
+mise à jour : 3-8-2018</small></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</body></html>
