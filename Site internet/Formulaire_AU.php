@@ -1,6 +1,6 @@
 <div class="col-sm-6">
   <h5 class="text-center">FORMULAIRE POUR ENGAGER UN VERSEMENT MENSUEL</h5>
-  <form onsubmit="return verifForm()" action="static/mysql/post_BDD.php" method="post" class="border border-warning rounded" style="padding : 20px 20px">
+  <form method="post" class="border border-warning rounded" onsubmit="return verif()" action="static/mysql/post_BDD.php" style="padding : 20px 20px">
     <h4 class="text-center font-weight-bold">Versement mensuel "Aide d'urgence"</h4>
     <p><small>Vous pouvez concrétiser votre engagement en remplissant le présent formulaire et en programmant un versement mensuel avec le RIB qui est ici : <br>
       <a href="http://accueilmigrantsvalfy.free.fr/docs/JarezSolidarites/JarezSolidaritesRIB.pdf">http://accueilmigrantsvalfy.free.fr/docs/JarezSolidarites/JarezSolidaritesRIB.pdf</a><br>
@@ -93,7 +93,7 @@
           </div>
           <div class="form-check form-check-inline">
             <label class="form-check-label form-group">
-              <input class="other form-check-input" type="radio" name="Montant" id="Montant_Choice"> Autre
+              <input class="other other1 form-check-input" type="radio" name="Montant" id="Montant_Choice"> Autre
               <input type="text" class="form-control" id="Montant_Autre" name="Montant_Autre">
             </label>
           </div>
@@ -122,7 +122,7 @@
           </div>
           <div class="form-check form-check-inline">
             <label class="form-check-label form-group">
-              <input class="other form-check-input" type="radio" name="Duree" id="Duree"> Autre
+              <input class="other other2 form-check-input" type="radio" name="Duree" id="Duree"> Autre
               <input type="text" class="form-control" id="Duree_Autre" name="Duree_Autre">
             </label>
           </div>

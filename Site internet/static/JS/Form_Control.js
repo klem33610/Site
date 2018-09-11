@@ -1,15 +1,36 @@
-function verifForm()
-{
-  $(".other").each(function(){
-    if ($(this).prop('checked') == true && $(this).siblings().val() == "")
-    {
-      $(this).siblings().addClass('is-invalid')
-      return false
-    }
-    else {
-      return true
-    }
+function verif() {
+  var statut;
+  var length = $( ".other" ).html( $( "input:checked" )).length
+  $( ".other" ).html($("input:checked")).each(function(index){
+    console.log(length)
   })
+
+  if ($(".other1").prop('checked') == true && $(".other2").prop('checked') == true) {
+        if ($('.other1').siblings().val() && $('.other2').siblings().val()) {
+          statut = true;
+        } else {
+          $('.other').each(function(){
+            if (!$(this).siblings().val()) {
+              $(this).siblings().addClass('is-invalid');
+            } else {
+              $(this).siblings().removeClass('is-invalid');
+              $(this).siblings().addClass('is-valid');
+            }
+          statut = false;
+        });
+      }
+      } else {
+        $('.other').each(function(){
+          if ($(this).prop('checked') == true && $(this).siblings().val()) {
+            console.log($(this).siblings().val)
+            statut = true;
+          } else if ($(this).prop('checked') == true && !$(this).siblings().val()) {
+              $(this).siblings().addClass('is-invalid');
+              statut = false;
+          }
+        });
+      }
+  return statut;
 }
 
 // function surligne(champ, erreur)
