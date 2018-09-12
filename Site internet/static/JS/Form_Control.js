@@ -1,8 +1,8 @@
 function verif() {
   var statut;
-  var length = $( ".other:checked" ).length
-  $( ".other:checked").each(function(index){
-    if (index >= length && $(this).siblings().val) {
+  var length = $(".other:checked").length;
+  $(".other:checked").each(function(index){
+    if (index >= length && $(this).siblings().val()) {
       statut = true;
     } else {
       if (!$(this).siblings().val()){
@@ -17,33 +17,33 @@ function verif() {
   return statut;
 }
 
-  if ($(".other1").prop('checked') == true && $(".other2").prop('checked') == true) {
-        if ($('.other1').siblings().val() && $('.other2').siblings().val()) {
-          statut = true;
-        } else {
-          $('.other').each(function(){
-            if (!$(this).siblings().val()) {
-              $(this).siblings().addClass('is-invalid');
-            } else {
-              $(this).siblings().removeClass('is-invalid');
-              $(this).siblings().addClass('is-valid');
-            }
-          statut = false;
-        });
-      }
-      } else {
-        $('.other').each(function(){
-          if ($(this).prop('checked') == true && $(this).siblings().val()) {
-            console.log($(this).siblings().val)
-            statut = true;
-          } else if ($(this).prop('checked') == true && !$(this).siblings().val()) {
-              $(this).siblings().addClass('is-invalid');
-              statut = false;
-          }
-        });
-      }
-  return statut;
-}
+//   if ($(".other1").prop('checked') == true && $(".other2").prop('checked') == true) {
+//         if ($('.other1').siblings().val() && $('.other2').siblings().val()) {
+//           statut = true;
+//         } else {
+//           $('.other').each(function(){
+//             if (!$(this).siblings().val()) {
+//               $(this).siblings().addClass('is-invalid');
+//             } else {
+//               $(this).siblings().removeClass('is-invalid');
+//               $(this).siblings().addClass('is-valid');
+//             }
+//           statut = false;
+//         });
+//       }
+//       } else {
+//         $('.other').each(function(){
+//           if ($(this).prop('checked') == true && $(this).siblings().val()) {
+//             console.log($(this).siblings().val)
+//             statut = true;
+//           } else if ($(this).prop('checked') == true && !$(this).siblings().val()) {
+//               $(this).siblings().addClass('is-invalid');
+//               statut = false;
+//           }
+//         });
+//       }
+//   return statut;
+// }
 
 // function surligne(champ, erreur)
 // {
