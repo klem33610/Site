@@ -1,19 +1,23 @@
 function verif() {
   var statut;
   var length = $(".other:checked").length;
+  if (length == 0) {
+    $(".is-invalid").removeClass('is-invalid')
+  }
   $(".other:checked").each(function(index){
-    if (index >= length && $(this).siblings().val()) {
-      statut = true;
+    if (!$(this).siblings().val()){
+      $(this).siblings().addClass('is-invalid');
     } else {
-      if (!$(this).siblings().val()){
-        $(this).siblings().addClass('is-invalid');
-      } else {
-        $(this).siblings().removeClass('is-invalid');
-        $(this).siblings().addClass('is-valid');
-      }
-      statut = false;
+      $(this).siblings().removeClass('is-invalid');
+      $(this).siblings().addClass('is-valid');
     }
   })
+  if ($(".is-invalid").length > 0) {
+    statut = false
+  } else {
+    statut = true
+  }
+  console.log(statut)
   return statut;
 }
 
