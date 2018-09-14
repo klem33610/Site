@@ -1,8 +1,10 @@
 function verif() {
   var statut;
   var length = $(".other:checked").length;
-  if (length == 0) {
-    $(".is-invalid").removeClass('is-invalid')
+  if (length == 0 && $(".is-invalid").length > 0) {
+    $(".is-invalid").each(function(){
+      $(this).removeClass('is-invalid');
+    })
   }
   $(".other:checked").each(function(index){
     if (!$(this).siblings().val()){
@@ -13,13 +15,20 @@ function verif() {
     }
   })
   if ($(".is-invalid").length > 0) {
-    statut = false
+    statut = false;
   } else {
-    statut = true
+    statut = true;
   }
-  console.log(statut)
+  console.log(statut);
+  if (statut == true) {
+    $('#Formulaire_yes').modal(show);
+  }
   return statut;
-}
+};
+
+function reveal_other(this) {
+  $(this).siblings().show(1000);
+};
 
 //   if ($(".other1").prop('checked') == true && $(".other2").prop('checked') == true) {
 //         if ($('.other1').siblings().val() && $('.other2').siblings().val()) {

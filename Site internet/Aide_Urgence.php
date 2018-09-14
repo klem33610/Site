@@ -1,4 +1,22 @@
 <?php include('Base.php'); ?>
+<div id="Formulaire_yes" class="modal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Validation du formulaire</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>Vos données sont correctement enregistrée. Merci de votre participation</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
 <body style="color:grey">
   <div class="text-center mt-2" style="font-family: Arial; color: rgb(204, 153, 51)">
     <h4 class="font-weight-bold">PROGRAMME <span>

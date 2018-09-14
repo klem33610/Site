@@ -93,8 +93,8 @@
           </div>
           <div class="form-check form-check-inline">
             <label class="form-check-label form-group">
-              <input class="other other1 form-check-input" type="radio" name="Montant" id="Montant_Choice"> Autre
-              <input type="text" class="form-control" id="Montant_Autre" name="Montant_Autre">
+              <input onfocus="reveal_other(this)" class="other form-check-input" type="radio" name="Montant" id="Montant_Choice"> Autre
+              <input type="text" class="form-control d-none" id="Montant_Autre" name="Montant_Autre">
             </label>
           </div>
         </div>
@@ -122,8 +122,8 @@
           </div>
           <div class="form-check form-check-inline">
             <label class="form-check-label form-group">
-              <input class="other other2 form-check-input" type="radio" name="Duree" id="Duree"> Autre
-              <input type="text" class="form-control" id="Duree_Autre" name="Duree_Autre">
+              <input onfocus="reveal_other(this)" class="other form-check-input" type="radio" name="Duree" id="Duree"> Autre
+              <input type="text" class="form-control d-none" id="Duree_Autre" name="Duree_Autre">
             </label>
           </div>
         </div>
