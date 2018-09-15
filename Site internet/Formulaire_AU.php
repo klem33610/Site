@@ -94,7 +94,7 @@
           <div class="form-check form-check-inline">
             <label class="form-check-label form-group">
               <input onfocus="reveal_other(this)" class="other form-check-input" type="radio" name="Montant" id="Montant_Choice"> Autre
-              <input type="text" class="other_text form-control" id="Montant_Autre" name="Montant_Autre">
+              <input type="text" class="other_text form-control" id="Montant_Autre" name="Montant_Autre" placeholder="Autre montant">
             </label>
           </div>
         </div>
@@ -123,7 +123,7 @@
           <div class="form-check form-check-inline">
             <label class="form-check-label form-group">
               <input onfocus="reveal_other(this)" class="other form-check-input" type="radio" name="Duree" id="Duree"> Autre
-              <input type="text" class="other_text form-control" id="Duree_Autre" name="Duree_Autre">
+              <input type="text" class="other_text form-control" id="Duree_Autre" name="Duree_Autre" placeholder="Autre durée">
             </label>
           </div>
         </div>
@@ -158,7 +158,7 @@
       <div class="form mt-4">
         <div class="form-group">
           <h5 class="font-weight-bold">Je souhaite faire un commentaire ou apporter une précision</h5>
-          <input type="text" class="form-control" name="Commentaire" placeholder="Votre réponse">
+          <textarea type="text" class="form-control" name="Commentaire" placeholder="Votre réponse"></textarea>
         </div>
       </div>
       <p class="text-center">Les informations recueillies sur ce formulaire sont destinées exclusivement à vous tenir informé(e). Conformément à la loi n° 78-17 du 6 janvier 1978 modifiée, vous disposez d’un droit d’accès, de modification, de rectification et de suppression des données vous concernant. Pour exercer ce droit veuillez écrire à jarezsolidarites@free .fr. Merci !</p>

@@ -32,7 +32,7 @@ function verif() {
 }
 
 function reveal_other(element) {
-  $(element).siblings().show(800);
+  $(element).siblings().show(300);
 }
 
 //   if ($(".other1").prop('checked') == true && $(".other2").prop('checked') == true) {
