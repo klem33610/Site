@@ -1,3 +1,8 @@
+$(function(){
+  $('.other_text').each(function(){
+    $(this).hide();
+  })
+})
 function verif() {
   var statut;
   var length = $(".other:checked").length;
@@ -24,11 +29,11 @@ function verif() {
     $('#Formulaire_yes').modal(show);
   }
   return statut;
-};
+}
 
-function reveal_other(this) {
-  $(this).siblings().show(1000);
-};
+function reveal_other(element) {
+  $(element).siblings().show(800);
+}
 
 //   if ($(".other1").prop('checked') == true && $(".other2").prop('checked') == true) {
 //         if ($('.other1').siblings().val() && $('.other2').siblings().val()) {

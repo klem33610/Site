@@ -94,7 +94,7 @@
           <div class="form-check form-check-inline">
             <label class="form-check-label form-group">
               <input onfocus="reveal_other(this)" class="other form-check-input" type="radio" name="Montant" id="Montant_Choice"> Autre
-              <input type="text" class="form-control d-none" id="Montant_Autre" name="Montant_Autre">
+              <input type="text" class="other_text form-control" id="Montant_Autre" name="Montant_Autre">
             </label>
           </div>
         </div>
@@ -123,7 +123,7 @@
           <div class="form-check form-check-inline">
             <label class="form-check-label form-group">
               <input onfocus="reveal_other(this)" class="other form-check-input" type="radio" name="Duree" id="Duree"> Autre
-              <input type="text" class="form-control d-none" id="Duree_Autre" name="Duree_Autre">
+              <input type="text" class="other_text form-control" id="Duree_Autre" name="Duree_Autre">
             </label>
           </div>
         </div>
@@ -165,15 +165,15 @@
       <div class="form-group mt-3">
         <div class="form-check form-check-inline">
           <label class="form-check-label font-weight-bold">
-            <input class="form-check-input" type="radio" name="Anonymat" id="Duree1" value="option1"> J'accepte que mes Nom et Prénom figurent sur notre site Web
+            <input class="form-check-input" type="radio" name="Anonymat" id="Duree1" value="option1" required> J'accepte que mes Nom et Prénom figurent sur notre site Web
           </label>
         </div>
         <div class="form-check form-check-inline">
           <label class="form-check-label font-weight-bold">
-            <input class="form-check-input" type="radio" name="Anonymat" id="Duree2" value="option2"> Je préfère être anonyme avec le pseudo ci-dessous
+            <input onfocus="reveal_other(this)" class="other form-check-input" type="radio" name="Anonymat" id="Duree2" value="option2"> Je préfère être anonyme avec le pseudo ci-dessous
+            <input type="text" class="other_text form-control mt-2 col-sm-6" name="Pseudo" placeholder="Votre pseudo">
           </label>
         </div>
-        <input type="text" class="form-control mt-2 col-sm-6" name="Pseudo" placeholder="Votre pseudo">
       </div>
       <hr></hr>
       <div class="mt-4 form-group border border-info rounded-top col-sm-5 bg-info">
