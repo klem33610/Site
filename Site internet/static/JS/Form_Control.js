@@ -32,6 +32,7 @@ function verif() {
 }
 
 function reveal_other(element) {
+  console.log("culé")
   $(element).siblings().show(300);
 }
 

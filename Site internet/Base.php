@@ -5,6 +5,7 @@
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 <script src="static/JS/Form_Control.js"></script>
 
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
@@ -23,19 +24,19 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
-          <a class="nav-link" href="#">Accueil <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="#"><span <i class="fas fa-home"></i></span> Accueil <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item form-inline">
-          <a class="nav-link" href="#">Actions <span class="sr-only"></span></a>
-          <a class="nav-link" href="#">Médias <span class="sr-only"></span></a>
-          <a class="nav-link" href="#">Nous rejoindre<span class="sr-only"></span></a>
-          <a class="nav-link" href="#">Nouveautés <img src="static/media/rss.png"><span class="sr-only"></span></a>
-          <a class="nav-link" href="#">Intranet <span class="sr-only"</span></a>
+          <a class="nav-link" href="#"><span <i class="fas fa-users"></i></span> Actions <span class="sr-only"></span></a>
+          <a class="nav-link" href="#"><span <i class="fas fa-newspaper"></i></span> Médias <span class="sr-only"></span></a>
+          <a class="nav-link" href="#"><span <i class="fas fa-file-contract"></i></span> Nous rejoindre<span class="sr-only"></span></a>
+          <a class="nav-link" href="#"><span <i class="fas fa-rss-square"></i></span> Nouveautés<span class="sr-only"></span></a>
+          <a class="nav-link" href="#"><span <i class="fas fa-toolbox"></i></span> Intranet <span class="sr-only"</span></a>
         </li>
       </ul>
       <form class="form-inline my-2 my-lg-0">
         <input class="form-control mr-sm-2" type="search" placeholder="Chercher sur le site" aria-label="Search">
-        <button class="btn btn-outline-warning my-2 my-sm-0" type="submit">Chercher</button>
+        <button class="btn btn-outline-warning my-2 my-sm-0" type="submit"><span <i class="fas fa-search"></i></span> Chercher</button>
       </form>
     </div>
   </nav>

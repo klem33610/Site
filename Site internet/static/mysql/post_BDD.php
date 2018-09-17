@@ -60,3 +60,7 @@ while ($donnees = $reponse->fetch())
 $reponse->closeCursor(); // Termine le traitement de la requête
 
 ?>
+<!-- Tables  : Adhérents, Membres actifs, Aide_urgence et periode(1er versement - dernier versement), Dons, Dons_mensuels-->
+<!-- Gestion et suivi : Membres et compétences/ans, Donneurs par type (AU ou A),
+calendrier des dons, Promesse et versement, Inscription par année,
+Relance mails : réinscription, rappel de dons, News, reçus fiscaux -->
