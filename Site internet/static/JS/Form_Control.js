@@ -25,7 +25,7 @@ function verif() {
     statut = true;
   }
   if (statut == true) {
-    $('#Formulaire_yes').modal(show);
+    $('#Formulaire_yes').modal('show');
   }
   return statut;
 }

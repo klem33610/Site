@@ -2,20 +2,19 @@
 date_default_timezone_set('UTC');
 // Connexion à la base de données
 try
+  {
 
-{
+    $bdd = new PDO('mysql:host=sql.free.fr;dbname=Adhérents JS;charset=utf8', 'jarezsolidarites', 'J9s9o4s1');
 
-    $bdd = new PDO('mysql:host=localhost;dbname=Adhérents JS;charset=utf8', 'root', '1Do9muL1');
-
-}
+  }
 
 catch(Exception $e)
 
-{
+  {
 
         die('Erreur : '.$e->getMessage());
 
-}
+      }
 $Nom = $_POST['Nom'];
 $Prenom = $_POST['Prenom'];
 $Tel_Fixe = $_POST['Tel_fix'];
@@ -38,25 +37,34 @@ $id = $Nom . $Prenom . $CP;
 $Date = date('l jS \of F Y h:i:s A');
 
 
-// On récupère tout le contenu de la table jeux_video
-$reponse = $bdd->query('SELECT * FROM Adhérents');
+
+
+$sql = 'SELECT COUNT(*) AS nb FROM la_table';
+$result = $bdd->query($sql);
+$number_of_rows = $result->fetchColumn();
+echo "<script>console.log({$number_of_rows})</script>";
 
 // On affiche chaque entrée une à une
-while ($donnees = $reponse->fetch())
+if ($number_of_rows > 0)
 {
-  if (strtoupper($donnees['id']) == strtoupper($id))
+  $reponse = $bdd->query('SELECT * FROM Adhérents JS');
+  $reponse->execute();
+  while ($donnees = $reponse->fetch())
   {
-    $req = $bdd->prepare('UPDATE Adhérents SET Mail = :Mail WHERE id = :id');
-    $req->execute(array(
-	    'Mail' => $Mail,
-      'id' => $id
-	   ));
+    if (strtoupper($donnees['id']) == strtoupper($id))
+    {
+      $req = $bdd->prepare('UPDATE Adhérents SET Mail = :Mail WHERE id = :id');
+      $req->execute(array(
+  	    'Mail' => $Mail,
+        'id' => $id
+  	   ));
+     }
+   }
   } else {
   // Insertion du message à l'aide d'une requête préparée
   $req = $bdd->prepare('INSERT INTO Adhérents (id, Nom, Prenom, Mail) VALUES(?, ?, ?, ?)');
   $req->execute(array($id, $Nom, $Prenom, $Mail));
   }
-}
 $reponse->closeCursor(); // Termine le traitement de la requête
 
 ?>
