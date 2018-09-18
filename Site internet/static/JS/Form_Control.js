@@ -24,7 +24,6 @@ function verif() {
   } else {
     statut = true;
   }
-  console.log(statut);
   if (statut == true) {
     $('#Formulaire_yes').modal(show);
   }
@@ -32,7 +31,6 @@ function verif() {
 }
 
 function reveal_other(element) {
-  console.log("culé")
   $(element).siblings().show(300);
 }
 
