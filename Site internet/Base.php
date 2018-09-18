@@ -18,7 +18,7 @@
 
 <head>
   <div style="text-align: center; font-family: Arial" class="form-group mx-auto">
-    <a href="index.html"><img title="Pour une Terre humaine" style="width: 1100px; height: 110px;" alt="Bandeau Pour une Terre humaine" src="static/media/bandeau.jpg"></a>
+    <a href="index.html"><img class="img-fluid" title="Pour une Terre humaine" style="width: 1100px; height: 110px;" alt="Bandeau Pour une Terre humaine" src="static/media/bandeau.jpg"></a>
   </div>
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
