@@ -68,27 +68,27 @@
         <div class="form-group">
           <div class="form-check form-check-inline">
             <label class="form-check-label">
-              <input class="form-check-input" type="radio" name="Montant" id="Montant_Choice" required> 5
+              <input class="form-check-input" type="radio" value="5" name="Montant" id="Montant_Choice" required> 5
             </label>
           </div>
           <div class="form-check form-check-inline">
             <label class="form-check-label">
-              <input class="form-check-input" type="radio" name="Montant" id="Montant_Choice"> 10
+              <input class="form-check-input" type="radio" value="10" name="Montant" id="Montant_Choice"> 10
             </label>
           </div>
           <div class="form-check form-check-inline">
             <label class="form-check-label">
-              <input class="form-check-input" type="radio" name="Montant" id="Montant_Choice"> 20
+              <input class="form-check-input" type="radio" value="20" name="Montant" id="Montant_Choice"> 20
             </label>
           </div>
           <div class="form-check form-check-inline">
             <label class="form-check-label">
-              <input class="form-check-input" type="radio" name="Montant" id="Montant_Choice"> 50
+              <input class="form-check-input" type="radio" value="50" name="Montant" id="Montant_Choice"> 50
             </label>
           </div>
           <div class="form-check form-check-inline">
             <label class="form-check-label">
-              <input class="form-check-input" type="radio" name="Montant" id="Montant_Choice"> 100
+              <input class="form-check-input" type="radio" value="100" name="Montant" id="Montant_Choice"> 100
             </label>
           </div>
           <div class="form-check form-check-inline">
@@ -107,17 +107,17 @@
         <div class="form-group">
           <div class="form-check form-check-inline">
             <label class="form-check-label">
-              <input class="form-check-input" type="radio" name="Duree" id="Duree" required> 6 mois
+              <input class="form-check-input" type="radio" value="6" name="Duree" id="Duree" required> 6 mois
             </label>
           </div>
           <div class="form-check form-check-inline">
             <label class="form-check-label">
-              <input class="form-check-input" type="radio" name="Duree" id="Duree"> 1 an
+              <input class="form-check-input" type="radio" value="12" name="Duree" id="Duree"> 1 an
             </label>
           </div>
           <div class="form-check form-check-inline">
             <label class="form-check-label">
-              <input class="form-check-input" type="radio" name="Duree" id="Duree"> 2 ans
+              <input class="form-check-input" type="radio" value="24" name="Duree" id="Duree"> 2 ans
             </label>
           </div>
           <div class="form-check form-check-inline">
