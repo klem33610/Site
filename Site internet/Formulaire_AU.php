@@ -22,11 +22,11 @@
       <div class="form-row">
         <div class="form-group col-md-6">
           <label for="tel-fix" class="form-label">Telephone Fixe</label>
-          <input class="form-control" type="tel" placeholder="05...." name="Tel_fix">
+          <input class="form-control" type="tel" placeholder="05...." name="TelFixe">
         </div>
         <div class="form-group col-md-6">
           <label for="tel-mobile" class="form-label">Telephone Portable</label>
-          <input class="form-control" type="tel" placeholder="06...." name="Tel_mobile">
+          <input class="form-control" type="tel" placeholder="06...." name="TelMobile">
         </div>
       </div>
       <div class="form-row">
@@ -50,7 +50,7 @@
         </div>
         <div class="form-group col-md-6">
           <label for="inputState">Code Postal</label>
-          <input type="text" name="CP" class="form-control"required>
+          <input type="text" name="CodePostal" class="form-control"required>
         </div>
       </div>
       <hr>
@@ -68,27 +68,27 @@
         <div class="form-group">
           <div class="form-check form-check-inline">
             <label class="form-check-label">
-              <input class="form-check-input" type="radio" value="5" name="Montant" id="Montant_Choice" required> 5
+              <input class="form-check-input" type="radio" value="5" name="MontantAideUrgence" id="Montant_Choice" required> 5
             </label>
           </div>
           <div class="form-check form-check-inline">
             <label class="form-check-label">
-              <input class="form-check-input" type="radio" value="10" name="Montant" id="Montant_Choice"> 10
+              <input class="form-check-input" type="radio" value="10" name="MontantAideUrgence" id="Montant_Choice"> 10
             </label>
           </div>
           <div class="form-check form-check-inline">
             <label class="form-check-label">
-              <input class="form-check-input" type="radio" value="20" name="Montant" id="Montant_Choice"> 20
+              <input class="form-check-input" type="radio" value="20" name="MontantAideUrgence" id="Montant_Choice"> 20
             </label>
           </div>
           <div class="form-check form-check-inline">
             <label class="form-check-label">
-              <input class="form-check-input" type="radio" value="50" name="Montant" id="Montant_Choice"> 50
+              <input class="form-check-input" type="radio" value="50" name="MontantAideUrgence" id="Montant_Choice"> 50
             </label>
           </div>
           <div class="form-check form-check-inline">
             <label class="form-check-label">
-              <input class="form-check-input" type="radio" value="100" name="Montant" id="Montant_Choice"> 100
+              <input class="form-check-input" type="radio" value="100" name="MontantAideUrgence" id="Montant_Choice"> 100
             </label>
           </div>
           <div class="form-check form-check-inline">
@@ -107,17 +107,17 @@
         <div class="form-group">
           <div class="form-check form-check-inline">
             <label class="form-check-label">
-              <input class="form-check-input" type="radio" value="6" name="Duree" id="Duree" required> 6 mois
+              <input class="form-check-input" type="radio" value="6" name="DureeAideUrgence" id="Duree" required> 6 mois
             </label>
           </div>
           <div class="form-check form-check-inline">
             <label class="form-check-label">
-              <input class="form-check-input" type="radio" value="12" name="Duree" id="Duree"> 1 an
+              <input class="form-check-input" type="radio" value="12" name="DureeAideUrgence" id="Duree"> 1 an
             </label>
           </div>
           <div class="form-check form-check-inline">
             <label class="form-check-label">
-              <input class="form-check-input" type="radio" value="24" name="Duree" id="Duree"> 2 ans
+              <input class="form-check-input" type="radio" value="24" name="DureeAideUrgence" id="Duree"> 2 ans
             </label>
           </div>
           <div class="form-check form-check-inline">
@@ -144,12 +144,12 @@
         <div class="form-group">
           <div class="form-check form-check-inline">
             <label class="form-check-label">
-              <input class="form-check-input" type="radio" name="Aide_Urgence" id="Aide_Urgence" required> Oui
+              <input class="form-check-input" type="radio" value="oui" name="AideUrgence" id="Aide_Urgence" required> Oui
             </label>
           </div>
           <div class="form-check form-check-inline">
             <label class="form-check-label">
-              <input class="form-check-input" type="radio" name="Aide_Urgence" id="Aide_Urgence"> Non
+              <input class="form-check-input" type="radio" value="non" name="AideUrgence" id="Aide_Urgence"> Non
             </label>
           </div>
         </div>
@@ -165,12 +165,12 @@
       <div class="form-group mt-3">
         <div class="form-check form-check-inline">
           <label class="form-check-label font-weight-bold">
-            <input class="form-check-input" type="radio" name="Anonymat" id="Duree1" value="option1" required> J'accepte que mes Nom et Prénom figurent sur notre site Web
+            <input class="form-check-input" type="radio" name="Anonymat" id="Duree1" value="non" required> J'accepte que mes Nom et Prénom figurent sur notre site Web
           </label>
         </div>
         <div class="form-check form-check-inline">
           <label class="form-check-label font-weight-bold">
-            <input onfocus="reveal_other(this)" class="other form-check-input" type="radio" name="Anonymat" id="Duree2" value="option2"> Je préfère être anonyme avec le pseudo ci-dessous
+            <input onfocus="reveal_other(this)" class="other form-check-input" type="radio" name="Anonymat" id="Duree2" value="oui"> Je préfère être anonyme avec le pseudo ci-dessous
             <input type="text" class="other_text form-control mt-2 col-sm-6" name="Pseudo" placeholder="Votre pseudo">
           </label>
         </div>

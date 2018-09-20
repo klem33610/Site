@@ -14,48 +14,59 @@ echo "<pre>";
 print_r($_POST);
 echo "</pre>";
 
-//On insert les donné des post dans un tableau pour la fonction ci dessous
-$id = $_POST['Nom'] . $_POST['Prenom'] . $_POST['CP'];
+$values = [];
+$id = $_POST['Nom'] . $_POST['Prenom'] . $_POST['CodePostal'];
 $Date = date('l jS \of F Y h:i:s A');
 if ($_POST['Montant_Autre']) {
   $Montant = $_POST['Montant_Autre'];
 } else {
-  $Montant = $_POST['Montant'];
+  $Montant = $_POST['MontantAideUrgence'];
 }
 if ($_POST['Duree_Autre']) {
   $Duree = $_POST['Duree_Autre'];
 } else {
-  $Duree = $_POST['Duree'];
+  $Duree = $_POST['DureeAideUrgence'];
 }
-$Dons = '1';
+$Dons = 'oui';
 
-$values = [
-  'id' => $id,
-  'Nom' => $_POST['Nom'],
-  'Prenom' => $_POST['Prenom'],
-  'Mail' => $_POST['Mail'],
-  'TelMobile' => $_POST['Tel_mobile'],
-  'TelFixe' => $_POST['Tel_fix'],
-  'Adresse' => $_POST['Adresse'],
-  'Adresse2' => $_POST['Adresse2'],
-  'Ville' => $_POST['Ville'],
-  'CodePostal' => $_POST['CP'],
-  'DonsMensuels' => $Dons,
-  'MontantAideUrgence' => $Montant,
-  'DureeAideUrgence' => $Duree,
-  'Competence' => "bdsbdd",
-  // $Aide_Urgence => $_POST['Aide_Urgence'],
-  'Commentaire' => $_POST['Commentaire'],
-  // $Annonymat => $_POST['Anonymat'],
-  'Pseudo' => $_POST['Pseudo'],
-  'DateInscription' => $Date
-];
+foreach($_POST as $paramName => $paramValue){
+  if ($paramValue) {
+    $values[$paramName] = $paramValue;
+  }
+}
+$values['id'] = $id;
+$values['DateInscription'] = $Date;
+$values['MontantAideUrgence'] = $Montant;
+$values['DureeAideUrgence'] = $Duree;
+$values['DonsMensuels'] = $Dons;
+// $values = [
+//   'id' => $id,
+//   'Nom' => $_POST['Nom'],
+//   'Prenom' => $_POST['Prenom'],
+//   'Mail' => $_POST['Mail'],
+//   'TelMobile' => $_POST['Tel_mobile'],
+//   'TelFixe' => $_POST['Tel_fix'],
+//   'Adresse' => $_POST['Adresse'],
+//   'Adresse2' => $_POST['Adresse2'],
+//   'Ville' => $_POST['Ville'],
+//   'CodePostal' => $_POST['CP'],
+//   'DonsMensuels' => $Dons,
+//   'MontantAideUrgence' => $Montant,
+//   'DureeAideUrgence' => $Duree,
+//   'Competence' => "bdsbdd",
+//   // $Aide_Urgence => $_POST['Aide_Urgence'],
+//   'Commentaire' => $_POST['Commentaire'],
+//   // $Annonymat => $_POST['Anonymat'],
+//   'Pseudo' => $_POST['Pseudo'],
+//   'DateInscription' => $Date
+// ];
 $Number = count($values);
-$tmp_query = ("INSERT INTO user (Nom, id) VALUES (:Adresse2, :DateInscription) ");
+$tmp_query = ("INSERT INTO user (id, nom) VALUES (:DateInscription, :Adresse2) ");
 $tmp_result = $bdd->prepare($tmp_query);
 $tmp_result->bindValue(':Adresse2', $_POST['Adresse2']);
 $tmp_result->bindValue(':DateInscription', $Date);
-$tmp_result->execute();
+echo '<pre>'.print_r($tmp_result,true).'</pre>';
+// $tmp_result->execute();
 echo "<pre>";
 print_r($values);
 echo "</pre>";
@@ -94,11 +105,11 @@ if(empty($errors)){
         if ($i < $l){
           $tmp_fields .= $key.', ';
           //tmp_value donnera un string: ":username :email :password"
-          $tmp_value .= ':'.$val.', ';
+          $tmp_value .= ':'.$key.', ';
         } else if ($i == $l){
           $tmp_fields .= $key;
           //tmp_value donnera un string: ":username :email :password"
-          $tmp_value .= ':'.$val;
+          $tmp_value .= ':'.$key;
         }
       }
     }
@@ -126,9 +137,7 @@ if(empty($errors)){
     $tmp_result = $bdd->prepare($tmp_query);
 
     foreach($values as $paramName => $paramValue){
-        //Si le champ n'est pas vide
-            //tmp_field donnera un string: "username email password"
-    $tmp_result->bindValue(':'.$paramName, $paramValue);
+      $tmp_result->bindValue($paramName, $paramValue);
   }
 
     // //Personnaliser chaque champ avec les valeurs
