@@ -93,8 +93,8 @@
           </div>
           <div class="form-check form-check-inline">
             <label class="form-check-label form-group">
-              <input onfocus="reveal_other(this)" class="other form-check-input" type="radio" name="Montant" id="Montant_Choice"> Autre
-              <input type="text" class="other_text form-control" id="Montant_Autre" name="Montant_Autre" placeholder="Autre montant">
+              <input onfocus="reveal_other(this)" class="other form-check-input" type="radio" name="MontantAideUrgence" id="Montant_Choice"> Autre
+              <input type="text" class="other_text form-control" id="Montant_Autre" name="MontantAideUrgence" placeholder="Autre montant">
             </label>
           </div>
         </div>
@@ -122,8 +122,13 @@
           </div>
           <div class="form-check form-check-inline">
             <label class="form-check-label form-group">
-              <input onfocus="reveal_other(this)" class="other form-check-input" type="radio" name="Duree" id="Duree"> Autre
-              <input type="text" class="other_text form-control" id="Duree_Autre" name="Duree_Autre" placeholder="Autre durée">
+              <div class="input-group date" id="DateIncident" data-target-input="nearest">
+                <input onfocus="reveal_other(this)" class="other form-check-input" type="radio" name="DureeAideUrgence" id="Duree"> Autre
+                  <input onfocus="calendar()" class="newform form-control datetimepicker-input" id="Date" type="text" data-target="#DateIncident">
+                  <div class="input-group-append" data-target="#DateIncident" data-toggle="datetimepicker">
+                      <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                  </div>
+              </div>
             </label>
           </div>
         </div>
