@@ -122,13 +122,24 @@
           </div>
           <div class="form-check form-check-inline">
             <label class="form-check-label form-group">
+              <input onfocus="reveal_other(this)" class="other form-check-input" type="radio" name="DureeAideUrgence" id="Duree"> Autre
+              <input type="text" class="other_text form-control" id="Duree_Autre" name="DureeAideUrgence" placeholder="Autre durée">
               <div class="input-group date" id="DateIncident" data-target-input="nearest">
-                <input onfocus="reveal_other(this)" class="other form-check-input" type="radio" name="DureeAideUrgence" id="Duree"> Autre
-                  <input onfocus="calendar()" class="newform form-control datetimepicker-input" id="Date" type="text" data-target="#DateIncident">
+                  <input class="newform form-control datetimepicker-input" id="Date" type="text" data-target="#DateIncident">
                   <div class="input-group-append" data-target="#DateIncident" data-toggle="datetimepicker">
                       <div class="input-group-text"><i class="fa fa-calendar"></i></div>
                   </div>
               </div>
+              <script type="text/javascript">
+                  $(function() {
+                      $("#DateIncident").datetimepicker({
+                          defaultDate: new Date(),
+                          format: "DD/MM/YYYY HH:mm:ss",
+                          locale: "fr",
+                          sideBySide: true,
+                      });
+                  });
+              </script>
             </label>
           </div>
         </div>
