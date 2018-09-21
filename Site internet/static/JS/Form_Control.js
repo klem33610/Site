@@ -37,11 +37,11 @@ function reveal_other(element) {
 function calendar() {
   $("#DateIncident").datetimepicker({
     defaultDate: new Date(),
-    format: "DD/MM/YYYY",
+    format: "MM/YYYY",
     locale: "fr",
     sideBySide: true,
   });
-};
+}
 
 
 //   if ($(".other1").prop('checked') == true && $(".other2").prop('checked') == true) {

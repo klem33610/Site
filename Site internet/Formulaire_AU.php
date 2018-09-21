@@ -93,7 +93,7 @@
           </div>
           <div class="form-check form-check-inline">
             <label class="form-check-label form-group">
-              <input onfocus="reveal_other(this)" class="other form-check-input" type="radio" name="MontantAideUrgence" id="Montant_Choice"> Autre
+              <input onfocus="reveal_other(this)" class="other form-check-input" name="MontantAideUrgence" type="radio" id="Montant_Choice"> Autre
               <input type="text" class="other_text form-control" id="Montant_Autre" name="MontantAideUrgence" placeholder="Autre montant">
             </label>
           </div>
@@ -107,28 +107,28 @@
         <div class="form-group">
           <div class="form-check form-check-inline">
             <label class="form-check-label">
-              <input class="form-check-input" type="radio" value="6" name="DureeAideUrgence" id="Duree" required> 6 mois
+              <input class="form-check-input" type="radio" value="6" name="DerniereMensualiteAideUrgence" id="Duree" required> 6 mois
             </label>
           </div>
           <div class="form-check form-check-inline">
             <label class="form-check-label">
-              <input class="form-check-input" type="radio" value="12" name="DureeAideUrgence" id="Duree"> 1 an
+              <input class="form-check-input" type="radio" value="12" name="DerniereMensualiteAideUrgence" id="Duree"> 1 an
             </label>
           </div>
           <div class="form-check form-check-inline">
             <label class="form-check-label">
-              <input class="form-check-input" type="radio" value="24" name="DureeAideUrgence" id="Duree"> 2 ans
+              <input class="form-check-input" type="radio" value="24" name="DerniereMensualiteAideUrgence" id="Duree"> 2 ans
             </label>
           </div>
           <div class="form-check form-check-inline">
             <label class="form-check-label form-group">
-              <div class="input-group date" id="DateIncident" data-target-input="nearest">
-                <input onfocus="reveal_other(this)" class="other form-check-input" type="radio" name="DureeAideUrgence" id="Duree"> Autre
-                  <input onfocus="calendar()" class="newform form-control datetimepicker-input" id="Date" type="text" data-target="#DateIncident">
-                  <div class="input-group-append" data-target="#DateIncident" data-toggle="datetimepicker">
-                      <div class="input-group-text"><i class="fa fa-calendar"></i></div>
-                  </div>
-              </div>
+                <input onfocus="reveal_other(this)" name="DerniereMensualiteAideUrgence" class="other form-check-input" type="radio" id="Duree"> Autre
+                <div class="other_text input-group date" id="DateIncident" data-target-input="nearest">
+                    <input placeholder="Dernière mensualité" name="DerniereMensualiteAideUrgence" class="form-control datetimepicker-input" id="Date" type="text" data-target="#DateIncident">
+                    <div class="input-group-append" data-target="#DateIncident" >
+                      <div data-toggle="datetimepicker" onclick="calendar()" class="input-group-text"><i class="fa fa-calendar"></i></div>
+                    </div>
+                </div>
             </label>
           </div>
         </div>
