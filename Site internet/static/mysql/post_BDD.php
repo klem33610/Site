@@ -15,16 +15,13 @@ echo "</pre>";
 
 $values = [];
 $id = $_POST['Nom'] . $_POST['Prenom'] . $_POST['CodePostal'];
-$Date = date('l jS \of F Y h:i:s A');
-if ($_POST['Montant_Autre']) {
-  $Montant = $_POST['Montant_Autre'];
+$Date = date("d-m-Y");
+$Month = date("m-Y");
+
+if (is_object($_POST['DerniereMensualiteAideUrgence'])) {
+  $Duree = $_POST['DerniereMensualiteAideUrgence'];
 } else {
-  $Montant = $_POST['MontantAideUrgence'];
-}
-if ($_POST['Duree_Autre']) {
-  $Duree = $_POST['Duree_Autre'];
-} else {
-  $Duree = $_POST['DureeAideUrgence'];
+  $Duree = date_add($Month, date_interval_create_from_date_string($_POST['DerniereMensualiteAideUrgence'].' months'));
 }
 $Dons = 'oui';
 
@@ -35,8 +32,7 @@ foreach($_POST as $paramName => $paramValue){
 }
 $values['id'] = $id;
 $values['DateInscription'] = $Date;
-$values['MontantAideUrgence'] = $Montant;
-$values['DureeAideUrgence'] = $Duree;
+$values['DerniereMensualiteAideUrgence'] = $Duree;
 $values['DonsMensuels'] = $Dons;
 
 // $tmp_query = ("INSERT INTO user (id, nom) VALUES (:DateInscription, :Adresse2) ");
