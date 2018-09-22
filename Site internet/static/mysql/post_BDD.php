@@ -16,12 +16,15 @@ echo "</pre>";
 $values = [];
 $id = $_POST['Nom'] . $_POST['Prenom'] . $_POST['CodePostal'];
 $Date = date("d-m-Y");
-$Month = date("m-Y");
+$Month = new DateTime(date("d-m-Y"));
 
-if (is_object($_POST['DerniereMensualiteAideUrgence'])) {
-  $Duree = $_POST['DerniereMensualiteAideUrgence'];
+if ($_POST['Autre_Date']) {
+  echo "culé";
+  $Duree = $_POST['Autre_Date'];
 } else {
-  $Duree = date_add($Month, date_interval_create_from_date_string($_POST['DerniereMensualiteAideUrgence'].' months'));
+  echo "mano";
+  $Duree = $Month->modify('+'.$_POST['DerniereMensualiteAideUrgence'].' months');
+  $Duree = $Duree->format("d/m/Y");
 }
 $Dons = 'oui';
 
@@ -34,7 +37,7 @@ $values['id'] = $id;
 $values['DateInscription'] = $Date;
 $values['DerniereMensualiteAideUrgence'] = $Duree;
 $values['DonsMensuels'] = $Dons;
-
+unset($values[Autre_Date]);
 // $tmp_query = ("INSERT INTO user (id, nom) VALUES (:DateInscription, :Adresse2) ");
 // $tmp_result = $bdd->prepare($tmp_query);
 // $tmp_result->bindValue(':Adresse2', $_POST['Adresse2']);

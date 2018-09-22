@@ -3,7 +3,6 @@ $(function(){
     $(this).hide();
   })
   $("#DateIncident").datetimepicker({
-    defaultDate: new Date(),
     format: "MM/YYYY",
     locale: "fr",
     sideBySide: true,
