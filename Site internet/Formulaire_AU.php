@@ -122,11 +122,11 @@
           </div>
           <div class="form-check form-check-inline">
             <label class="form-check-label form-group">
-                <input onfocus="reveal_other(this)" name="DerniereMensualiteAideUrgence" class="other form-check-input" type="radio" id="Duree"> Autre
+                <input onfocus="reveal_other(this)" name="DerniereMensualiteAideUrgence" class="form-check-input" type="radio" id="Duree"> Autre
                 <div class="other_text input-group date" id="DateIncident" data-target-input="nearest">
-                    <input placeholder="Dernière mensualité" name="DerniereMensualiteAideUrgence" class="form-control datetimepicker-input" id="Date" type="text" data-target="#DateIncident">
+                    <input placeholder="Dernière mensualité" data-toggle="datetimepicker" name="DerniereMensualiteAideUrgence" class="form-control datetimepicker-input" id="Date" type="text" data-target="#DateIncident">
                     <div class="input-group-append" data-target="#DateIncident" >
-                      <div data-toggle="datetimepicker" onclick="calendar()" class="input-group-text"><i class="fa fa-calendar"></i></div>
+                      <div class="input-group-text"><i class="fa fa-calendar"></i></div>
                     </div>
                 </div>
             </label>

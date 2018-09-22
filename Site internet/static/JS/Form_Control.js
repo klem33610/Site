@@ -2,6 +2,12 @@ $(function(){
   $('.other_text').each(function(){
     $(this).hide();
   })
+  $("#DateIncident").datetimepicker({
+    defaultDate: new Date(),
+    format: "MM/YYYY",
+    locale: "fr",
+    sideBySide: true,
+  });
 })
 function verif() {
   var statut;
@@ -34,14 +40,6 @@ function reveal_other(element) {
   $(element).siblings().show(300);
 }
 
-function calendar() {
-  $("#DateIncident").datetimepicker({
-    defaultDate: new Date(),
-    format: "MM/YYYY",
-    locale: "fr",
-    sideBySide: true,
-  });
-}
 
 
 //   if ($(".other1").prop('checked') == true && $(".other2").prop('checked') == true) {
