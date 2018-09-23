@@ -19,10 +19,8 @@ $Date = date("d-m-Y");
 $Month = new DateTime(date("d-m-Y"));
 
 if ($_POST['Autre_Date']) {
-  echo "culé";
   $Duree = $_POST['Autre_Date'];
 } else {
-  echo "mano";
   $Duree = $Month->modify('+'.$_POST['DerniereMensualiteAideUrgence'].' months');
   $Duree = $Duree->format("d/m/Y");
 }

@@ -1,4 +1,3 @@
-<?php include('Base.php'); ?>
 <div id="Formulaire_yes" class="modal" tabindex="-1" role="dialog">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
