@@ -11,7 +11,7 @@ $PARAM_utilisateur='jarezsolidarites'; // nom d'utilisateur pour se connecter
 $PARAM_mot_passe='J9s9o4s1'; // mot de passe de l'utilisateur pour se connecter
 $bdd = new PDO('mysql:host='.$PARAM_hote.';dbname='.$PARAM_nom_bd.';charset=UTF8', $PARAM_utilisateur, $PARAM_mot_passe);
 
-$sql = 'SELECT * FROM Adherents_JS ';
+$sql = 'SELECT * FROM Adherents_JS ORDER BY id';
 $req = $bdd->query($sql);
 
 $rs = $bdd->query('SELECT * FROM Adherents_JS LIMIT 0');
@@ -23,7 +23,7 @@ $rs = $bdd->query('SELECT * FROM Adherents_JS LIMIT 0');
  <tr class="header">
     <? for ($i = 0; $i < $rs->columnCount(); $i++) {
        $col = $rs->getColumnMeta($i); ?>
-       <th><p class="text-error"><? echo $col['name']; ?></p><input class="form-control" type="text" id="<? echo $col['name'];?>" onkeyup="search(this)" placeholder="Recherche"></th>
+       <th id="<? echo $col['name'];?>" onclick="sortTable(this)"><p class="text-error"><? echo $col['name']; ?></p><input class="form-control" type="text" id="<? echo $col['name'];?>" onkeyup="search(this)" placeholder="Recherche"></th>
 <? } ?>
 </tr>
   <tr>
