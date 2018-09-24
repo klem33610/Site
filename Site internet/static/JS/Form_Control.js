@@ -2,7 +2,17 @@ $(function(){
   $('.other_text').each(function(){
     $(this).hide();
   })
+  $("#DateIncident").datetimepicker({
+      defaultDate: new Date(),
+      format: "MM/YYYY",
+      locale: "fr",
+  });
 })
+
+function reveal_other(element) {
+  $(element).siblings().show(300);
+}
+
 function verif() {
   var statut;
   var length = $(".other:checked").length;
@@ -27,20 +37,8 @@ function verif() {
   if (statut == true) {
     $('#Formulaire_yes').modal('show');
   }
+  console.log(statut)
   return statut;
-}
-
-function reveal_other(element) {
-  $(element).siblings().show(300);
-}
-
-function calendar() {
-  $("#DateIncident").datetimepicker({
-    defaultDate: new Date(),
-    format: "MM/YYYY",
-    locale: "fr",
-    sideBySide: true,
-  });
 }
 
 
