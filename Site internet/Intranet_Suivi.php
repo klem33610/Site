@@ -31,7 +31,7 @@ $rs = $bdd->query('SELECT * FROM Adherents_JS LIMIT 0');
       $row = $req->fetch($j);
        for ($i = 0; $i < $rs->columnCount(); $i++) {
          $col = $rs->getColumnMeta($i); ?>
-      <td id="<? echo $col['name'];?>"><? echo $row[$col['name']]; ?></td>
+      <td class="<? echo $col['name'];?>"><? echo $row[$col['name']]; ?></td>
  <? } ?>
  </tr>
 <? }
