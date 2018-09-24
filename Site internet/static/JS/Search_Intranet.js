@@ -22,6 +22,7 @@ function search(id) {
 }
 function sortTable(id) {
   var col = $(id).attr('id');
+  var j, z;
   var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
   table = $('#Membres');
   switching = true;
@@ -35,7 +36,9 @@ function sortTable(id) {
     rows = $('tr').length;
     /*Loop through all table rows (except the
     first, which contains table headers):*/
-    for (i = 1; i < rows; i++) {
+    for (i = 1; i < (rows - 1); i++) {
+      j = $('tr').eq(i);
+      z = $('tr').eq(i + 1)
       //start by saying there should be no switching:
       shouldSwitch = false;
       /*Get the two elements you want to compare,
@@ -44,7 +47,7 @@ function sortTable(id) {
       y = $('tr').eq(i + 1).children().filter('.' + col);
       /*check if the two rows should switch place,
       based on the direction, asc or desc:*/
-      if (dir == "asc") {$('tr').eq(i + 1).children().filter('.' + col)
+      if (dir == "asc") {
         if ($(x).text().toLowerCase() > $(y).text().toLowerCase()) {
           //if so, mark as a switch and break the loop:
           shouldSwitch= true;
@@ -61,7 +64,7 @@ function sortTable(id) {
     if (shouldSwitch) {
       /*If a switch has been marked, make the switch
       and mark that a switch has been done:*/
-      rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+      $(j).before(z);
       switching = true;
       //Each time a switch is done, increase this count by 1:
       switchcount ++;

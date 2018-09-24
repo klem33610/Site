@@ -18,14 +18,17 @@ $rs = $bdd->query('SELECT * FROM Adherents_JS LIMIT 0');
 ?>
 
 <body>
-<table id="Membres" class="text-center table table-bordered">
+<table id="Membres" class="text-center table table-bordered table-striped">
  <h3 class="text-center">Membres de Jarez Solidarités</h3>
- <tr class="header">
+ <thead>
+ <tr class="table-warning">
     <? for ($i = 0; $i < $rs->columnCount(); $i++) {
        $col = $rs->getColumnMeta($i); ?>
-       <th id="<? echo $col['name'];?>" onclick="sortTable(this)"><p class="text-error"><? echo $col['name']; ?></p><input class="form-control" type="text" id="<? echo $col['name'];?>" onkeyup="search(this)" placeholder="Recherche"></th>
+       <th><p class="text-error" id="<? echo $col['name'];?>" onclick="sortTable(this)"><? echo $col['name']; ?></p><input class="form-control" type="text" id="<? echo $col['name'];?>" onkeyup="search(this)" placeholder="Recherche"></th>
 <? } ?>
 </tr>
+</thead>
+<tbody>
   <tr>
     <? for ($j = 0; $j < $req->rowCount(); $j++) {
       $row = $req->fetch($j);
@@ -38,5 +41,6 @@ $rs = $bdd->query('SELECT * FROM Adherents_JS LIMIT 0');
  $req->closeCursor();
  $rs->closeCursor();
   ?>
+  </tbody>
 </table>
 </body>
