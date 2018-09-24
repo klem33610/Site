@@ -3,16 +3,11 @@ $(function(){
     $(this).hide();
   })
   $("#DateIncident").datetimepicker({
-      defaultDate: new Date(),
-      format: "MM/YYYY",
-      locale: "fr",
+    format: "MM/YYYY",
+    locale: "fr",
+    sideBySide: true,
   });
 })
-
-function reveal_other(element) {
-  $(element).siblings().show(300);
-}
-
 function verif() {
   var statut;
   var length = $(".other:checked").length;
@@ -40,6 +35,14 @@ function verif() {
   console.log(statut)
   return statut;
 }
+<<<<<<< HEAD
+=======
+
+function reveal_other(element) {
+  $(element).siblings().show(300);
+}
+
+>>>>>>> e92dbf79349e55813b2f76222a5b0c192152b214
 
 
 //   if ($(".other1").prop('checked') == true && $(".other2").prop('checked') == true) {
