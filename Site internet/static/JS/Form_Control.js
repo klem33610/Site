@@ -35,14 +35,11 @@ function verif() {
   console.log(statut)
   return statut;
 }
-<<<<<<< HEAD
-=======
 
 function reveal_other(element) {
   $(element).siblings().show(300);
 }
 
->>>>>>> e92dbf79349e55813b2f76222a5b0c192152b214
 
 
 //   if ($(".other1").prop('checked') == true && $(".other2").prop('checked') == true) {

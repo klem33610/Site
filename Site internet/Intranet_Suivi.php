@@ -1,4 +1,6 @@
 <?php include('Base.php'); ?>
+<script src="static/JS/Search_Intranet.js"></script>
+
 <!-- Gestion et suivi : Membres et compétences/ans, Donneurs par type (AU ou A),
 calendrier des dons, Promesse et versement, Inscription par année,
 Relance mails : réinscription, rappel de dons, News, reçus fiscaux -->
@@ -15,12 +17,13 @@ $req = $bdd->query($sql);
 $rs = $bdd->query('SELECT * FROM Adherents_JS LIMIT 0');
 ?>
 
-<table class="text-center table table-bordered">
+<body>
+<table id="Membres" class="text-center table table-bordered">
  <h3 class="text-center">Membres de Jarez Solidarités</h3>
- <tr>
+ <tr class="header">
     <? for ($i = 0; $i < $rs->columnCount(); $i++) {
        $col = $rs->getColumnMeta($i); ?>
-       <th><p class="text-error"><? echo $col['name']; ?></p></th>
+       <th><p class="text-error"><? echo $col['name']; ?></p><input class="form-control" type="text" id="<? echo $col['name'];?>" onkeyup="search(this)" placeholder="Recherche"></th>
 <? } ?>
 </tr>
   <tr>
@@ -28,10 +31,12 @@ $rs = $bdd->query('SELECT * FROM Adherents_JS LIMIT 0');
       $row = $req->fetch($j);
        for ($i = 0; $i < $rs->columnCount(); $i++) {
          $col = $rs->getColumnMeta($i); ?>
-      <td><? echo $row[$col['name']]; ?></td>
+      <td id="<? echo $col['name'];?>"><? echo $row[$col['name']]; ?></td>
  <? } ?>
  </tr>
-<? } ?>
-  <? $req->closeCursor();
+<? }
+ $req->closeCursor();
+ $rs->closeCursor();
   ?>
 </table>
+</body>
