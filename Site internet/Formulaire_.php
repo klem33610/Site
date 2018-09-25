@@ -17,11 +17,11 @@
       <div class="form-row">
         <div class="form-group col-md-6">
           <label for="tel-fix" class="form-label">Telephone Fixe</label>
-          <input class="form-control" type="tel" placeholder="05...." name="Tel_fix">
+          <input class="form-control" type="tel" placeholder="04...." name="TelFixe">
         </div>
         <div class="form-group col-md-6">
           <label for="tel-mobile" class="form-label">Telephone Portable</label>
-          <input class="form-control" type="tel" placeholder="06...." name="Tel_mobile">
+          <input class="form-control" type="tel" placeholder="06...." name="TelMobile">
         </div>
       </div>
       <div class="form-row">
@@ -45,7 +45,7 @@
         </div>
         <div class="form-group col-md-6">
           <label for="inputState">Code Postal</label>
-          <input type="text" name="CP" class="form-control"required>
+          <input type="text" name="CodePostal" class="form-control"required>
         </div>
       </div>
       <hr>
@@ -57,29 +57,29 @@
       </div>
       <div class="form mt-3">
         <div class="form-group">
-          <h5 class="font-weight-bold">Membre actif <span style="color : red">*</span></h5>
+          <h5 class="font-weight-bold">Membre actif</h5>
           <h9>Je souhaite participer dans le/les domaines suivants :</h9>
         </div>
         <div class="form-group">
           <div class="form-check form-check-inline">
             <label class="form-check-label">
-              <input class="form-check-input" type="checkbox" name="Actif" id="Actif_Choice_CA"> Membre du Collège Solidaire (CA)
+              <input class="form-check-input" type="checkbox" name="ActifChoiceCA" id="ActifChoiceCA"> Membre du Collège Solidaire (CA)
             </label>
           </div>
           <div class="form-check form-check-inline">
             <label class="form-check-label">
-              <input class="form-check-input" type="checkbox" name="Actif" id="Actif_Choice_Com"> Communication
+              <input class="form-check-input" type="checkbox" name="ActifChoiceCom" id="ActifChoiceCom"> Communication
             </label>
           </div>
           <div class="form-check form-check-inline">
             <label class="form-check-label">
-              <input class="form-check-input" type="checkbox" name="Actif" id="Actif_Choice_Autre"> Actions
+              <input class="form-check-input" type="checkbox" name="ActifChoiceAct" id="ActifChoiceAct"> Actions
             </label>
           </div>
           <div class="form-check form-check-inline">
             <label class="form-check-label form-group">
-              <input onfocus="reveal_other(this)" class="form-check-input" type="checkbox" name="Actif" id="Actif_Choice_Autre"> Autre
-              <input type="text" class="other_text form-control" id="Actif_Autre" name="Actif_Autre">
+              <input onfocus="reveal_other(this)" class="other form-check-input" type="checkbox" name="ActifChoiceAutre" id="ActifChoiceAutre"> Autre
+              <input type="text" class="other_text form-control" id="ActifChoiceAutre" name="ActifChoiceAutre">
             </label>
           </div>
         </div>

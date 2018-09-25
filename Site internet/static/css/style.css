@@ -1,14 +1,14 @@
-#Membres tr {
+table tr {
     /* Add a bottom border to all table rows */
     border-bottom: 1px solid #ddd;
 }
 
-#Membres tr.header, #Membres tr:hover {
+table tr.header, #Membres tr:hover {
     /* Add a grey background color to the table header and on hover */
     background-color: grey;
     cursor: pointer;
 }
-#Membres td {
+table td {
   min-width: 250px;
   padding: 8px;
 }
