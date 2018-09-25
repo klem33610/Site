@@ -18,6 +18,13 @@ $rs = $bdd->query('SELECT * FROM Adherents_JS LIMIT 0');
 ?>
 
 <body>
+  <div class="mt-2" style="position: relative; display: inline-block;">
+    <button type="button" id="Securite" class="btn btn-tdb btn-outline-dark btn-lg slide-gesture" data-toggle="tooltip" title="Désaiguillage de l'ouvrage (Mise en sécurité CCO).">Mise en sécurité ouvrage</button>
+  </div>
+  <div class="mt-2" style="position: relative; display: inline-block;">
+    <button type="button" id="Impact" class="btn btn-tdb btn-outline-dark btn-lg slide-gesture" data-toggle="tooltip" title="Renseigner les impacts client/réseau à la vu du CCO.">Impact client et réseau</button>
+  </div>
+
 <table id="Membres" class="text-center table table-bordered table-striped">
  <h3 class="text-center">Membres de Jarez Solidarités</h3>
  <thead>
