@@ -1,6 +1,6 @@
 <?php date_default_timezone_set('UTC');
 setlocale(LC_TIME, 'fr_FR.utf8','fra');?>
-  <div id="timeline" onclick="show_Table(this)">
+  <div onclick="show_Table(this)">
     <section class="section intro">
       <div class="text-center card-header px-4 rounded-bottom py-2 bg-warning text-white shadow-sm">
         <h1>Frise temporelle des dons pour l'aide d'urgence &rarr;</h1>
@@ -36,10 +36,10 @@ setlocale(LC_TIME, 'fr_FR.utf8','fra');?>
       </ol>
 
       <div class="arrows">
-        <button onclick="slide_left()" class="arrow arrow__prev">
+        <button class="arrow arrow__prev disabled" disabled>
           <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/162656/arrow_prev.svg" alt="prev timeline arrow">
         </button>
-        <button onclick="slide_right()" class="arrow arrow__next">
+        <button class="arrow arrow__next">
           <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/162656/arrow_next.svg" alt="next timeline arrow">
         </button>
       </div>
