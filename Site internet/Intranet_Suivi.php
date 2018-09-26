@@ -1,6 +1,7 @@
 <?php include('Base.php'); ?>
 <script src="static/JS/Search_Intranet.js"></script>
 
+
 <!-- Gestion et suivi : Membres et compétences/ans, Donneurs par type (AU ou A),
 calendrier des dons, Promesse et versement, Inscription par année,
 Relance mails : réinscription, rappel de dons, News, reçus fiscaux -->
@@ -18,16 +19,17 @@ $rs = $bdd->query('SELECT * FROM Adherents_JS LIMIT 0');
 ?>
 
 <body>
+  <?php include('Timeline.php'); ?>
   <div class="form-group row col-sm-12">
-    <div class="shadow card bg-light mt-3 ml-2" style="max-width: 18rem;">
-      <div class="card-header">Header</div>
+    <div class="shadow card bg-light mt-3 ml-2">
+      <div class="card-header px-4 rounded-bottom py-2 bg-info text-white shadow-sm">Header</div>
       <div class="card-body">
         <h5 class="card-title">Light card title</h5>
         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
       </div>
     </div>
-    <div class="shadow card bg-light mt-3 ml-2" style="max-width: 18rem;">
-      <div class="card-header">Header</div>
+    <div class="shadow card bg-light mt-3 ml-2">
+      <div class="card-header px-4 rounded-bottom py-2 bg-info text-white shadow-sm">Header</div>
       <div class="card-body">
         <h5 class="card-title">Light card title</h5>
         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>

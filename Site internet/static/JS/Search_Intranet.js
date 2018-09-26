@@ -2,7 +2,11 @@ function show_Table(table) {
   $(table).find(".other_text").each(function(){
     $(this).show(300);
   })
-
+  if (table.id == "timeline") {
+    $("#timeline").find('ol').css("position", "relative").animate({
+        left: - 3000,
+    });
+  }
 }
 function search(id) {
   var col = $(id).attr('id');

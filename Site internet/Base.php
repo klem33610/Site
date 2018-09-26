@@ -9,7 +9,6 @@
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.1/js/tempusdominus-bootstrap-4.min.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.1/css/tempusdominus-bootstrap-4.min.css" />
-
 <script src="static/JS/Form_Control.js"></script>
 
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
@@ -18,7 +17,7 @@
 <meta content="Des bénévoles se mobilisent pour accueillir humainement les migrants" name="Description">
 <meta content="benevoles, accueil, migrants, valfleury, loire, 42, citoyen, collectif, groupe, action, animation, culturel, humanitaire" name="Keywords">
 <meta content="Benevoles Accueil Migrants Valfleury" name="Author">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
 <head>
   <div style="text-align: center; font-family: Arial" class="form-group mx-auto">
