@@ -19,16 +19,24 @@ $rs = $bdd->query('SELECT * FROM Adherents_JS LIMIT 0');
 ?>
 
 <body>
-  <?php include('Timeline.php'); ?>
-  <div class="form-group row col-sm-12">
-    <div class="shadow card bg-light mt-3 ml-2">
+  <div class="form-group row col-sm-12 mx-auto">
+    <div class="shadow card bg-light">
+      <div class="mb-2 text-center card-header px-4 rounded-bottom py-2 bg-warning text-white shadow-sm"><h3>Frise temporelle des dons pour l'aide d'urgence &rarr;</h3>
+      </div>
+      <div class="card-body">
+        <?php include('Timeline.php'); ?>
+      </div>
+    </div>
+  </div>
+  <div class="mx-auto row col-sm-12 mb-3">
+    <div class="shadow col-sm-6 card bg-light mt-3">
       <div class="card-header px-4 rounded-bottom py-2 bg-info text-white shadow-sm">Header</div>
       <div class="card-body">
         <h5 class="card-title">Light card title</h5>
         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
       </div>
     </div>
-    <div class="shadow card bg-light mt-3 ml-2">
+    <div class="shadow card bg-light mt-3 col-sm-6">
       <div class="card-header px-4 rounded-bottom py-2 bg-info text-white shadow-sm">Header</div>
       <div class="card-body">
         <h5 class="card-title">Light card title</h5>
@@ -36,7 +44,7 @@ $rs = $bdd->query('SELECT * FROM Adherents_JS LIMIT 0');
       </div>
     </div>
   </div>
-<table onclick="show_Table(this)" id="Membres" class="form-group col-sm-10 mx-auto ml-2 text-center table table-bordered table-striped">
+<table onclick="show_Table(this)" id="Membres" class="mt-3 form-group col-sm-10 mx-auto ml-2 text-center table table-bordered table-striped">
  <h3 class="mt-2 text-center">Membres de Jarez Solidarités</h3>
  <thead>
  <tr class="table-warning">

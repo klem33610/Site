@@ -4,10 +4,6 @@
 <?php date_default_timezone_set('UTC');
 setlocale(LC_TIME, 'fr_FR.utf8','fra');?>
 
-  <div onclick="show_Table(this)">
-      <div class="mb-2 text-center card-header px-4 rounded-bottom py-2 bg-warning text-white shadow-sm">
-        <h1>Frise temporelle des dons pour l'aide d'urgence &rarr;</h1>
-      </div>
       <div class="timeline">
         <div class="timeline__wrap">
           <div class="timeline__items">
@@ -36,6 +32,5 @@ setlocale(LC_TIME, 'fr_FR.utf8','fra');?>
           </div>
         </div>
       </div>
-    </div>
 
 <script src="static/JS/timeline.min.js"></script>
