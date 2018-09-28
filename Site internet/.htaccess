@@ -1,3 +1,15 @@
 <IfDefine Free>
   php56 1
 </IfDefine>
+<Files Intranet_Suivi.php>
+  PerlSetVar AuthFile .htpasswd
+  AuthName "Accès restreint"
+  AuthType Basic
+  require valid-user
+</Files>
+<Files .htpasswd>
+  PerlSetVar AuthFile .htpasswd
+  AuthName "Accès restreint"
+  AuthType Basic
+  require valid-user
+</Files>
