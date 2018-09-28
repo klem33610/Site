@@ -27,20 +27,14 @@
   <div class="row col-sm-12 mt-2">
     <div class="col-sm-3">
       <h4 class="text-center font-weight-bold">Les objectifs</h4>
-      <p class="text-center">Son
-      objet &nbsp;est d'initier, organiser , mettre en oeuvre ,
-      accompagner,
-      coordonner &nbsp;toutes actions de solidarités envers les personnes
-      en
-      difficulté, quelles que soient leurs origines, leur culture, leur
-      religion.<br>
-      <br>
-      Elle est un outil matériel et logistique&nbsp;pour accompagner les
-      migrants ayant séjourné à Valfleury et aider toutes personnes en
-      difficulté.</p>
+      <p class="text-center">Son objet &nbsp;est d'initier, organiser , mettre en oeuvre , accompagner, coordonner &nbsp;
+        toutes actions de solidarités envers les personnes en difficulté, quelles que soient leurs origines,
+        leur culture, leur religion.<br> <br>
+        Elle est un outil matériel et logistique&nbsp;
+        pour accompagner les migrants ayant séjourné à Valfleury et aider toutes personnes en difficulté.</p>
       <div class="text-center form-group">
         <span>Parmi ses actions : le programme<br><span class="font-weight-bold">Aide d'urgence"</span><br></span>
-        <a class="mt-0 font-weight-bold" style="background-color : rgb(0, 153, 0); color : white" href="aide_urgence/projet.html">
+        <a class="mt-0 font-weight-bold" style="background-color : rgb(0, 153, 0); color : white" href="Aide_Urgence.php">
           En savoir plus</a>
       </div>
       <div>
@@ -58,15 +52,10 @@
     <?php include('Formulaire_.php'); ?>
     <div class="col-sm-3">
       <h4 class="text-center font-weight-bold">Organisation</h4>
-      <p class="text-center">Elle
-      est de forme collégiale : le conseil
-      d'administration&nbsp;est un collège solidaire, dans lequel il n’y
-      a
-      pas de titre de président, de trésorier, de secrétaire.<br>
-      <br>
-      Tous les membres du Collège sont solidairement responsables de
-      l’association.<br>
-      Les tâches se répartissent au bon vouloir et à la compétence de chacun.</p>
+      <p class="text-center">Elle est de forme collégiale : le conseil d'administration&nbsp;
+        est un collège solidaire, dans lequel il n’y a pas de titre de président, de trésorier, de secrétaire.<br> <br>
+        Tous les membres du Collège sont solidairement responsables de l’association.<br>
+        Les tâches se répartissent au bon vouloir et à la compétence de chacun.</p>
       <p class="text-center"> Contact : jarezsolidarites@free.fr</p>
       <div class="text-center mt-4">
         <h4 class="text-center font-weight-bold">Réunions</h4>
