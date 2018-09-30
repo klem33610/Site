@@ -21,22 +21,23 @@ $rs = $bdd->query('SELECT * FROM Adherents_JS LIMIT 0');
 <body>
   <div class="form-group row col-sm-12 mx-auto">
     <div class="shadow card bg-light">
-      <div class="mb-2 text-center card-header px-4 rounded-bottom py-2 bg-warning text-white shadow-sm"><h3>Frise temporelle des dons pour l'aide d'urgence &rarr;</h3>
+      <div class="mb-2 text-center card-header px-4 rounded-bottom py-2 bg-warning text-white shadow-sm">
+        <h3>Frise temporelle des dons pour l'aide d'urgence &rarr;</h3>
       </div>
       <div class="card-body">
         <?php include('Timeline.php'); ?>
       </div>
     </div>
   </div>
-  <div class="mx-auto row col-sm-12 mb-3">
-    <div class="shadow col-sm-6 card bg-light mt-3">
+  <div class="mx-auto card-deck row mb-3">
+    <div class="shadow card bg-light mt-3">
       <div class="card-header px-4 rounded-bottom py-2 bg-info text-white shadow-sm">Header</div>
       <div class="card-body">
         <h5 class="card-title">Light card title</h5>
         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
       </div>
     </div>
-    <div class="shadow card bg-light mt-3 col-sm-6">
+    <div class="shadow card bg-light mt-3">
       <div class="card-header px-4 rounded-bottom py-2 bg-info text-white shadow-sm">Header</div>
       <div class="card-body">
         <h5 class="card-title">Light card title</h5>
