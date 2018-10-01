@@ -1,6 +1,9 @@
 function show_Table(table) {
   $(table).find(".other_text").each(function(){
     $(this).show(300);
+    $('#cardMembre').each(function(){
+      $(this).css('width','100%');
+    })
   })
 }
 function search(id) {
