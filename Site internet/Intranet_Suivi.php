@@ -51,7 +51,7 @@ $rs = $bdd->query('SELECT * FROM Adherents_JS LIMIT 0');
       <div id="cardMembre" class="card-body">
         <table onclick="show_Table(this)" id="Membres" class="text-center table table-bordered table-striped">
          <thead>
-         <tr class="table-warning">
+         <tr class="text-center table-warning">
             <? for ($i = 0; $i < 5; $i++) {
                $col = $rs->getColumnMeta($i); ?>
                <th><p class="text-error" id="<? echo $col['name'];?>" onclick="sortTable(this)"><? echo $col['name']; ?></p><input class="form-control" type="text" id="<? echo $col['name'];?>" onkeyup="search(this)" placeholder="Recherche"></th>
