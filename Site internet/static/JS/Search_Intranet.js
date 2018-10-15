@@ -22,11 +22,10 @@ String.prototype.sansAccent = function(){
 function show_Table(table) {
   $(table).find(".other_text").each(function(){
     $(this).show(300);
-    $('#cardMembre').each(function(){
-      $(this).css('width','100%');
-    })
   })
+  $(table).parentsUntil("body").width($(table).width());
 }
+
 function search(id) {
   var col = $(id).attr('id');
   // Declare variables
