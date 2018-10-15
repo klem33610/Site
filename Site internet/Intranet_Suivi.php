@@ -28,15 +28,15 @@ $rs = $bdd->query('SELECT * FROM Adherents_JS LIMIT 0');
       </div>
     </div>
   </div>
-  <div class="mx-auto row col-sm-12 mb-3">
-    <div class="shadow col-sm-6 card bg-light mt-3">
+  <div class="mx-auto row col-sm-12">
+    <div class="shadow col-sm-6 card bg-light my-3">
       <div class="card-header px-4 rounded-bottom py-2 bg-info text-white shadow-sm">Header</div>
       <div class="card-body">
         <h5 class="card-title">Light card title</h5>
         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
       </div>
     </div>
-    <div class="shadow card bg-light mt-3 col-sm-6">
+    <div class="shadow card bg-light my-3 col-sm-6">
       <div class="card-header px-4 rounded-bottom py-2 bg-info text-white shadow-sm">Header</div>
       <div class="card-body">
         <h5 class="card-title">Light card title</h5>
@@ -45,11 +45,11 @@ $rs = $bdd->query('SELECT * FROM Adherents_JS LIMIT 0');
     </div>
   </div>
   <div class="form-group col-sm-12 mx-auto">
-    <div class="shadow card">
+    <div class="mt-3 shadow card">
       <div class="text-center card-header rounded-bottom shadow-sm">
-        <h3 class="text-center">Membres de Jarez Solidarités</h3>
+        <h3>Membres de Jarez Solidarités</h3>
       </div>
-      <div class="card-body ml-0">
+      <div class="text-center my-0 py-0 mx-0 px-0 card-body">
         <table onclick="show_Table(this)" id="Membres" class="table table-bordered table-striped">
          <thead>
          <tr class="text-center table-warning">
