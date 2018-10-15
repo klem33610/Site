@@ -46,10 +46,11 @@ $rs = $bdd->query('SELECT * FROM Adherents_JS LIMIT 0');
   </div>
   <div id="cardMembre" class="form-group col-sm-12 mx-auto">
     <div id="cardMembre" class="shadow card">
-      <div id="cardMembre" class="text-center card-header rounded-bottom shadow-sm"><h3 class="text-center">Membres de Jarez Solidarités</h3>
+      <div id="cardMembre" class="text-center card-header rounded-bottom shadow-sm">
+        <h3 class="text-center">Membres de Jarez Solidarités</h3>
       </div>
-      <div id="cardMembre" class="card-body">
-        <table onclick="show_Table(this)" id="Membres" class="text-center table table-bordered table-striped">
+      <div id="cardMembre" class="card-body ml-0">
+        <table onclick="show_Table(this)" id="Membres" class="table table-bordered table-striped">
          <thead>
          <tr class="table-warning">
             <? for ($i = 0; $i < 5; $i++) {
