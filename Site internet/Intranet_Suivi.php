@@ -21,26 +21,55 @@ $rs = $bdd->query('SELECT * FROM Adherents_JS LIMIT 0');
 <body>
   <div class="form-group col-sm-12 mx-auto">
     <div class="shadow card bg-light">
-      <div class="mb-2 text-center card-header px-4 rounded-bottom py-2 bg-warning text-white shadow-sm"><h3>Frise temporelle des dons pour l'aide d'urgence &rarr;</h3>
+      <div class="mb-2 text-center card-header rounded-bottom bg-warning text-white shadow-sm"><h3>Frise temporelle des dons pour l'aide d'urgence &rarr;</h3>
       </div>
       <div class="card-body">
         <?php include('Timeline.php'); ?>
       </div>
     </div>
   </div>
-  <div class="mx-auto row col-sm-12">
-    <div class="shadow col-sm-6 card bg-light my-3">
-      <div class="card-header px-4 rounded-bottom py-2 bg-info text-white shadow-sm">Header</div>
-      <div class="card-body">
-        <h5 class="card-title">Light card title</h5>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+
+  <div class="card-deck mx-auto col-sm-12">
+    <div class="form-group col-sm-6 mx-auto text-center my-3">
+      <div class="shadow card bg-light">
+        <div class="card-header rounded-bottom bg-info text-white shadow-sm">
+          <h5>Suivi des promesses de dons</h5>
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">Light card title</h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        </div>
+        <div class="card-footer">
+          <div class="mx-auto row">
+            <div class="col-sm-6">
+              <button type="button" class="btn btn-outline-success">Validation</button>
+            </div>
+            <div class="col-sm-6">
+              <button type="button" class="btn btn-outline-danger">Relance mail</button>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-    <div class="shadow card bg-light my-3 col-sm-6">
-      <div class="card-header px-4 rounded-bottom py-2 bg-info text-white shadow-sm">Header</div>
-      <div class="card-body">
-        <h5 class="card-title">Light card title</h5>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <div class="form-group col-sm-6 mx-auto text-center my-3">
+      <div class="shadow card bg-light">
+        <div class="card-header rounded-bottom bg-info text-white shadow-sm">
+          <h5>Suivi des adhésions annuelles</h5>
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">Light card title</h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        </div>
+        <div class="card-footer">
+          <div class="mx-auto row">
+            <div class="col-sm-6">
+              <button type="button" class="btn btn-outline-success">Validation</button>
+            </div>
+            <div class="col-sm-6">
+              <button type="button" class="btn btn-outline-danger">Relance mail</button>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
