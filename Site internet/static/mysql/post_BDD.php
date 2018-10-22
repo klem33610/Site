@@ -32,10 +32,17 @@ foreach($_POST as $paramName => $paramValue){
   }
 }
 $values['id'] = $id;
-$values['DateInscription'] = $Date;
+if (!$_POST['MontantAideUrgenceChoice']){
+  $values['MontantAideUrgence'] = $_POST['MontantAideUrgence'];
+} else {
+  $values['MontantAideUrgence'] = $_POST['MontantAideUrgenceChoice'];
+}
+$values['DateInscription'] = new DateTime(date("d-m-Y"))->format("Y-m-d");
 $values['DerniereMensualiteAideUrgence'] = $Duree;
 $values['DonsMensuels'] = $Dons;
-unset($values[Autre_Date]);
+unset($values[Autre_Date]);$Month
+unset($values[MontantAideUrgenceChoice]);
+
 // $tmp_query = ("INSERT INTO user (id, nom) VALUES (:DateInscription, :Adresse2) ");
 // $tmp_result = $bdd->prepare($tmp_query);
 // $tmp_result->bindValue(':Adresse2', $_POST['Adresse2']);

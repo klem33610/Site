@@ -12,13 +12,28 @@ $PARAM_utilisateur='jarezsolidarites'; // nom d'utilisateur pour se connecter
 $PARAM_mot_passe='J9s9o4s1'; // mot de passe de l'utilisateur pour se connecter
 $bdd = new PDO('mysql:host='.$PARAM_hote.';dbname='.$PARAM_nom_bd.';charset=UTF8', $PARAM_utilisateur, $PARAM_mot_passe);
 
+$Date = date("d-m-Y");
+$Month = new DateTime(date("d-m-Y"));
+$Month = $Month->format("m/Y");
+
 $sql = 'SELECT * FROM Adherents_JS ORDER BY id';
 $req = $bdd->query($sql);
 
 $rs = $bdd->query('SELECT * FROM Adherents_JS LIMIT 0');
+
+$tableau = $req->fetchAll();
+$suivi_dons = "SELECT id, Prenom, Nom, DateInscription FROM Adherents_JS WHERE DateValidationMensualite IS NULL OR (DateValidationMensualite < DerniereMensualiteAideUrgence AND DateValidationMensualite < '$Month') ORDER BY DateInscription";
+$suivi_dons = $bdd->query($suivi_dons);
+
 ?>
 
 <body>
+  <?
+  echo "<pre>";
+  print_r($tableau);
+  echo "</pre>";
+
+  ?>
   <div class="form-group col-sm-12 mx-auto">
     <div class="shadow card bg-light">
       <div class="mb-2 text-center card-header rounded-bottom bg-warning text-white shadow-sm"><h3>Frise temporelle des dons pour l'aide d'urgence &rarr;</h3>
@@ -36,8 +51,28 @@ $rs = $bdd->query('SELECT * FROM Adherents_JS LIMIT 0');
           <h5>Suivi des promesses de dons</h5>
         </div>
         <div class="card-body">
-          <h5 class="card-title">Light card title</h5>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <table class="table table-sm">
+            <thead>
+              <tr>
+                <th scope="col">Choix</th>
+                <th scope="col">Prénom</th>
+                <th scope="col">Nom</th>
+                <th scope="col">Inscription</th>
+              </tr>
+            </thead>
+            <tbody>
+              <? for ($j = 0; $j < $suivi_dons->rowCount(); $j++) {
+                $row = $suivi_dons->fetch($j);?>
+                  <tr>
+                    <td><input class="form-check-input" type="checkbox"></td>
+                    <td><? echo $row[1]; ?></td>
+                    <td><? echo $row[2]; ?></td>
+                    <td><? echo $row[3]; ?></td>
+                  </tr>
+            <?  }
+            $suivi_dons->closeCursor();?>
+            </tbody>
+          </table>
         </div>
         <div class="card-footer">
           <div class="mx-auto row">
@@ -57,16 +92,28 @@ $rs = $bdd->query('SELECT * FROM Adherents_JS LIMIT 0');
           <h5>Suivi des adhésions annuelles</h5>
         </div>
         <div class="card-body">
-          <h5 class="card-title">Light card title</h5>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        </div>
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Choix</th>
+                <th scope="col">Prénom</th>
+                <th scope="col">Nom</th>
+                <th scope="col">Inscription</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+
+              </tr>
+            </tbody>
+          </table></div>
         <div class="card-footer">
           <div class="mx-auto row">
             <div class="col-sm-6">
               <button type="button" class="btn btn-outline-success">Validation</button>
             </div>
             <div class="col-sm-6">
-              <button type="button" class="btn btn-outline-danger">Relance mail</button>
+              <button type="button" class="btn btn-outline-danger">Réinviter par mail</button>
             </div>
           </div>
         </div>
@@ -111,3 +158,5 @@ $rs = $bdd->query('SELECT * FROM Adherents_JS LIMIT 0');
     </div>
 </div>
 </body>
+<?
+?>

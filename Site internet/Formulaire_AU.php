@@ -93,8 +93,8 @@
           </div>
           <div class="form-check form-check-inline">
             <label class="form-check-label form-group">
-              <input onfocus="reveal_other(this)" class="other form-check-input" type="radio" name="MontantAideUrgence" id="Montant_Choice"> Autre
-              <input type="text" class="other_text form-control" id="Montant_Autre" name="MontantAideUrgence" placeholder="Autre montant">
+              <input onfocus="reveal_other(this)" class="other form-check-input" type="radio" id="Montant_Choice"> Autre
+              <input type="text" class="other_text form-control" id="Montant_Autre" name="MontantAideUrgenceChoice" placeholder="Autre montant">
             </label>
           </div>
         </div>
