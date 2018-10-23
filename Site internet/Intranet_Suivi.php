@@ -29,9 +29,13 @@ $suivi_dons = $bdd->query($suivi_dons);
 
 <body>
   <?
+  foreach($tableau as $i => $value)
+    foreach($tableau[$i] as $key => $val)
+{
   echo "<pre>";
-  print_r($tableau);
+  print_r($tableau[$i][0]);
   echo "</pre>";
+}
 
   ?>
   <div class="form-group col-sm-12 mx-auto">
