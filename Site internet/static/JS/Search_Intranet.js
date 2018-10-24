@@ -23,6 +23,7 @@ function show_Table(tableau) {
   $(tableau).find(".other_text").each(function(){
     $(this).show(300);
   })
+  $(tableau).find('td').css("min-width","233px");
   $(tableau).parentsUntil("body").width($(tableau).width());
 }
 
@@ -37,14 +38,13 @@ function search(id) {
   // Loop through all table rows, and hide those who don't match the search query
   for (i = 0; i < tr; i++) {
     td = $('#Membres').find('tbody').find('tr').eq(i).children().filter('.' + col);
-    console.log($('#Membres').find('tbody').find('tr').eq(i).children())
     if (td) {
       var str = $(td).text();
       var string = str.sansAccent();
       if (string.toUpperCase().indexOf(filter) > -1) {
-        $('tr').eq(i).show();
+        $('#Membres').find('tbody').find('tr').eq(i).show();
       } else {
-        $('tr').eq(i).hide();
+        $('#Membres').find('tbody').find('tr').eq(i).hide();
       }
     }
   }
@@ -53,7 +53,6 @@ function sortTable(id) {
   var col = $(id).attr('id');
   var j, z;
   var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
-  table = $('#Membres');
   switching = true;
   //Set the sorting direction to ascending:
   dir = "asc";
@@ -62,18 +61,18 @@ function sortTable(id) {
   while (switching) {
     //start by saying: no switching is done:
     switching = false;
-    rows = $('tr').length;
+    rows = $('#Membres').find('tr').length;
     /*Loop through all table rows (except the
     first, which contains table headers):*/
     for (i = 1; i < (rows - 1); i++) {
-      j = $('tr').eq(i);
-      z = $('tr').eq(i + 1)
+      j = $('#Membres').find('tr').eq(i);
+      z = $('#Membres').find('tr').eq(i + 1)
       //start by saying there should be no switching:
       shouldSwitch = false;
       /*Get the two elements you want to compare,
       one from current row and one from the next:*/
-      x = $('tr').eq(i).children().filter('.' + col);
-      y = $('tr').eq(i + 1).children().filter('.' + col);
+      x = $('#Membres').find('tr').eq(i).children().filter('.' + col);
+      y = $('#Membres').find('tr').eq(i + 1).children().filter('.' + col);
       /*check if the two rows should switch place,
       based on the direction, asc or desc:*/
       if (dir == "asc") {

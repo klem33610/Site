@@ -16,7 +16,7 @@ $Date = date("d-m-Y");
 $Month = new DateTime(date("d-m-Y"));
 $Month = $Month->format("m/Y");
 
-$sql = 'SELECT * FROM Adherents_JS ORDER BY id';
+$sql = 'SELECT * FROM Adherents_JS ORDER BY DateInscription';
 $req = $bdd->query($sql);
 $tableau = $req->fetchAll(PDO::FETCH_ASSOC);
 $req->closeCursor();?>
@@ -73,7 +73,7 @@ $req->closeCursor();?>
           <h5>Suivi des adhésions annuelles</h5>
         </div>
         <div class="card-body">
-          <table class="table">
+          <table class="table table-sm">
             <thead>
               <tr>
                 <th scope="col">Choix</th>
