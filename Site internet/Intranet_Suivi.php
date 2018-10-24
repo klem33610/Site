@@ -18,26 +18,13 @@ $Month = $Month->format("m/Y");
 
 $sql = 'SELECT * FROM Adherents_JS ORDER BY id';
 $req = $bdd->query($sql);
+$tableau = $req->fetchAll(PDO::FETCH_ASSOC);
+$req->closeCursor();?>
 
-$rs = $bdd->query('SELECT * FROM Adherents_JS LIMIT 0');
-
-$tableau = $req->fetchAll();
-$suivi_dons = "SELECT id, Prenom, Nom, DateInscription FROM Adherents_JS WHERE DateValidationMensualite IS NULL OR (DateValidationMensualite < DerniereMensualiteAideUrgence AND DateValidationMensualite < '$Month') ORDER BY DateInscription";
-$suivi_dons = $bdd->query($suivi_dons);
-
-?>
+// $suivi_dons = "SELECT id, Prenom, Nom, DateInscription FROM Adherents_JS WHERE DateValidationMensualite IS NULL OR (DateValidationMensualite < DerniereMensualiteAideUrgence AND DateValidationMensualite < '$Month') ORDER BY DateInscription";
+// $suivi_dons = $bdd->query($suivi_dons);
 
 <body>
-  <?
-  foreach($tableau as $i => $value)
-    foreach($tableau[$i] as $key => $val)
-{
-  echo "<pre>";
-  print_r($tableau[$i][0]);
-  echo "</pre>";
-}
-
-  ?>
   <div class="form-group col-sm-12 mx-auto">
     <div class="shadow card bg-light">
       <div class="mb-2 text-center card-header rounded-bottom bg-warning text-white shadow-sm"><h3>Frise temporelle des dons pour l'aide d'urgence &rarr;</h3>
@@ -65,16 +52,6 @@ $suivi_dons = $bdd->query($suivi_dons);
               </tr>
             </thead>
             <tbody>
-              <? for ($j = 0; $j < $suivi_dons->rowCount(); $j++) {
-                $row = $suivi_dons->fetch($j);?>
-                  <tr>
-                    <td><input class="form-check-input" type="checkbox"></td>
-                    <td><? echo $row[1]; ?></td>
-                    <td><? echo $row[2]; ?></td>
-                    <td><? echo $row[3]; ?></td>
-                  </tr>
-            <?  }
-            $suivi_dons->closeCursor();?>
             </tbody>
           </table>
         </div>
@@ -132,34 +109,33 @@ $suivi_dons = $bdd->query($suivi_dons);
       <div class="text-center my-0 py-0 mx-0 px-0 card-body">
         <table onclick="show_Table(this)" id="Membres" class="table table-bordered table-striped">
          <thead>
-         <tr class="text-center table-warning">
-            <? for ($i = 0; $i < 5; $i++) {
-               $col = $rs->getColumnMeta($i); ?>
-               <th><p class="text-error" id="<? echo $col['name'];?>" onclick="sortTable(this)"><? echo $col['name']; ?></p><input class="form-control" type="text" id="<? echo $col['name'];?>" onkeyup="search(this)" placeholder="Recherche"></th>
-        <? } ?>
-        <? for ($i = 5; $i < $rs->columnCount(); $i++) {
-           $col = $rs->getColumnMeta($i); ?>
-           <th class="other_text"><p class="text-error" id="<? echo $col['name'];?>" onclick="sortTable(this)"><? echo $col['name']; ?></p><input class="form-control" type="text" id="<? echo $col['name'];?>" onkeyup="search(this)" placeholder="Recherche"></th>
-        <? } ?>
-        </tr>
+           <tr class="text-center table-warning">
+           <? $i = 0;
+           foreach($tableau[0] as $key => $val){
+             $i = $i + 1; ?>
+               <th class="<? if ($i > 7){echo 'other_text';} ?>">
+                 <p class="text-error" id="<? echo $key;?>" onclick="sortTable(this)"><? echo $key; ?></p>
+                 <input class="form-control" type="text" onkeyup="search(this)" placeholder="Recherche" id="<? echo $key; ?>">
+               </th>
+            <?}?>
+            </tr>
         </thead>
         <tbody>
           <tr>
-            <? for ($j = 0; $j < $req->rowCount(); $j++) {
-              $row = $req->fetch($j);
-               for ($i = 0; $i < $rs->columnCount(); $i++) {
-                 $col = $rs->getColumnMeta($i); ?>
-              <td class="<?php if($i > 4 OR $j > 4) { echo 'other_text ';} ?><? echo $col['name'];?>"><? echo $row[$col['name']]; ?></td>
-         <? } ?>
-        </tr>
-        <? }
-         $req->closeCursor();
-         $rs->closeCursor();
-          ?>
-          </tbody>
-        </table>
-      </div>
+          <? $x = 0;
+          foreach($tableau as $i => $value){
+            $x = $x + 1;
+            $y = 0;
+            foreach($tableau[$i] as $key => $val){
+              $y = $y + 1; ?>
+                <td class="<?php if($x > 4 OR $y > 7) { echo 'other_text ';} ?><? echo $key;?>"><? echo $tableau[$i][$key]; ?></td>
+            <? } ?>
+          </tr>
+        <? } ?>
+        </tbody>
+      </table>
     </div>
+  </div>
 </div>
 </body>
 <?

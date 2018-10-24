@@ -19,24 +19,25 @@ String.prototype.sansAccent = function(){
 }
 
 
-function show_Table(table) {
-  $(table).find(".other_text").each(function(){
+function show_Table(tableau) {
+  $(tableau).find(".other_text").each(function(){
     $(this).show(300);
   })
-  $(table).parentsUntil("body").width($(table).width());
+  $(tableau).parentsUntil("body").width($(tableau).width());
 }
 
 function search(id) {
   var col = $(id).attr('id');
   // Declare variables
-  var input, filter, table, tr, td, i;
+  var input, filter, tableau, tr, td, i;
   filter = $(id).val().toUpperCase().sansAccent();
-  table = $('#Membres');
-  tr = $('tr').length;
+  tableau = $('#Membres');
+  tr = $('#Membres').find('tbody').find('tr').length;
 
   // Loop through all table rows, and hide those who don't match the search query
-  for (i = 1; i < tr; i++) {
-    td = $('tr').eq(i).children().filter('.' + col);
+  for (i = 0; i < tr; i++) {
+    td = $('#Membres').find('tbody').find('tr').eq(i).children().filter('.' + col);
+    console.log($('#Membres').find('tbody').find('tr').eq(i).children())
     if (td) {
       var str = $(td).text();
       var string = str.sansAccent();
