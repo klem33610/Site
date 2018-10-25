@@ -16,7 +16,7 @@ $Date = date("d-m-Y");
 $Month = new DateTime(date("d-m-Y"));
 $Month = $Month->format("m/Y");
 
-$sql = 'SELECT * FROM Adherents_JS ORDER BY DateInscription';
+$sql = 'SELECT * FROM Adherents_JS ORDER BY Nom';
 $req = $bdd->query($sql);
 $tableau = $req->fetchAll(PDO::FETCH_ASSOC);
 $req->closeCursor();?>
@@ -52,16 +52,24 @@ $req->closeCursor();?>
               </tr>
             </thead>
             <tbody>
+              <? foreach($tableau as $i => $value){?>
+                <tr>
+                  <td><input style="width:23px; height:23px; margin-left:33px" class="form-check-input mt-0" type="checkbox"></td>
+                  <td><? echo $tableau[$i]['Prenom']; ?></td>
+                  <td><? echo $tableau[$i]['Nom']; ?></td>
+                  <td><? echo $tableau[$i]['DateInscription']; ?></td>
+                </tr>
+              <?}?>
             </tbody>
           </table>
         </div>
         <div class="card-footer">
           <div class="mx-auto row">
             <div class="col-sm-6">
-              <button type="button" class="btn btn-outline-success">Validation</button>
+              <button type="button" class="btn btn-lg btn-outline-success">Validation</button>
             </div>
             <div class="col-sm-6">
-              <button type="button" class="btn btn-outline-danger">Relance mail</button>
+              <button type="button" class="btn btn-lg btn-outline-danger">Relance mail</button>
             </div>
           </div>
         </div>
@@ -83,19 +91,19 @@ $req->closeCursor();?>
               </tr>
             </thead>
             <tbody>
-              <tr>
-
-              </tr>
+              <? foreach($tableau as $i => $value){?>
+                <tr>
+                  <td><input style="width:23px; height:23px; margin-left:33px" class="form-check-input mt-0" type="checkbox"></td>
+                  <td><? echo $tableau[$i]['Prenom']; ?></td>
+                  <td><? echo $tableau[$i]['Nom']; ?></td>
+                  <td><? echo $tableau[$i]['DateInscription']; ?></td>
+                </tr>
+              <?}?>
             </tbody>
           </table></div>
         <div class="card-footer">
-          <div class="mx-auto row">
-            <div class="col-sm-6">
-              <button type="button" class="btn btn-outline-success">Validation</button>
-            </div>
-            <div class="col-sm-6">
-              <button type="button" class="btn btn-outline-danger">Réinviter par mail</button>
-            </div>
+          <div class="mx-auto text-center">
+            <button type="button" class="btn btn-lg btn-outline-success">Réinviter par mail</button>
           </div>
         </div>
       </div>
