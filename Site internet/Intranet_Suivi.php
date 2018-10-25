@@ -19,7 +19,7 @@ $req->closeCursor();
 
 $Date = date("d-m-Y");
 $Month = new DateTime(date("d-m-Y"));
-$Month = $Month->format("m/Y");
+$Month = $Month->format("Y-m-d");
 
 ?>
 // $suivi_dons = "SELECT id, Prenom, Nom, DateInscription FROM Adherents_JS WHERE ORDER BY DateInscription";
@@ -54,15 +54,16 @@ $Month = $Month->format("m/Y");
             </thead>
             <tbody>
               <? foreach($tableau as $i => $value){
-                $DerniereMensualiteAideUrgence = $tableau[$i]['DerniereMensualiteAideUrgence'];
-                if ($tableau[$i]['DateValidationMensualite'] && $tableau[$i]['DateValidationMensualite'] <> '0000-00-00'){
-                  $DateValidationMensualite = $tableau[$i]['DateValidationMensualite'];
+                $DerniereMensualiteAideUrgence = DateTime::createFromFormat('Y-m-d', $tableau[$i]['DerniereMensualiteAideUrgence']);
+                if ($DateValidationMensualite = DateTime::createFromFormat('Y-m-d', $tableau[$i]['DateValidationMensualite'])){
+                  $DateValidationMensualite = DateTime::createFromFormat('Y-m-d', $tableau[$i]['DateValidationMensualite']);
+                  echo $DateValidationMensualite > $Month;
                 } else {
-                  $DateValidationMensualite = null;
+                  $DateValidationMensualite = '0000-00-00';
                 }
-                if ($DateValidationMensualite = null || ($DateValidationMensualite < $DerniereMensualiteAideUrgence && $DateValidationMensualite < $Month)){
+                if ($DateValidationMensualite == '0000-00-00' || ($DateValidationMensualite < $DerniereMensualiteAideUrgence == true && $DateValidationMensualite->format('Y-m') < $Month->format('Y-m') == true)){
+
                 }
-                echo $DateValidationMensualite;
                 ?>
                 <tr>
                   <td><input style="width:23px; height:23px; margin-left:33px" class="form-check-input mt-0" type="checkbox"></td>
