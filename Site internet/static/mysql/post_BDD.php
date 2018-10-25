@@ -15,15 +15,15 @@ echo "</pre>";
 
 $values = [];
 $id = $_POST['Nom'] . $_POST['Prenom'] . $_POST['CodePostal'];
-$Date = date("d-m-Y");
+$Date = new DateTime(date("d-m-Y"));
 $Month = new DateTime(date("d-m-Y"));
 
 if ($_POST['Autre_Date']) {
-  $Duree = $_POST['Autre_Date'];
+  $Duree = DateTime::createFromFormat('m/Y', $_POST['Autre_Date']);
 } else {
   $Duree = $Month->modify('+'.$_POST['DerniereMensualiteAideUrgence'].' months');
-  $Duree = $Duree->format("d/m/Y");
 }
+$Duree = $Duree->format("Y-m-d");
 $Dons = 'oui';
 
 foreach($_POST as $paramName => $paramValue){
@@ -37,10 +37,10 @@ if (!$_POST['MontantAideUrgenceChoice']){
 } else {
   $values['MontantAideUrgence'] = $_POST['MontantAideUrgenceChoice'];
 }
-$values['DateInscription'] = new DateTime(date("d-m-Y"))->format("Y-m-d");
+$values['DateInscription'] = $Date->format("Y-m-d");
 $values['DerniereMensualiteAideUrgence'] = $Duree;
 $values['DonsMensuels'] = $Dons;
-unset($values[Autre_Date]);$Month
+unset($values[Autre_Date]);
 unset($values[MontantAideUrgenceChoice]);
 
 // $tmp_query = ("INSERT INTO user (id, nom) VALUES (:DateInscription, :Adresse2) ");

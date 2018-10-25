@@ -12,16 +12,17 @@ $PARAM_utilisateur='jarezsolidarites'; // nom d'utilisateur pour se connecter
 $PARAM_mot_passe='J9s9o4s1'; // mot de passe de l'utilisateur pour se connecter
 $bdd = new PDO('mysql:host='.$PARAM_hote.';dbname='.$PARAM_nom_bd.';charset=UTF8', $PARAM_utilisateur, $PARAM_mot_passe);
 
+$sql = 'SELECT * FROM Adherents_JS ORDER BY Nom';
+$req = $bdd->query($sql);
+$tableau = $req->fetchAll(PDO::FETCH_ASSOC);
+$req->closeCursor();
+
 $Date = date("d-m-Y");
 $Month = new DateTime(date("d-m-Y"));
 $Month = $Month->format("m/Y");
 
-$sql = 'SELECT * FROM Adherents_JS ORDER BY Nom';
-$req = $bdd->query($sql);
-$tableau = $req->fetchAll(PDO::FETCH_ASSOC);
-$req->closeCursor();?>
-
-// $suivi_dons = "SELECT id, Prenom, Nom, DateInscription FROM Adherents_JS WHERE DateValidationMensualite IS NULL OR (DateValidationMensualite < DerniereMensualiteAideUrgence AND DateValidationMensualite < '$Month') ORDER BY DateInscription";
+?>
+// $suivi_dons = "SELECT id, Prenom, Nom, DateInscription FROM Adherents_JS WHERE ORDER BY DateInscription";
 // $suivi_dons = $bdd->query($suivi_dons);
 
 <body>
@@ -52,7 +53,17 @@ $req->closeCursor();?>
               </tr>
             </thead>
             <tbody>
-              <? foreach($tableau as $i => $value){?>
+              <? foreach($tableau as $i => $value){
+                $DerniereMensualiteAideUrgence = $tableau[$i]['DerniereMensualiteAideUrgence'];
+                if ($tableau[$i]['DateValidationMensualite'] && $tableau[$i]['DateValidationMensualite'] <> '0000-00-00'){
+                  $DateValidationMensualite = $tableau[$i]['DateValidationMensualite'];
+                } else {
+                  $DateValidationMensualite = null;
+                }
+                if ($DateValidationMensualite = null || ($DateValidationMensualite < $DerniereMensualiteAideUrgence && $DateValidationMensualite < $Month)){
+                }
+                echo $DateValidationMensualite;
+                ?>
                 <tr>
                   <td><input style="width:23px; height:23px; margin-left:33px" class="form-check-input mt-0" type="checkbox"></td>
                   <td><? echo $tableau[$i]['Prenom']; ?></td>
