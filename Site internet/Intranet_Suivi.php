@@ -1,11 +1,13 @@
 <?php include('Base.php'); ?>
 <script src="static/JS/Search_Intranet.js"></script>
-
+<?php date_default_timezone_set('UTC');
+setlocale(LC_TIME, 'fr_FR.utf8','fra');?>
 
 <!-- Gestion et suivi : Membres et compétences/ans, Donneurs par type (AU ou A),
 calendrier des dons, Promesse et versement, Inscription par année,
 Relance mails : réinscription, rappel de dons, News, reçus fiscaux -->
 <?php
+
 $PARAM_hote='sql.free.fr'; // le chemin vers le serveur
 $PARAM_nom_bd='jarezsolidarites'; // le nom de votre base de données
 $PARAM_utilisateur='jarezsolidarites'; // nom d'utilisateur pour se connecter
@@ -19,11 +21,16 @@ $req->closeCursor();
 
 $Date = date("d-m-Y");
 $Month = new DateTime(date("d-m-Y"));
-$Month = $Month->format("Y-m-d");
+$Month_don = $Month->format("Y-m");
+$Year_Don = $Month->format("Y");
 
+$Timeline = [];
+foreach($tableau as $i => $value){
+  $DerniereMensualiteAideUrgence = DateTime::createFromFormat('Y-m-d', $tableau[$i]['DerniereMensualiteAideUrgence']);
+  $Dons = $tableau[$i]['MontantAideUrgence'];
+  if ($Month_don < $DerniereMensualiteAideUrgence->format('Y-m') && $Year_Don == $DerniereMensualiteAideUrgence->format('Y-m')){
+  }
 ?>
-// $suivi_dons = "SELECT id, Prenom, Nom, DateInscription FROM Adherents_JS WHERE ORDER BY DateInscription";
-// $suivi_dons = $bdd->query($suivi_dons);
 
 <body>
   <div class="form-group col-sm-12 mx-auto">
@@ -31,7 +38,34 @@ $Month = $Month->format("Y-m-d");
       <div class="mb-2 text-center card-header rounded-bottom bg-warning text-white shadow-sm"><h3>Frise temporelle des dons pour l'aide d'urgence &rarr;</h3>
       </div>
       <div class="card-body">
-        <?php include('Timeline.php'); ?>
+        <div class="timeline">
+          <div class="timeline__wrap">
+            <div class="timeline__items">
+              <? for ($i = 12; $i > 0; $i--) {
+                $Date = new DateTime(date("d-m-Y"));
+                 $Month = $Date->modify('-'.$i.' months'); ?>
+                 <div class="timeline__item">
+                   <div class="text-center timeline__content">
+                     <h2><? echo strftime("%B %Y", strtotime($Month->format("F - Y"))); ?><br></h2>
+                     <p>Somme des promesses de dons :</p>
+                    <p> 100 euros </p>
+                  </div>
+                </div>
+              <? } ?>
+              <? for ($i = 0; $i <= 12; $i++) {
+                $Date = new DateTime(date("d-m-Y"));
+                 $Month = $Date->modify('+'.$i.' months'); ?>
+                 <div class="timeline__item">
+                   <div class="<? if ($i==0) {echo "border border-warning rounded ";}?> text-center timeline__content">
+                     <h2><? echo strftime("%B %Y", strtotime($Month->format("F - Y"))); ?><br></h2>
+                     <p>Somme des promesses de dons :</p>
+                    <p> 100 euros </p>
+                  </div>
+                </div>
+              <? } ?>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -54,24 +88,24 @@ $Month = $Month->format("Y-m-d");
             </thead>
             <tbody>
               <? foreach($tableau as $i => $value){
-                $DerniereMensualiteAideUrgence = DateTime::createFromFormat('Y-m-d', $tableau[$i]['DerniereMensualiteAideUrgence']);
-                if ($DateValidationMensualite = DateTime::createFromFormat('Y-m-d', $tableau[$i]['DateValidationMensualite'])){
-                  $DateValidationMensualite = DateTime::createFromFormat('Y-m-d', $tableau[$i]['DateValidationMensualite']);
-                  echo $DateValidationMensualite > $Month;
-                } else {
-                  $DateValidationMensualite = '0000-00-00';
-                }
-                if ($DateValidationMensualite == '0000-00-00' || ($DateValidationMensualite < $DerniereMensualiteAideUrgence == true && $DateValidationMensualite->format('Y-m') < $Month->format('Y-m') == true)){
+                  $DerniereMensualiteAideUrgence = DateTime::createFromFormat('Y-m-d', $tableau[$i]['DerniereMensualiteAideUrgence']);
+                  if ($tableau[$i]['DateValidationMensualite']){
+                    $DateValidationMensualite = DateTime::createFromFormat('Y-m-d', $tableau[$i]['DateValidationMensualite']);
+                  } else {
+                    $DateValidationMensualite = DateTime::createFromFormat('Y-m-d','2222-22-22');
+                  }
+                  if ($DateValidationMensualite->format('Y-m-d') == '2223-10-22' || ($DateValidationMensualite < $DerniereMensualiteAideUrgence && $DateValidationMensualite->format('Y-m') < $Month_don)) {
+                    ?>
+                    <tr>
+                      <td><input style="width:23px; height:23px" class="form-check-input mx-auto" type="checkbox"></td>
+                      <td><? echo $tableau[$i]['Prenom']; ?></td>
+                      <td><? echo $tableau[$i]['Nom']; ?></td>
+                      <td><? echo $tableau[$i]['DateInscription']; ?></td>
+                    </tr>
+                  <?} else {
 
-                }
-                ?>
-                <tr>
-                  <td><input style="width:23px; height:23px; margin-left:33px" class="form-check-input mt-0" type="checkbox"></td>
-                  <td><? echo $tableau[$i]['Prenom']; ?></td>
-                  <td><? echo $tableau[$i]['Nom']; ?></td>
-                  <td><? echo $tableau[$i]['DateInscription']; ?></td>
-                </tr>
-              <?}?>
+                  }
+              }?>
             </tbody>
           </table>
         </div>
@@ -103,14 +137,18 @@ $Month = $Month->format("Y-m-d");
               </tr>
             </thead>
             <tbody>
-              <? foreach($tableau as $i => $value){?>
-                <tr>
-                  <td><input style="width:23px; height:23px; margin-left:33px" class="form-check-input mt-0" type="checkbox"></td>
-                  <td><? echo $tableau[$i]['Prenom']; ?></td>
-                  <td><? echo $tableau[$i]['Nom']; ?></td>
-                  <td><? echo $tableau[$i]['DateInscription']; ?></td>
-                </tr>
-              <?}?>
+              <? foreach($tableau as $i => $value){
+                  $DateInscription = DateTime::createFromFormat('Y-m-d', $tableau[$i]['DateInscription']);
+                  if ($DateInscription->format('Y') == $Year_Don - 1) {
+                    ?>
+                    <tr>
+                      <td><input style="width:23px; height:23px" class="form-check-input mx-auto" type="checkbox"></td>
+                      <td><? echo $tableau[$i]['Prenom']; ?></td>
+                      <td><? echo $tableau[$i]['Nom']; ?></td>
+                      <td><? echo $tableau[$i]['DateInscription']; ?></td>
+                    </tr>
+                  <?}
+              }?>
             </tbody>
           </table></div>
         <div class="card-footer">
@@ -158,5 +196,7 @@ $Month = $Month->format("Y-m-d");
   </div>
 </div>
 </body>
-<?
-?>
+
+<script src="static/JS/timeline.min.js"></script>
+<link href="static/css/timeline.min.css" rel="stylesheet">
+<script src="static/JS/timeline.js"></script>

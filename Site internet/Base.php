@@ -11,6 +11,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.1/css/tempusdominus-bootstrap-4.min.css" />
 <script src="static/JS/Form_Control.js"></script>
 
+
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
 <title>Accueil Migrants Valfleury</title>
 <link href="static/media/favicon.png" type="image/png" rel="icon">
