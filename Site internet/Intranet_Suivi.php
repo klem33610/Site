@@ -27,9 +27,33 @@ $Year_Don = $Month->format("Y");
 $Timeline = [];
 foreach($tableau as $i => $value){
   $DerniereMensualiteAideUrgence = DateTime::createFromFormat('Y-m-d', $tableau[$i]['DerniereMensualiteAideUrgence']);
+  $Inscription = DateTime::createFromFormat('Y-m-d', $tableau[$i]['DateInscription']);
   $Dons = $tableau[$i]['MontantAideUrgence'];
-  if ($Month_don < $DerniereMensualiteAideUrgence->format('Y-m') && $Year_Don == $DerniereMensualiteAideUrgence->format('Y-m')){
+  $Nom = $tableau[$i]['Nom'] . " " . $Prenom = $tableau[$i]['Prenom'];
+  for ($j = 12; $j > 0; $j--) {
+    $Date = DateTime::createFromFormat('Y-m-d', $Month_don . '-01');
+    $Month = $Date->modify('-'.$j.' months');
+    if ($Month->format('Y-m') <= $DerniereMensualiteAideUrgence->format('Y-m') && $Month->format('Y-m') >= $Inscription->format('Y-m')) {
+      $Timeline[$Month->format('m-Y')][] = array(
+      "Nom" => $Nom,
+      "Dons" => $Dons
+    );
+    }
   }
+  for ($j = 0; $j <= 12; $j++) {
+    $Date = DateTime::createFromFormat('Y-m-d', $Month_don . '-01');
+    $Month = $Date->modify('+'.$j.' months');
+    if ($Month->format('Y-m') <= $DerniereMensualiteAideUrgence->format('Y-m') && $Month->format('Y-m') >= $Inscription->format('Y-m')) {
+      $Timeline[$Month->format('Y-m')][] = array(
+        "Nom" => $Nom,
+        "Dons" => $Dons
+      );
+    }
+  }
+}
+echo "<pre>";
+print_r($Timeline[1]['Dons']);
+echo "</pre>";
 ?>
 
 <body>
@@ -42,18 +66,22 @@ foreach($tableau as $i => $value){
           <div class="timeline__wrap">
             <div class="timeline__items">
               <? for ($i = 12; $i > 0; $i--) {
-                $Date = new DateTime(date("d-m-Y"));
-                 $Month = $Date->modify('-'.$i.' months'); ?>
+                $Date = DateTime::createFromFormat('Y-m-d', $Month_don . '-01');
+                 $Month = $Date->modify('-'.$i.' months');
+                 $Mois = $Month->format('Y-m');
+                 // $dd = array_column($Timeline["2018-10"], 'Dons');
+                 // $Sum_Dons = array_sum($dd);
+              ?>
                  <div class="timeline__item">
                    <div class="text-center timeline__content">
                      <h2><? echo strftime("%B %Y", strtotime($Month->format("F - Y"))); ?><br></h2>
                      <p>Somme des promesses de dons :</p>
-                    <p> 100 euros </p>
+                    <p> <? echo $Timeline[0]['Dons'] ." ";?> euros </p>
                   </div>
                 </div>
               <? } ?>
               <? for ($i = 0; $i <= 12; $i++) {
-                $Date = new DateTime(date("d-m-Y"));
+                $Date = DateTime::createFromFormat('Y-m-d', $Month_don . '-01');
                  $Month = $Date->modify('+'.$i.' months'); ?>
                  <div class="timeline__item">
                    <div class="<? if ($i==0) {echo "border border-warning rounded ";}?> text-center timeline__content">
