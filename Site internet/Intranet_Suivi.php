@@ -34,7 +34,7 @@ foreach($tableau as $i => $value){
     $Date = DateTime::createFromFormat('Y-m-d', $Month_don . '-01');
     $Month = $Date->modify('-'.$j.' months');
     if ($Month->format('Y-m') <= $DerniereMensualiteAideUrgence->format('Y-m') && $Month->format('Y-m') >= $Inscription->format('Y-m')) {
-      $Timeline[$Month->format('m-Y')][] = array(
+      $Timeline[$Month->format('Y-m')][] = array(
       "Nom" => $Nom,
       "Dons" => $Dons
     );
@@ -51,11 +51,7 @@ foreach($tableau as $i => $value){
     }
   }
 }
-echo "<pre>";
-print_r($Timeline[1]['Dons']);
-echo "</pre>";
 ?>
-
 <body>
   <div class="form-group col-sm-12 mx-auto">
     <div class="shadow card bg-light">
@@ -68,26 +64,28 @@ echo "</pre>";
               <? for ($i = 12; $i > 0; $i--) {
                 $Date = DateTime::createFromFormat('Y-m-d', $Month_don . '-01');
                  $Month = $Date->modify('-'.$i.' months');
-                 $Mois = $Month->format('Y-m');
-                 // $dd = array_column($Timeline["2018-10"], 'Dons');
-                 // $Sum_Dons = array_sum($dd);
+                 $dd = array_column($Timeline[$Month->format('Y-m')], 'Dons');
+                 $Sum_Dons = array_sum($dd);
               ?>
                  <div class="timeline__item">
                    <div class="text-center timeline__content">
                      <h2><? echo strftime("%B %Y", strtotime($Month->format("F - Y"))); ?><br></h2>
                      <p>Somme des promesses de dons :</p>
-                    <p> <? echo $Timeline[0]['Dons'] ." ";?> euros </p>
+                    <p> <? echo  $Sum_Dons." ";?> euros </p>
                   </div>
                 </div>
               <? } ?>
               <? for ($i = 0; $i <= 12; $i++) {
                 $Date = DateTime::createFromFormat('Y-m-d', $Month_don . '-01');
-                 $Month = $Date->modify('+'.$i.' months'); ?>
+                 $Month = $Date->modify('+'.$i.' months');
+                 $dd = array_column($Timeline[$Month->format('Y-m')], 'Dons');
+                 $Sum_Dons = array_sum($dd);
+              ?>
                  <div class="timeline__item">
                    <div class="<? if ($i==0) {echo "border border-warning rounded ";}?> text-center timeline__content">
                      <h2><? echo strftime("%B %Y", strtotime($Month->format("F - Y"))); ?><br></h2>
                      <p>Somme des promesses de dons :</p>
-                    <p> 100 euros </p>
+                     <p> <? echo  $Sum_Dons." ";?> euros </p>
                   </div>
                 </div>
               <? } ?>
