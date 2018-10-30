@@ -67,7 +67,7 @@ foreach($tableau as $i => $value){
                  $dd = array_column($Timeline[$Month->format('Y-m')], 'Dons');
                  $Sum_Dons = array_sum($dd);
               ?>
-                 <div class="timeline__item">
+                 <div class="timeline__item" data-toggle="tooltip" data-placement="top" title="<?print_r(array_column($Timeline[$Month->format('Y-m')], 'Dons', 'Nom'));?>">
                    <div class="text-center timeline__content">
                      <h2><? echo strftime("%B %Y", strtotime($Month->format("F - Y"))); ?><br></h2>
                      <p>Somme des promesses de dons :</p>
@@ -81,7 +81,7 @@ foreach($tableau as $i => $value){
                  $dd = array_column($Timeline[$Month->format('Y-m')], 'Dons');
                  $Sum_Dons = array_sum($dd);
               ?>
-                 <div class="timeline__item">
+                <div class="timeline__item" data-toggle="tooltip" data-placement="top" title="<?print_r(array_column($Timeline[$Month->format('Y-m')], 'Dons', 'Nom'));?>">
                    <div class="<? if ($i==0) {echo "border border-warning rounded ";}?> text-center timeline__content">
                      <h2><? echo strftime("%B %Y", strtotime($Month->format("F - Y"))); ?><br></h2>
                      <p>Somme des promesses de dons :</p>
