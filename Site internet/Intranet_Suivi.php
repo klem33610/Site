@@ -53,6 +53,63 @@ foreach($tableau as $i => $value){
 }
 ?>
 <body>
+  <div id="Formulaire_yes" class="modal fade text-center" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title text-center">Confirmer l'encaissement des dons suivants ?</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Montant</th>
+                <th scope="col">Prénom</th>
+                <th scope="col">Nom</th>
+                <th scope="col">Mail</th>
+                <th scope="col">Inscription</th>
+              </tr>
+            </thead>
+            <tbody>
+              <? foreach($tableau as $i => $value){
+                  $DerniereMensualiteAideUrgence = DateTime::createFromFormat('Y-m-d', $tableau[$i]['DerniereMensualiteAideUrgence']);
+                  if ($tableau[$i]['DateValidationMensualite']){
+                    $DateValidationMensualite = DateTime::createFromFormat('Y-m-d', $tableau[$i]['DateValidationMensualite']);
+                  } else {
+                    $DateValidationMensualite = DateTime::createFromFormat('Y-m-d','2222-22-22');
+                  }
+                  if ($DateValidationMensualite->format('Y-m-d') == '2223-10-22' || ($DateValidationMensualite < $DerniereMensualiteAideUrgence && $DateValidationMensualite->format('Y-m') < $Month_don)) {
+                    ?>
+                    <tr id="<? echo $tableau[$i]['id'];?>" class="other_text">
+                      <td name="<? echo $tableau[$i]['MontantAideUrgence'];?>"><? echo $tableau[$i]['MontantAideUrgence']; ?> euros</td>
+                      <td name="<? echo $tableau[$i]['MontantAideUrgence'];?>"><? echo $tableau[$i]['Prenom']; ?></td>
+                      <td name="<? echo $tableau[$i]['Nom'];?>"><? echo $tableau[$i]['Nom']; ?></td>
+                      <td name="<? echo $tableau[$i]['mail'];?>"><? echo $tableau[$i]['Mail']; ?></td>
+                      <td name="<? echo $tableau[$i]['DateInscription'];?>"><? echo $tableau[$i]['DateInscription']; ?></td>
+                    </tr>
+                  <?}
+              }?>
+            </tbody>
+          </table>
+          <div id="champ_mail">
+            <hr/>
+            <div class="form-group">
+              <label for="Mail">Corps du mail</label>
+              <textarea class="form-control" id="Mail" rows="10"></textarea>
+            </div>
+          </div>
+
+        </div>
+        <div class="modal-footer text-center mx-auto">
+          <button type="button" class="btn btn-primary">Confirmer</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+        </div>
+      </div>
+    </div>
+  </div>
   <div class="form-group col-sm-12 mx-auto">
     <div class="shadow card bg-light">
       <div class="mb-2 text-center card-header rounded-bottom bg-warning text-white shadow-sm"><h3>Frise temporelle des dons pour l'aide d'urgence &rarr;</h3>
@@ -123,14 +180,12 @@ foreach($tableau as $i => $value){
                   if ($DateValidationMensualite->format('Y-m-d') == '2223-10-22' || ($DateValidationMensualite < $DerniereMensualiteAideUrgence && $DateValidationMensualite->format('Y-m') < $Month_don)) {
                     ?>
                     <tr>
-                      <td><input style="width:23px; height:23px" class="form-check-input mx-auto" type="checkbox"></td>
-                      <td><? echo $tableau[$i]['Prenom']; ?></td>
-                      <td><? echo $tableau[$i]['Nom']; ?></td>
-                      <td><? echo $tableau[$i]['DateInscription']; ?></td>
+                      <td name="<? echo $tableau[$i]['id'];?>"><input id="<? echo $tableau[$i]['id'];?>" style="width:23px; height:23px" onchange='Selection(this);' class="form-check-input mx-auto" type="checkbox"></td>
+                      <td name="<? echo $tableau[$i]['MontantAideUrgence'];?>"><? echo $tableau[$i]['Prenom']; ?></td>
+                      <td name="<? echo $tableau[$i]['mail'];?>"><? echo $tableau[$i]['Nom']; ?></td>
+                      <td name="<? echo $tableau[$i]['DateInscription'];?>"><? echo $tableau[$i]['DateInscription']; ?></td>
                     </tr>
-                  <?} else {
-
-                  }
+                  <?}
               }?>
             </tbody>
           </table>
@@ -138,15 +193,15 @@ foreach($tableau as $i => $value){
         <div class="card-footer">
           <div class="mx-auto row">
             <div class="col-sm-6">
-              <button type="button" class="btn btn-lg btn-outline-success">Validation</button>
+              <button id="yes" type="button" class="btn btn-lg btn-outline-success" onclick="modal_show(this)">Validation</button>
             </div>
             <div class="col-sm-6">
-              <button type="button" class="btn btn-lg btn-outline-danger">Relance mail</button>
+              <button id="no" type="button" class="btn btn-lg btn-outline-danger" onclick="modal_show(this)">Relance mail</button>
             </div>
           </div>
         </div>
       </div>
-    </div>
+  </div>
     <div class="form-group col-sm-6 mx-auto text-center my-3">
       <div class="shadow card bg-light">
         <div class="card-header rounded-bottom bg-info text-white shadow-sm">

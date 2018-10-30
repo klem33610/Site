@@ -31,7 +31,7 @@ foreach($_POST as $paramName => $paramValue){
     $values[$paramName] = $paramValue;
   }
 }
-$values['id'] = $id;
+$values['id'] = preg_replace('/\s+/', '', $id);
 if (!$_POST['MontantAideUrgenceChoice']){
   $values['MontantAideUrgence'] = $_POST['MontantAideUrgence'];
 } else {

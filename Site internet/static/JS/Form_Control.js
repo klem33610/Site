@@ -40,7 +40,24 @@ function reveal_other(element) {
   $(element).siblings().show(300);
 }
 
+function Selection(ligne) {
+  if (ligne.checked == true){
+    $("#Formulaire_yes").find('#'+ ligne.id).show();
+  } else {
+    $("#Formulaire_yes").find('#'+ ligne.id).hide();
+  }
+}
 
+function modal_show(etat) {
+  if (etat.id == "yes"){
+    $("#Formulaire_yes").find('.modal-title').text("Confirmer l'encaissement des dons suivants ?");
+    $("#Formulaire_yes").find("#champ_mail").hide();
+  } else {
+    $("#Formulaire_yes").find('.modal-title').text("Confirmer la relance mail des membres suivants ?");
+    $("#Formulaire_yes").find("#champ_mail").show();
+  }
+  $('#Formulaire_yes').modal('show');
+}
 
 //   if ($(".other1").prop('checked') == true && $(".other2").prop('checked') == true) {
 //         if ($('.other1').siblings().val() && $('.other2').siblings().val()) {
