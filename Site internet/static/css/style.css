@@ -8,3 +8,9 @@
     background-color: grey;
     cursor: pointer;
 }
+
+#Formulaire_yes tr:hover {
+    /* Add a grey background color to the table header and on hover */
+    background-color: #D3D3D3;
+    cursor: pointer;
+}

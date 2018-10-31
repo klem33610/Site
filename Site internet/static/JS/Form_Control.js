@@ -1,3 +1,5 @@
+var afficher_mail = false;
+
 $(function(){
   $('.other_text').each(function(){
     $(this).hide();
@@ -7,6 +9,17 @@ $(function(){
     locale: "fr",
     sideBySide: true,
   });
+  $('.tab_choice').click(function(){
+    if (afficher_mail == true){
+      id = this.id;
+      mail = $('#' + id).find('textarea').text();
+      $("#Formulaire_yes").find("#mail").text(mail);
+      $("#Formulaire_yes").find("#champ_mail").show(400);
+      $("#Formulaire_yes").find("#mail").change(function(){
+        $('#' + id).find('textarea').text($(this).text());
+      })
+  }
+  })
 })
 function verif() {
   var statut;
@@ -52,9 +65,11 @@ function modal_show(etat) {
   if (etat.id == "yes"){
     $("#Formulaire_yes").find('.modal-title').text("Confirmer l'encaissement des dons suivants ?");
     $("#Formulaire_yes").find("#champ_mail").hide();
+    afficher_mail = false;
   } else {
     $("#Formulaire_yes").find('.modal-title').text("Confirmer la relance mail des membres suivants ?");
-    $("#Formulaire_yes").find("#champ_mail").show();
+    $("#Formulaire_yes").find("#champ_mail").hide();
+    afficher_mail = true;
   }
   $('#Formulaire_yes').modal('show');
 }

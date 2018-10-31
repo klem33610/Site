@@ -79,31 +79,42 @@ foreach($tableau as $i => $value){
                   if ($tableau[$i]['DateValidationMensualite']){
                     $DateValidationMensualite = DateTime::createFromFormat('Y-m-d', $tableau[$i]['DateValidationMensualite']);
                   } else {
-                    $DateValidationMensualite = DateTime::createFromFormat('Y-m-d','2222-22-22');
+                    $DateValidationMensualite = DateTime::createFromFormat('Y-m-d','2223-10-22');
                   }
                   if ($DateValidationMensualite->format('Y-m-d') == '2223-10-22' || ($DateValidationMensualite < $DerniereMensualiteAideUrgence && $DateValidationMensualite->format('Y-m') < $Month_don)) {
                     ?>
-                    <tr id="<? echo $tableau[$i]['id'];?>" class="other_text">
+                    <tr id="<? echo $tableau[$i]['id'];?>" class="other_text tab_choice">
                       <td name="<? echo $tableau[$i]['MontantAideUrgence'];?>"><? echo $tableau[$i]['MontantAideUrgence']; ?> euros</td>
-                      <td name="<? echo $tableau[$i]['MontantAideUrgence'];?>"><? echo $tableau[$i]['Prenom']; ?></td>
+                      <td> <? echo $tableau[$i]['Prenom']; ?></td>
                       <td name="<? echo $tableau[$i]['Nom'];?>"><? echo $tableau[$i]['Nom']; ?></td>
                       <td name="<? echo $tableau[$i]['mail'];?>"><? echo $tableau[$i]['Mail']; ?></td>
                       <td name="<? echo $tableau[$i]['DateInscription'];?>"><? echo $tableau[$i]['DateInscription']; ?></td>
+                      <td class="d-none" id="texte_mail">
+                        <textarea rows="10" class="text-left form-control">
+                          Bonjour <?echo $tableau[$i]['Prenom'] . " " .$tableau[$i]['Nom'];?>,
+                          Le <?echo $tableau[$i]['DateInscription'];?>, vous avez rempli le formulaire de participation aux actions de l'association Jarez Solidarités. Et nous vous en remercions chaleureusement.
+                          Nous avons enregistré votre promesse de dons de <?echo $tableau[$i]['MontantAideUrgence'];?> euros. Et à ce jour, si nous ne faisons pas d'erreur, nous ne pouvons acter la réception de ce don.
+                          Nous nous permettons ainsi de vous envoyer ce mail de rappel.
+                          Merci de de votre compréhension,
+                          Fraternellement,
+                          L'association Jarez Solidarités.
+                        </textarea>
+                      </td>
                     </tr>
                   <?}
               }?>
             </tbody>
           </table>
-          <div id="champ_mail">
+          <div id="champ_mail" class="mt-2">
             <hr/>
             <div class="form-group">
               <label for="Mail">Corps du mail</label>
-              <textarea class="form-control" id="Mail" rows="10"></textarea>
+              <textarea class="form-control text-left" rows="12" id="mail"></textarea>
             </div>
           </div>
 
         </div>
-        <div class="modal-footer text-center mx-auto">
+        <div class="modal-footer mx-auto text-center">
           <button type="button" class="btn btn-primary">Confirmer</button>
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
         </div>
