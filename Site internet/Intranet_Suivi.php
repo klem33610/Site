@@ -53,7 +53,7 @@ foreach($tableau as $i => $value){
 }
 ?>
 <body>
-
+  <form method="post" action="static/mysql/maj_BDD.php">
   <div id="Formulaire_yes" class="modal fade text-center" tabindex="-1" role="dialog">
     <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
       <div class="modal-content">
@@ -85,11 +85,11 @@ foreach($tableau as $i => $value){
                   if ($DateValidationMensualite->format('Y-m-d') == '2223-10-22' || ($DateValidationMensualite < $DerniereMensualiteAideUrgence && $DateValidationMensualite->format('Y-m') < $Month_don)) {
                     ?>
                     <tr id="<? echo $tableau[$i]['id'];?>" class="other_text tab_choice">
-                      <td name="<? echo $tableau[$i]['MontantAideUrgence'];?>"><? echo $tableau[$i]['MontantAideUrgence']; ?> euros</td>
+                      <td><? echo $tableau[$i]['MontantAideUrgence']; ?> euros</td>
                       <td> <? echo $tableau[$i]['Prenom']; ?></td>
-                      <td name="<? echo $tableau[$i]['Nom'];?>"><? echo $tableau[$i]['Nom']; ?></td>
-                      <td name="<? echo $tableau[$i]['mail'];?>"><? echo $tableau[$i]['Mail']; ?></td>
-                      <td name="<? echo $tableau[$i]['DateRenouvellement'];?>"><? echo $tableau[$i]['DateRenouvellement']; ?></td>
+                      <td><? echo $tableau[$i]['Nom']; ?></td>
+                      <td><? echo $tableau[$i]['Mail']; ?></td>
+                      <td><? echo $tableau[$i]['DateRenouvellement']; ?></td>
                       <td class="d-none" id="texte_mail">
                         <textarea rows="10" class="text-left form-control">
                           Bonjour <?echo $tableau[$i]['Prenom'] . " " .$tableau[$i]['Nom'];?>,
@@ -116,12 +116,14 @@ foreach($tableau as $i => $value){
 
         </div>
         <div class="modal-footer mx-auto text-center">
-          <button type="button" class="btn btn-primary">Confirmer</button>
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+            <button type="submit" name="<? echo $tableau[$i]['id']; ?>" class="btn btn-primary">Confirmer</button>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+          </form>
         </div>
       </div>
     </div>
   </div>
+</form>
   <div class="form-group col-sm-12 mx-auto">
     <div class="shadow card bg-light">
       <div class="mb-2 text-center card-header rounded-bottom bg-warning text-white shadow-sm"><h3>Frise temporelle des dons pour l'aide d'urgence &rarr;</h3>
