@@ -38,6 +38,7 @@ if (!$_POST['MontantAideUrgenceChoice']){
   $values['MontantAideUrgence'] = $_POST['MontantAideUrgenceChoice'];
 }
 $values['DateInscription'] = $Date->format("Y-m-d");
+$values['DateRenouvellement'] = $Date->format("Y-m-d");
 $values['DerniereMensualiteAideUrgence'] = $Duree;
 $values['DonsMensuels'] = $Dons;
 unset($values[Autre_Date]);

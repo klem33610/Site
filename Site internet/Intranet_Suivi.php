@@ -27,7 +27,7 @@ $Year_Don = $Month->format("Y");
 $Timeline = [];
 foreach($tableau as $i => $value){
   $DerniereMensualiteAideUrgence = DateTime::createFromFormat('Y-m-d', $tableau[$i]['DerniereMensualiteAideUrgence']);
-  $Inscription = DateTime::createFromFormat('Y-m-d', $tableau[$i]['DateInscription']);
+  $Inscription = DateTime::createFromFormat('Y-m-d', $tableau[$i]['DateRenouvellement']);
   $Dons = $tableau[$i]['MontantAideUrgence'];
   $Nom = $tableau[$i]['Nom'] . " " . $Prenom = $tableau[$i]['Prenom'];
   for ($j = 12; $j > 0; $j--) {
@@ -53,6 +53,7 @@ foreach($tableau as $i => $value){
 }
 ?>
 <body>
+
   <div id="Formulaire_yes" class="modal fade text-center" tabindex="-1" role="dialog">
     <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
       <div class="modal-content">
@@ -88,11 +89,11 @@ foreach($tableau as $i => $value){
                       <td> <? echo $tableau[$i]['Prenom']; ?></td>
                       <td name="<? echo $tableau[$i]['Nom'];?>"><? echo $tableau[$i]['Nom']; ?></td>
                       <td name="<? echo $tableau[$i]['mail'];?>"><? echo $tableau[$i]['Mail']; ?></td>
-                      <td name="<? echo $tableau[$i]['DateInscription'];?>"><? echo $tableau[$i]['DateInscription']; ?></td>
+                      <td name="<? echo $tableau[$i]['DateRenouvellement'];?>"><? echo $tableau[$i]['DateRenouvellement']; ?></td>
                       <td class="d-none" id="texte_mail">
                         <textarea rows="10" class="text-left form-control">
                           Bonjour <?echo $tableau[$i]['Prenom'] . " " .$tableau[$i]['Nom'];?>,
-                          Le <?echo $tableau[$i]['DateInscription'];?>, vous avez rempli le formulaire de participation aux actions de l'association Jarez Solidarités. Et nous vous en remercions chaleureusement.
+                          Le <?echo $tableau[$i]['DateRenouvellement'];?>, vous avez rempli le formulaire de participation aux actions de l'association Jarez Solidarités. Et nous vous en remercions chaleureusement.
                           Nous avons enregistré votre promesse de dons de <?echo $tableau[$i]['MontantAideUrgence'];?> euros. Et à ce jour, si nous ne faisons pas d'erreur, nous ne pouvons acter la réception de ce don.
                           Nous nous permettons ainsi de vous envoyer ce mail de rappel.
                           Merci de de votre compréhension,
@@ -194,7 +195,7 @@ foreach($tableau as $i => $value){
                       <td name="<? echo $tableau[$i]['id'];?>"><input id="<? echo $tableau[$i]['id'];?>" style="width:23px; height:23px" onchange='Selection(this);' class="form-check-input mx-auto" type="checkbox"></td>
                       <td name="<? echo $tableau[$i]['MontantAideUrgence'];?>"><? echo $tableau[$i]['Prenom']; ?></td>
                       <td name="<? echo $tableau[$i]['mail'];?>"><? echo $tableau[$i]['Nom']; ?></td>
-                      <td name="<? echo $tableau[$i]['DateInscription'];?>"><? echo $tableau[$i]['DateInscription']; ?></td>
+                      <td name="<? echo $tableau[$i]['DateRenouvellement'];?>"><? echo $tableau[$i]['DateRenouvellement']; ?></td>
                     </tr>
                   <?}
               }?>
@@ -230,14 +231,14 @@ foreach($tableau as $i => $value){
             </thead>
             <tbody>
               <? foreach($tableau as $i => $value){
-                  $DateInscription = DateTime::createFromFormat('Y-m-d', $tableau[$i]['DateInscription']);
-                  if ($DateInscription->format('Y') == $Year_Don - 1) {
+                  $DateRenouvellement = DateTime::createFromFormat('Y-m-d', $tableau[$i]['DateRenouvellement']);
+                  if ($DateRenouvellement->format('Y') == $Year_Don - 1) {
                     ?>
                     <tr>
                       <td><input style="width:23px; height:23px" class="form-check-input mx-auto" type="checkbox"></td>
                       <td><? echo $tableau[$i]['Prenom']; ?></td>
                       <td><? echo $tableau[$i]['Nom']; ?></td>
-                      <td><? echo $tableau[$i]['DateInscription']; ?></td>
+                      <td><? echo $tableau[$i]['DateRenouvellement']; ?></td>
                     </tr>
                   <?}
               }?>
