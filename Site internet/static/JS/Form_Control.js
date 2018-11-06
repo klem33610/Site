@@ -74,6 +74,17 @@ function modal_show(etat) {
   $('#Formulaire_yes').modal('show');
 }
 
+function maj_BDD(){
+  conole.log("culé")
+  var id_tab = [];
+  $('#Suivi_Dons').find('.checkbox').each(function(){
+    if (this.checked == true){
+      id_tab.push(this.id);
+    }
+  })
+  return id_tab;
+}
+
 //   if ($(".other1").prop('checked') == true && $(".other2").prop('checked') == true) {
 //         if ($('.other1').siblings().val() && $('.other2').siblings().val()) {
 //           statut = true;

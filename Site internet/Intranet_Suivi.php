@@ -116,7 +116,7 @@ L'association Jarez Solidarités.
 
         </div>
         <div class="modal-footer mx-auto text-center">
-            <button type="submit" name="<? echo $tableau[$i]['id']; ?>" class="btn btn-primary">Confirmer</button>
+            <button type="submit" name="<?  return maj_BDD() ?>" class="btn btn-primary">Confirmer</button>
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
           </form>
         </div>
@@ -169,7 +169,7 @@ L'association Jarez Solidarités.
 
   <div class="card-deck mx-auto col-sm-12">
     <div class="form-group col-sm-6 mx-auto text-center my-3">
-      <div class="shadow card bg-light">
+      <div id="Suivi_Dons" class="shadow card bg-light">
         <div class="card-header rounded-bottom bg-info text-white shadow-sm">
           <h5>Suivi des promesses de dons</h5>
         </div>
@@ -194,7 +194,7 @@ L'association Jarez Solidarités.
                   if ($DateValidationMensualite->format('Y-m-d') == '2223-10-22' || ($DateValidationMensualite < $DerniereMensualiteAideUrgence && $DateValidationMensualite->format('Y-m') < $Month_don)) {
                     ?>
                     <tr>
-                      <td name="<? echo $tableau[$i]['id'];?>"><input id="<? echo $tableau[$i]['id'];?>" style="width:23px; height:23px" onchange='Selection(this);' class="form-check-input mx-auto" type="checkbox"></td>
+                      <td name="<? echo $tableau[$i]['id'];?>"><input id="<? echo $tableau[$i]['id'];?>" style="width:23px; height:23px" onchange='Selection(this);' class="checkbox form-check-input mx-auto" type="checkbox"></td>
                       <td name="<? echo $tableau[$i]['MontantAideUrgence'];?>"><? echo $tableau[$i]['Prenom']; ?></td>
                       <td name="<? echo $tableau[$i]['mail'];?>"><? echo $tableau[$i]['Nom']; ?></td>
                       <td name="<? echo $tableau[$i]['DateRenouvellement'];?>"><? echo $tableau[$i]['DateRenouvellement']; ?></td>
