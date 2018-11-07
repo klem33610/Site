@@ -114,8 +114,12 @@ L'association Jarez Solidarités.
           </div>
 
         </div>
-        <div class="modal-footer mx-auto text-center">
+        <div id="Don_OK" class="modal-footer mx-auto text-center">
             <button type="button" onclick="maj_BDD()" class="btn btn-primary">Confirmer</button>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+        </div>
+        <div id="Don_NOK" class="modal-footer mx-auto text-center">
+            <button type="button" onclick="" class="btn btn-primary">Envoyer</button>
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
         </div>
       </div>

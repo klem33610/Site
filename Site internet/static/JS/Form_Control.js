@@ -65,13 +65,36 @@ function modal_show(etat) {
   if (etat.id == "yes"){
     $("#Formulaire_yes").find('.modal-title').text("Confirmer l'encaissement des dons suivants ?");
     $("#Formulaire_yes").find("#champ_mail").hide();
+    $("#Formulaire_yes").find("#Don_OK").show();
+    $("#Formulaire_yes").find("#Don_NOK").hide();
     afficher_mail = false;
   } else {
     $("#Formulaire_yes").find('.modal-title').text("Confirmer la relance mail des membres suivants ?");
     $("#Formulaire_yes").find("#champ_mail").hide();
+    $("#Formulaire_yes").find("#Don_OK").hide();
+    $("#Formulaire_yes").find("#Don_NOK").show();
     afficher_mail = true;
   }
   $('#Formulaire_yes').modal('show');
+}
+
+function rappel_Dons(){
+  $('#Formulaire_yes').modal('hide');
+  var mail_tab = [];
+  $('#Suivi_Dons').find('.checkbox').each(function(){
+    if (this.checked == true){
+      mail_tab.push(this.id);
+    }
+  })
+  mail_tab = JSON.stringify(mail_tab);
+  $.ajax({
+    type: 'POST',
+    url: '/Site internet/mail.php',
+    data: {'mail_tab': mail_tab},
+    success: function() {
+      location.reload();
+    }
+  });
 }
 
 function maj_BDD(){
