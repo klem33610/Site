@@ -53,7 +53,6 @@ foreach($tableau as $i => $value){
 }
 ?>
 <body>
-  <form method="post" action="static/mysql/maj_BDD.php">
   <div id="Formulaire_yes" class="modal fade text-center" tabindex="-1" role="dialog">
     <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
       <div class="modal-content">
@@ -116,9 +115,8 @@ L'association Jarez Solidarités.
 
         </div>
         <div class="modal-footer mx-auto text-center">
-            <button type="submit" name="<?  return maj_BDD() ?>" class="btn btn-primary">Confirmer</button>
+            <button type="button" onclick="maj_BDD()" class="btn btn-primary">Confirmer</button>
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
-          </form>
         </div>
       </div>
     </div>

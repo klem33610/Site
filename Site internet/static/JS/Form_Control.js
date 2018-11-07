@@ -75,14 +75,22 @@ function modal_show(etat) {
 }
 
 function maj_BDD(){
-  conole.log("culé")
+  $('#Formulaire_yes').modal('hide');
   var id_tab = [];
   $('#Suivi_Dons').find('.checkbox').each(function(){
     if (this.checked == true){
       id_tab.push(this.id);
     }
   })
-  return id_tab;
+  id_tab = JSON.stringify(id_tab);
+  $.ajax({
+    type: 'POST',
+    url: '/static/mysql/maj_BDD.php',
+    data: {'id_tab': id_tab},
+    success: function() {
+      location.reload();
+    }
+  });
 }
 
 //   if ($(".other1").prop('checked') == true && $(".other2").prop('checked') == true) {

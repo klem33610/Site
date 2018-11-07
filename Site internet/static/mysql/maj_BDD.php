@@ -11,12 +11,14 @@ $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 $Date = new DateTime(date("d-m-Y"));
 $Month = $Date->format('Y-m-d');
 /*INITIALISATION*/
-echo "<pre>";
-print_r($_POST);
-echo "</pre>";
 
-$sql = "UPDATE Adherents_JS set DateValidationMensualite = :Month WHERE id = :id";
-$stmt = $bdd->prepare($sql);
-$stmt->bindParam(':Month', $Month);
-$stmt->bindParam(':id', $_POST['id']);
-$stmt->execute();
+
+$id_tab = json_decode($_REQUEST['id_tab']);
+foreach($id_tab as $i => $id){
+  $sql = "UPDATE Adherents_JS set DateValidationMensualite = :Month WHERE id = :id";
+  $stmt = $bdd->prepare($sql);
+  $stmt->bindParam('Month', $Month);
+  $stmt->bindParam('id', $id);
+  $stmt->execute();
+}
+?>
