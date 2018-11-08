@@ -119,7 +119,7 @@ L'association Jarez Solidarités.
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
         </div>
         <div id="Don_NOK" class="modal-footer mx-auto text-center">
-            <button type="button" onclick="" class="btn btn-primary">Envoyer</button>
+            <button type="button" onclick="rappel_Dons()" class="btn btn-primary">Envoyer</button>
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
         </div>
       </div>

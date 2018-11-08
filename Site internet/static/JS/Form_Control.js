@@ -87,12 +87,13 @@ function rappel_Dons(){
     }
   })
   mail_tab = JSON.stringify(mail_tab);
+    console.log(mail_tab)
   $.ajax({
     type: 'POST',
-    url: '/Site internet/mail.php',
+    url: '/static/mail.php',
     data: {'mail_tab': mail_tab},
-    success: function() {
-      location.reload();
+    success: function(msg) {
+      alert(msg);
     }
   });
 }
