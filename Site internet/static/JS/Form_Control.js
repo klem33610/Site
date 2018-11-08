@@ -80,14 +80,20 @@ function modal_show(etat) {
 
 function rappel_Dons(){
   $('#Formulaire_yes').modal('hide');
-  var mail_tab = [];
+  var mail_tab = {};
   $('#Suivi_Dons').find('.checkbox').each(function(){
     if (this.checked == true){
-      mail_tab.push(this.id);
+      tr = $("#Formulaire_yes").find('#'+ this.id);
+      mail = $(tr).find('#Mail').text();
+      texte_mail = $(tr).find('#texte_mail').val();
+      mail_tab[this.id] = {
+        'mail' : mail,
+        'text' : texte_mail
+      };
     }
   })
   mail_tab = JSON.stringify(mail_tab);
-    console.log(mail_tab)
+  console.log(mail_tab);
   $.ajax({
     type: 'POST',
     url: '/static/mail.php',
