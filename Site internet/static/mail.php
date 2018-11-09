@@ -17,8 +17,7 @@ function mailFree($to , $subject , $message , $additional_headers=null , $additi
 	return $resultat & ($time>1);
 }
 /** Fin de la définition de la fonction*/
-
-
+$mail_tab = json_decode($_REQUEST['mail_tab'], true);
 /** Le code qui suit est juste donné comme exemple de test de la fonction
  *
  * Code de test de la fonction
@@ -28,18 +27,21 @@ function mailFree($to , $subject , $message , $additional_headers=null , $additi
 
 /* Mettre ici l'adresse mail de votre site Web : si votre site est http://monsite.free.fr/ alors votre adresse email est monsite@free.fr */
 $admin = 'Jarez Solidarités <jarezsolidarites@free.fr>';
-
-$dest="klem33@gmail.com";
 $sujet='Promesse de don Jarez Solidarités';
-$message="Ma foi,\nTout semble fonctionner correctement.";
-$additional_headers = "Cc: $admin\r\n";
-$additional_headers .= "From: $admin\r\n";
-$additional_headers .= "MIME-Version: 1.0\r\n";
-$additional_headers .= "Content-Type: text/plain; charset=utf-8\r\n";
-// $additional_headers .="Reply-To: $admin\r\n";
-$additional_headers .="Return-Path: $admin\r\n";
 
-		while (mailFree( $dest, $sujet , $message, $additional_headers )==false) {
-      mailFree( $dest, $sujet , $message, $additional_headers );
-    }
+
+foreach($mail_tab as $i => $id){
+	$dest="klem33@gmail.com";
+	$message=$id['text'];
+	$additional_headers = "Cc: $admin\r\n";
+	$additional_headers .= "From: $admin\r\n";
+	$additional_headers .= "MIME-Version: 1.0\r\n";
+	$additional_headers .= "Content-Type: text/plain; charset=utf-8\r\n";
+	// $additional_headers .="Reply-To: $admin\r\n";
+	$additional_headers .="Return-Path: $admin\r\n";
+	while (mailFree( $dest, $sujet , $message, $additional_headers )==false) {
+		mailFree( $dest, $sujet , $message, $additional_headers );
+	}
+}
+
 ?>

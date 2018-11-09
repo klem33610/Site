@@ -98,9 +98,6 @@ function rappel_Dons(){
     type: 'POST',
     url: '/static/mail.php',
     data: {'mail_tab': mail_tab},
-    success: function(msg) {
-      alert(msg);
-    }
   });
 }
 
