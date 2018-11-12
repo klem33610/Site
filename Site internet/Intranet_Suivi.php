@@ -90,7 +90,7 @@ foreach($tableau as $i => $value){
                       <td><? echo $tableau[$i]['Nom']; ?></td>
                       <td id="Mail"><? echo $tableau[$i]['Mail']; ?></td>
                       <td><? echo $tableau[$i]['DateRenouvellement']; ?></td>
-                      <td class="text-warning"><? echo $tableau[$i]['MailRappelDon']; ?></td>
+                      <td class="text-danger"><? echo $tableau[$i]['MailRappelDon']; ?></td>
                       <td class="d-none">
                         <textarea id="texte_mail" rows="10" class="text-left form-control">
 Bonjour <?echo $tableau[$i]['Prenom'] . " " .$tableau[$i]['Nom'];?>,
