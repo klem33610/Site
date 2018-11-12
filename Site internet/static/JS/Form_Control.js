@@ -88,15 +88,20 @@ function rappel_Dons(){
       texte_mail = $(tr).find('#texte_mail').val();
       mail_tab[this.id] = {
         'mail' : mail,
-        'text' : texte_mail
+        'text' : texte_mail,
+        'id' : this.id
       };
     }
   })
   mail_tab = JSON.stringify(mail_tab);
-  console.log(mail_tab);
   $.ajax({
     type: 'POST',
     url: '/static/mail.php',
+    data: {'mail_tab': mail_tab},
+  });
+  $.ajax({
+    type: 'POST',
+    url: '/static/mysql/maj_BDD.php',
     data: {'mail_tab': mail_tab},
   });
 }

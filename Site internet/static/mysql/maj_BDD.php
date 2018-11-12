@@ -12,13 +12,24 @@ $Date = new DateTime(date("d-m-Y"));
 $Month = $Date->format('Y-m-d');
 /*INITIALISATION*/
 
-
-$id_tab = json_decode($_REQUEST['id_tab']);
-foreach($id_tab as $i => $id){
-  $sql = "UPDATE Adherents_JS set DateValidationMensualite = :Month WHERE id = :id";
-  $stmt = $bdd->prepare($sql);
-  $stmt->bindParam('Month', $Month);
-  $stmt->bindParam('id', $id);
-  $stmt->execute();
+if ($_REQUEST['id_tab']){
+  $id_tab = json_decode($_REQUEST['id_tab']);
+  foreach($id_tab as $i => $id){
+    $sql = "UPDATE Adherents_JS set MailRappelDon = NULL, DateValidationMensualite = :Month WHERE id = :id";
+    $stmt = $bdd->prepare($sql);
+    $stmt->bindParam('Month', $Month);
+    $stmt->bindParam('id', $id);
+    $stmt->execute();
+  }
+}
+if ($_REQUEST['mail_tab']){
+  $mail_tab = json_decode($_REQUEST['mail_tab'], true);
+  foreach($mail_tab as $i => $id){
+    $sql = "UPDATE Adherents_JS set MailRappelDon  = :Month WHERE id = :id";
+    $stmt = $bdd->prepare($sql);
+    $stmt->bindParam('Month', $Month);
+    $stmt->bindParam('id', $id['id']);
+    $stmt->execute();
+  }
 }
 ?>
