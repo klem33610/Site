@@ -224,6 +224,14 @@ L'association Jarez Solidarités.
       <div class="shadow card bg-light">
         <div class="card-header rounded-bottom bg-info text-white shadow-sm">
           <h5>Suivi des adhésions annuelles</h5>
+          <ul class="nav nav-tabs card-header-tabs">
+            <li class="nav-item col-sm-6">
+              <a class="nav-link active text-dark" href="#">Carte de membre et reçus fiscaux</a>
+            </li>
+            <li class="nav-item col-sm-6 ">
+              <a class="nav-link text-dark" href="#">Renouvellement d'adhésion</a>
+            </li>
+          </ul>
         </div>
         <div class="card-body">
           <table class="table table-sm">
@@ -249,7 +257,8 @@ L'association Jarez Solidarités.
                   <?}
               }?>
             </tbody>
-          </table></div>
+          </table>
+        </div>
         <div class="card-footer">
           <div class="mx-auto text-center">
             <button type="button" class="btn btn-lg btn-outline-success">Réinviter par mail</button>
