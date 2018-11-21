@@ -226,42 +226,77 @@ L'association Jarez Solidarités.
           <h5>Suivi des adhésions annuelles</h5>
           <ul class="nav nav-tabs card-header-tabs">
             <li class="nav-item col-sm-6">
-              <a class="nav-link active text-dark" href="#">Carte de membre et reçus fiscaux</a>
+              <a class="nav-link active text-dark" data-toggle="collapse" href="#membercard">Carte de membre et reçus fiscaux</a>
             </li>
             <li class="nav-item col-sm-6 ">
-              <a class="nav-link text-dark" href="#">Renouvellement d'adhésion</a>
+              <a class="nav-link text-dark" data-toggle="collapse" href="#renew">Renouvellement d'adhésion</a>
             </li>
           </ul>
         </div>
-        <div class="card-body">
-          <table class="table table-sm">
-            <thead>
-              <tr>
-                <th scope="col">Choix</th>
-                <th scope="col">Prénom</th>
-                <th scope="col">Nom</th>
-                <th scope="col">Inscription</th>
-              </tr>
-            </thead>
-            <tbody>
-              <? foreach($tableau as $i => $value){
-                  $DateRenouvellement = DateTime::createFromFormat('Y-m-d', $tableau[$i]['DateRenouvellement']);
-                  if ($DateRenouvellement->format('Y') == $Year_Don - 1) {
-                    ?>
-                    <tr>
-                      <td><input style="width:23px; height:23px" class="form-check-input mx-auto" type="checkbox"></td>
-                      <td><? echo $tableau[$i]['Prenom']; ?></td>
-                      <td><? echo $tableau[$i]['Nom']; ?></td>
-                      <td><? echo $tableau[$i]['DateRenouvellement']; ?></td>
-                    </tr>
-                  <?}
-              }?>
-            </tbody>
-          </table>
+        <div id="membercard" class="collapse">
+          <div class="card-body">
+            <table class="table table-sm">
+              <thead>
+                <tr>
+                  <th scope="col">Choix</th>
+                  <th scope="col">Prénom</th>
+                  <th scope="col">Nom</th>
+                  <th scope="col">Inscription</th>
+                </tr>
+              </thead>
+              <tbody>
+                <? foreach($tableau as $i => $value){
+                    $DateRenouvellement = DateTime::createFromFormat('Y-m-d', $tableau[$i]['DateRenouvellement']);
+                    if ($DateRenouvellement->format('Y') == $Year_Don - 1) {
+                      ?>
+                      <tr>
+                        <td><input style="width:23px; height:23px" class="form-check-input mx-auto" type="checkbox"></td>
+                        <td><? echo $tableau[$i]['Prenom']; ?></td>
+                        <td><? echo $tableau[$i]['Nom']; ?></td>
+                        <td><? echo $tableau[$i]['DateRenouvellement']; ?></td>
+                      </tr>
+                    <?}
+                }?>
+              </tbody>
+            </table>
+          </div>
+          <div class="card-footer">
+            <div class="mx-auto text-center">
+              <button type="button" class="btn btn-lg btn-outline-success">Envoyer par mail</button>
+            </div>
+          </div>
         </div>
-        <div class="card-footer">
-          <div class="mx-auto text-center">
-            <button type="button" class="btn btn-lg btn-outline-success">Réinviter par mail</button>
+        <div id="renew" class="collapse">
+          <div class="card-body">
+            <table class="table table-sm">
+              <thead>
+                <tr>
+                  <th scope="col">Choix</th>
+                  <th scope="col">Prénom</th>
+                  <th scope="col">Nom</th>
+                  <th scope="col">Inscription</th>
+                </tr>
+              </thead>
+              <tbody>
+                <? foreach($tableau as $i => $value){
+                    $DateRenouvellement = DateTime::createFromFormat('Y-m-d', $tableau[$i]['DateRenouvellement']);
+                    if ($DateRenouvellement->format('Y') == $Year_Don - 1) {
+                      ?>
+                      <tr>
+                        <td><input style="width:23px; height:23px" class="form-check-input mx-auto" type="checkbox"></td>
+                        <td><? echo $tableau[$i]['Prenom']; ?></td>
+                        <td><? echo $tableau[$i]['Nom']; ?></td>
+                        <td><? echo $tableau[$i]['DateRenouvellement']; ?></td>
+                      </tr>
+                    <?}
+                }?>
+              </tbody>
+            </table>
+          </div>
+          <div class="card-footer">
+            <div class="mx-auto text-center">
+              <button type="button" class="btn btn-lg btn-outline-success">Réinviter par mail</button>
+            </div>
           </div>
         </div>
       </div>
