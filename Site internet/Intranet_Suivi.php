@@ -7,23 +7,26 @@ setlocale(LC_TIME, 'fr_FR.utf8','fra');?>
 calendrier des dons, Promesse et versement, Inscription par année,
 Relance mails : réinscription, rappel de dons, News, reçus fiscaux -->
 <?php
-
+//< ---------------------- Paramètres BDD SQL------------------------->
 $PARAM_hote='sql.free.fr'; // le chemin vers le serveur
 $PARAM_nom_bd='jarezsolidarites'; // le nom de votre base de données
 $PARAM_utilisateur='jarezsolidarites'; // nom d'utilisateur pour se connecter
 $PARAM_mot_passe='J9s9o4s1'; // mot de passe de l'utilisateur pour se connecter
 $bdd = new PDO('mysql:host='.$PARAM_hote.';dbname='.$PARAM_nom_bd.';charset=UTF8', $PARAM_utilisateur, $PARAM_mot_passe);
-
 $sql = 'SELECT * FROM Adherents_JS ORDER BY Nom';
 $req = $bdd->query($sql);
 $tableau = $req->fetchAll(PDO::FETCH_ASSOC);
 $req->closeCursor();
+//< ---------------------- ---------------------------------------------->
 
+//< ---------------------- Définition des variables de date------------------------->
 $Date = date("d-m-Y");
 $Month = new DateTime(date("d-m-Y"));
 $Month_don = $Month->format("Y-m");
 $Year_Don = $Month->format("Y");
+//< --------------------------------------------------------------------------------->
 
+//< ---------------------- Création des tableaux de données------------------------->
 $Timeline = [];
 foreach($tableau as $i => $value){
   $DerniereMensualiteAideUrgence = DateTime::createFromFormat('Y-m-d', $tableau[$i]['DerniereMensualiteAideUrgence']);
@@ -51,8 +54,11 @@ foreach($tableau as $i => $value){
     }
   }
 }
+//< --------------------------------------------------------------------------------->
+
 ?>
 <body>
+//< ---------------------- Fenêtre modal de suivi des versements de dons / relance mail------------------------->
   <div id="Formulaire_yes" class="modal fade text-center" tabindex="-1" role="dialog">
     <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
       <div class="modal-content">
@@ -127,7 +133,10 @@ L'association Jarez Solidarités.
       </div>
     </div>
   </div>
+  //< ---------------------------------------------------------------------------------------------------------------------------->
+
 </form>
+//< ---------------------------------------Frise mensuelle des promesses de dons------------------------------------------------------------->
   <div class="form-group col-sm-12 mx-auto">
     <div class="shadow card bg-light">
       <div class="mb-2 text-center card-header rounded-bottom bg-warning text-white shadow-sm"><h3>Frise temporelle des dons pour l'aide d'urgence &rarr;</h3>
@@ -170,8 +179,10 @@ L'association Jarez Solidarités.
       </div>
     </div>
   </div>
+  //< ---------------------------------------------------------------------------------------------------------------------------->
 
   <div class="card-deck mx-auto col-sm-12">
+  //< -------------------------------------------Outil de gestion des promesses de dons/relances mail------------------------------------------------------------------->
     <div class="form-group col-sm-6 mx-auto text-center my-3">
       <div id="Suivi_Dons" class="shadow card bg-light">
         <div class="card-header rounded-bottom bg-info text-white shadow-sm">
@@ -220,6 +231,9 @@ L'association Jarez Solidarités.
         </div>
       </div>
   </div>
+  //< ---------------------------------------------------------------------------------------------------------------------------->
+
+   //< -----------------------Outil de gestion des envois de documents aux adhérents / réinvitation d'inscription N+1--------------------->
     <div class="form-group col-sm-6 mx-auto text-center my-3">
       <div class="shadow card bg-light">
         <div class="card-header rounded-bottom bg-info text-white shadow-sm">
@@ -302,6 +316,9 @@ L'association Jarez Solidarités.
       </div>
     </div>
   </div>
+  //< ---------------------------------------------------------------------------------------------------------------------------->
+
+   //< ----------------------------------------Tableau de visualisation de la BDD--------------------------------------------------->
   <div class="form-group col-sm-12 mx-auto">
     <div class="mt-3 shadow card">
       <div class="text-center card-header rounded-bottom shadow-sm">
@@ -339,6 +356,8 @@ L'association Jarez Solidarités.
   </div>
 </div>
 </body>
+//< ---------------------------------------------------------------------------------------------------------------------------->
+
 
 <script src="static/JS/timeline.min.js"></script>
 <link href="static/css/timeline.min.css" rel="stylesheet">
