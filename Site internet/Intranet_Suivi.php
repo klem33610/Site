@@ -3,9 +3,15 @@
 <?php date_default_timezone_set('UTC');
 setlocale(LC_TIME, 'fr_FR.utf8','fra');?>
 
-<!-- Gestion et suivi : Membres et compétences/ans, Donneurs par type (AU ou A),
-calendrier des dons, Promesse et versement, Inscription par année,
-Relance mails : réinscription, rappel de dons, News, reçus fiscaux -->
+<!-- 
+Gestion et suivi : Donneurs par type (AU ou A),
+Relance mails : réinscription, envoi de News, carte membre, reçus fiscaux, invitation A a faire AU
+BDD : envoi carte membre, envoi reçu fiscal, invitation N+1, membre AU, membre A
+
+Si remplissage formulaire A -> envoi simplifié formulaire AU
+Si remplissage 2ème formulaire => update BDD
+-->
+
 <?php
 //< ---------------------- Paramètres BDD SQL------------------------->
 $PARAM_hote='sql.free.fr'; // le chemin vers le serveur
@@ -136,7 +142,7 @@ L'association Jarez Solidarités.
   //< ---------------------------------------------------------------------------------------------------------------------------->
 
 </form>
-//< ---------------------------------------Frise mensuelle des promesses de dons------------------------------------------------------------->
+//< ---------------------------------------Frise mensuelle des promesses de dons---------------------------------------------------->
   <div class="form-group col-sm-12 mx-auto">
     <div class="shadow card bg-light">
       <div class="mb-2 text-center card-header rounded-bottom bg-warning text-white shadow-sm"><h3>Frise temporelle des dons pour l'aide d'urgence &rarr;</h3>
@@ -182,7 +188,7 @@ L'association Jarez Solidarités.
   //< ---------------------------------------------------------------------------------------------------------------------------->
 
   <div class="card-deck mx-auto col-sm-12">
-  //< -------------------------------------------Outil de gestion des promesses de dons/relances mail------------------------------------------------------------------->
+  //< -------------------------------------------Outil de gestion des promesses de dons/relances mail------------------------------------->
     <div class="form-group col-sm-6 mx-auto text-center my-3">
       <div id="Suivi_Dons" class="shadow card bg-light">
         <div class="card-header rounded-bottom bg-info text-white shadow-sm">
