@@ -41,6 +41,7 @@ $values['DateInscription'] = $Date->format("Y-m-d");
 $values['DateRenouvellement'] = $Date->format("Y-m-d");
 $values['DerniereMensualiteAideUrgence'] = $Duree;
 $values['DonsMensuels'] = $Dons;
+$values['MembreAU'] = true;
 unset($values[Autre_Date]);
 unset($values[MontantAideUrgenceChoice]);
 
