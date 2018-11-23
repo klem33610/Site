@@ -1,5 +1,6 @@
 <?php include('Base.php'); ?>
 <script src="static/JS/Search_Intranet.js"></script>
+<script src="static/JS/Dynamic.js"></script>
 <?php date_default_timezone_set('UTC');
 setlocale(LC_TIME, 'fr_FR.utf8','fra');?>
 
@@ -64,7 +65,7 @@ foreach($tableau as $i => $value){
 
 ?>
 <body>
-//< ---------------------- Fenêtre modal de suivi des versements de dons / relance mail------------------------->
+ <!---------------------- Fenêtre modal de suivi des versements de dons / relance mail------------------------->
   <div id="Formulaire_yes" class="modal fade text-center" tabindex="-1" role="dialog">
     <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
       <div class="modal-content">
@@ -139,10 +140,10 @@ L'association Jarez Solidarités.
       </div>
     </div>
   </div>
-  //< ---------------------------------------------------------------------------------------------------------------------------->
+  <!---------------------------------------------------------------------------------------------------------------------------->
 
 </form>
-//< ---------------------------------------Frise mensuelle des promesses de dons---------------------------------------------------->
+<!---------------------------------------Frise mensuelle des promesses de dons---------------------------------------------------->
   <div class="form-group col-sm-12 mx-auto">
     <div class="shadow card bg-light">
       <div class="mb-2 text-center card-header rounded-bottom bg-warning text-white shadow-sm"><h3>Frise temporelle des dons pour l'aide d'urgence &rarr;</h3>
@@ -185,10 +186,10 @@ L'association Jarez Solidarités.
       </div>
     </div>
   </div>
-  //< ---------------------------------------------------------------------------------------------------------------------------->
+  <!---------------------------------------------------------------------------------------------------------------------------->
 
   <div class="card-deck mx-auto col-sm-12">
-  //< -------------------------------------------Outil de gestion des promesses de dons/relances mail------------------------------------->
+  <!-------------------------------------------Outil de gestion des promesses de dons/relances mail------------------------------------->
     <div class="form-group col-sm-6 mx-auto text-center my-3">
       <div id="Suivi_Dons" class="shadow card bg-light">
         <div class="card-header rounded-bottom bg-info text-white shadow-sm">
@@ -237,11 +238,11 @@ L'association Jarez Solidarités.
         </div>
       </div>
   </div>
-  //< ---------------------------------------------------------------------------------------------------------------------------->
+  <!---------------------------------------------------------------------------------------------------------------------------->
 
-   //< -----------------------Outil de gestion des envois de documents aux adhérents / réinvitation d'inscription N+1--------------------->
+   <!-----------------------Outil de gestion des envois de documents aux adhérents / réinvitation d'inscription N+1--------------------->
     <div class="form-group col-sm-6 mx-auto text-center my-3">
-      <div class="shadow card bg-light">
+      <div id="myGroup" class="accordion shadow card bg-light">
         <div class="card-header rounded-bottom bg-info text-white shadow-sm">
           <h5>Suivi des adhésions annuelles</h5>
           <ul class="nav nav-tabs card-header-tabs">
@@ -253,7 +254,7 @@ L'association Jarez Solidarités.
             </li>
           </ul>
         </div>
-        <div id="membercard" class="collapse">
+        <div id="membercard"  data-parent="#myGroup" class="collapse show">
           <div class="card-body">
             <table class="table table-sm">
               <thead>
@@ -286,7 +287,7 @@ L'association Jarez Solidarités.
             </div>
           </div>
         </div>
-        <div id="renew" class="collapse">
+        <div id="renew"  data-parent="#myGroup" class="collapse">
           <div class="card-body">
             <table class="table table-sm">
               <thead>
@@ -322,9 +323,9 @@ L'association Jarez Solidarités.
       </div>
     </div>
   </div>
-  //< ---------------------------------------------------------------------------------------------------------------------------->
+  <!---------------------------------------------------------------------------------------------------------------------------->
 
-   //< ----------------------------------------Tableau de visualisation de la BDD--------------------------------------------------->
+   <!----------------------------------------Tableau de visualisation de la BDD--------------------------------------------------->
   <div class="form-group col-sm-12 mx-auto">
     <div class="mt-3 shadow card">
       <div class="text-center card-header rounded-bottom shadow-sm">
@@ -362,7 +363,7 @@ L'association Jarez Solidarités.
   </div>
 </div>
 </body>
-//< ---------------------------------------------------------------------------------------------------------------------------->
+<!---------------------------------------------------------------------------------------------------------------------------->
 
 
 <script src="static/JS/timeline.min.js"></script>
