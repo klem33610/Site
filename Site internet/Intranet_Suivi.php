@@ -259,7 +259,8 @@ L'association Jarez Solidarités.
             <table class="table table-sm">
               <thead>
                 <tr>
-                  <th scope="col">Choix</th>
+                  <th scope="col">Carte de membre</th>
+                  <th scope="col">Reçu fiscal</th>
                   <th scope="col">Prénom</th>
                   <th scope="col">Nom</th>
                   <th scope="col">Inscription</th>
@@ -271,6 +272,7 @@ L'association Jarez Solidarités.
                     if ($DateRenouvellement->format('Y') == $Year_Don - 1) {
                       ?>
                       <tr>
+                        <td><input style="width:23px; height:23px" class="form-check-input mx-auto" type="checkbox"></td>
                         <td><input style="width:23px; height:23px" class="form-check-input mx-auto" type="checkbox"></td>
                         <td><? echo $tableau[$i]['Prenom']; ?></td>
                         <td><? echo $tableau[$i]['Nom']; ?></td>
