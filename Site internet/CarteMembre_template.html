@@ -11,28 +11,21 @@
 <link rel="stylesheet" href="static/css/style.css">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
     crossorigin="anonymous">
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.1/js/tempusdominus-bootstrap-4.min.js"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.1/css/tempusdominus-bootstrap-4.min.css" />
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bluebird/3.3.5/bluebird.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.4.1/jspdf.debug.js" integrity="sha384-THVO/sM0mFD9h7dfSndI6TS0PgAGavwKvB5hAxRRvc0o9cPLohB0wb/PTA7LdUHs"
-    crossorigin="anonymous"></script>
+<script src="static/JS/html2pdf.bundle.min.js"></script>
 <script src="static/JS/makePDF.js"></script>
 
 <body>
-    <div class="mt-3 row col-sm-12">
-        <div class="col-sm-2">
+    <div id='content'>
+        <div style="text-align: center; margin-bottom: 20px">
+          <h1 id="year">Carte Membre 2018</h1>
+        </div>
+        <div style="margin-right : 50px; float: left">
             <a href="../jarez-solidarites.html"><img style="height: 300px;" alt="Logo Jarez Solidarités" src="static/media/logoJS.jpg"></img></a>
         </div>
-        <div class="col-sm-4 mt-5">
-            <div class="text-center">
-                <h1 id="year">Carte Membre 2018</h1>
-            </div>
-            <div class="text-center">
-                <h3 id="membre">Clément Desage</h3>
-                <h3 id="adresse">8 rue saint eusebe</h>
-                <h3 id="ville">69003 Lyon</h3>
-            </div>
+        <div style="float: center; padding-top: 50px">
+            <h3 id="membre">Clément Desage</h3>
+            <h3 id="adresse">8 rue saint eusebe</h3>
+            <h3 id="ville">69003 Lyon</h3>
         </div>
     </div>
 </body>
