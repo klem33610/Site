@@ -22,50 +22,50 @@ $Month = new DateTime(date("d-m-Y"));
 <body>
     <div id='content'>
         <div style="float: left; margin:10px 0 0 20px">
-            <a href="../jarez-solidarites.html"><img style="height: 130px;" alt="Logo Jarez Solidarités" src="media/logoJS.jpg"></img></a>
+            <a href="../jarez-solidarites.html"><img style="height: 120px;" alt="Logo Jarez Solidarités" src="media/logoJS.jpg"></img></a>
         </div>
         <div style="text-align: right; margin: 10px 70px 0 0">
-                    <h4 id="id">Numéro d'ordre du reçu :</h4>
+                    <h6 id="id">Numéro d'ordre du reçu :</h6>
                 </div>
         <div style="text-align: center">
-          <h1 id="year">Reçus dons aux oeuvres 2018</h1>
-            <h3>Articles 200 et 238 bis du Code Général des Impôts</h3>
+          <h2 id="year">Reçus dons aux oeuvres 2018</h2>
+            <h5>Articles 200 et 238 bis du Code Général des Impôts</h5>
         </div>
-        <div style="border-style: solid; margin: 30px 20px; padding: 10px 10px">
-            <h2 style="text-align: center">BÉNÉFICIAIRE DES VERSEMENTS</h2>
-            <h4 style="text-align: left"><strong>Nom : </strong> Association Jarez Solidarités</h4>
-            <h4 style="text-align: left"><strong>Adresse : </strong> 80 rue des Vergers, 42320 CELLIEU</h4>
-            <h4 style="text-align: left"><strong>Objet : </strong>
+        <div style="border-style: solid; margin: 50px 20px; padding: 10px 10px">
+            <h3 style="text-align: center; margin-bottom:10px">BÉNÉFICIAIRE DES VERSEMENTS</h3>
+            <h5 style="text-align: left"><strong>Nom : </strong> Association Jarez Solidarités</h5>
+            <h5 style="text-align: left"><strong>Adresse : </strong> 80 rue des Vergers, 42320 CELLIEU</h5>
+            <h5 style="text-align: left"><strong>Objet : </strong>
                 initier, organiser, mettre en œuvre, accompagner, coordonner toutes actions de solidarité envers les personnes en
                 difficulté, quelles que soient leurs origines, leur culture, leur religion
                 Au titre <strong>d'œuvre ou organisme d'intérêt général</strong>.
-            </h4>
+            </h5>
         </div>
         <div style="border-style: solid; margin: 30px 20px; padding: 10px 10px">
-            <h2 style="text-align: center">DONATEUR</h2>
+            <h3 style="text-align: center">DONATEUR</h3>
             <div style="margin-bottom: 10px">
-                <h4 style="display: inline; text-align: left"><strong>Nom : </strong></h4>
-                <h4 style="display: inline" id="Nom"> Desage</h4>
+                <h5 style="display: inline; text-align: left"><strong>Nom : </strong></h5>
+                <h5 style="display: inline" id="Nom"> Desage</h5>
             </div>
             <div style="margin-bottom: 10px">
-                <h4 style="display: inline; text-align: left"><strong>Prénom : </strong></h4>
-                <h4 style="display: inline" id=" Prénom">Clément</h4>
+                <h5 style="display: inline; text-align: left"><strong>Prénom : </strong></h5>
+                <h5 style="display: inline" id=" Prénom">Clément</h5>
             </div>
             <div style="margin-bottom: 10px">   
-                <h4 style="display: inline; text-align: left"><strong>Adresse : </strong></h4>
-                <h4 style="display: inline" id="Adresse">8 Rue Saint Eusèbe, 69003 Lyon</h4>
+                <h5 style="display: inline; text-align: left"><strong>Adresse : </strong></h5>
+                <h5 style="display: inline" id="Adresse">8 Rue Saint Eusèbe, 69003 Lyon</h5>
             </div>
         </div>
         <div style="margin: 30px 30px">
-            <h3 id="year" style="display: inline"> Pour l’année 2018,</h3>
-            <h3 style="display: inline">  le bénéficiaire reconnaît avoir reçu au titre des versements ouvrant droit à réduction d'impôt
-                (cotisation, don, abandon de frais engagés par le bénévole), la somme de : </h3>
-            <h3 id="Montant" style="display: inline"><strong>1000 euros.</strong> 
+            <h5 id="year" style="display: inline"> Pour l’année 2018,</h5>
+            <h5 style="display: inline">  le bénéficiaire reconnaît avoir reçu au titre des versements ouvrant droit à réduction d'impôt
+                (cotisation, don, abandon de frais engagés par le bénévole), la somme de : </h5>
+            <h5 id="Montant" style="display: inline"><strong>1000 euros.</strong> 
         </div>
         <div style="margin: 30px 30px">
-            <h3><strong>Date et signature :</strong></h3>
-            <h3> <? echo $Month->format('d/m/y'); ?></h3>
-            <img alt="Logo Jarez Solidarités" style="height: 100px;" src="media/Sign.png"></img>
+            <h4><strong>Date et signature :</strong></h4>
+            <h4> <? echo $Month->format('d/m/y'); ?></h4>
+            <img alt="Logo Jarez Solidarités" style="height: 80px;" src="media/Sign.png"></img>
         </div>
     </div>
 
@@ -75,7 +75,7 @@ $Month = new DateTime(date("d-m-Y"));
     $(function() {
         var element = document.getElementById('content');
         var opt = {
-            margin: 0.5,
+            margin: 0,
             filename: 'myfile.pdf',
             image: {
                 type: 'jpeg',
