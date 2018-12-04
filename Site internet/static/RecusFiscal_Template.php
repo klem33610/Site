@@ -11,7 +11,6 @@
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
     crossorigin="anonymous">
 <script src="JS/html2pdf.bundle.min.js"></script>
-<!-- <script src="JS/makePDF.js"></script> -->
 
 <?php date_default_timezone_set('UTC');
 setlocale(LC_TIME, 'fr_FR.utf8','fra');
@@ -25,10 +24,11 @@ $Month = new DateTime(date("d-m-Y"));
             <a href="../jarez-solidarites.html"><img style="height: 120px;" alt="Logo Jarez Solidarités" src="media/logoJS.jpg"></img></a>
         </div>
         <div style="text-align: right; margin: 10px 70px 0 0">
-                    <h6 id="id">Numéro d'ordre du reçu :</h6>
-                </div>
+            <h6 id="id">Numéro d'ordre du reçu :</h6>
+        </div>
         <div style="text-align: center">
-          <h2 id="year">Reçus dons aux oeuvres 2018</h2>
+          <h2 style="display: inline">Reçus dons aux oeuvres </h2>
+          <h2 style="display: inline"> <? echo $Month->format('Y'); ?></h2>
             <h5>Articles 200 et 238 bis du Code Général des Impôts</h5>
         </div>
         <div style="border-style: solid; margin: 50px 20px; padding: 10px 10px">
@@ -64,7 +64,7 @@ $Month = new DateTime(date("d-m-Y"));
         </div>
         <div style="margin: 30px 30px">
             <h4><strong>Date et signature :</strong></h4>
-            <h4> <? echo $Month->format('d/m/y'); ?></h4>
+            <h4> <? echo $Month->format('d/m/Y'); ?></h4>
             <img alt="Logo Jarez Solidarités" style="height: 80px;" src="media/Sign.png"></img>
         </div>
     </div>

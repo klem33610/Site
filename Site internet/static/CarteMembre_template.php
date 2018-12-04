@@ -12,7 +12,6 @@
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
     crossorigin="anonymous">
 <script src="JS/html2pdf.bundle.min.js"></script>
-<script src="JS/makePDF.js"></script>
 
 <body>
     <div id='content'>
@@ -29,3 +28,27 @@
         </div>
     </div>
 </body>
+
+
+<script type="text/javascript">
+    $(function () {
+        var element = document.getElementById('content');
+        var opt = {
+            margin: 0.5,
+            filename: 'myfile.pdf',
+            image: {
+                type: 'jpeg',
+                quality: 0.98
+            },
+            html2canvas: {
+                scale: 1
+            },
+            jsPDF: {
+                unit: 'in',
+                format: 'A5',
+                orientation: 'landscape'
+            }
+        };
+        html2pdf().set(opt).from(element).save();
+    })
+</script>
