@@ -13,3 +13,9 @@
   AuthType Basic
   require valid-user
 </Files>
+<Files static>
+  PerlSetVar AuthFile .htpasswd
+  AuthName "Accès restreint"
+  AuthType Basic
+  require valid-user
+</Files>
