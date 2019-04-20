@@ -170,11 +170,13 @@ L'association Jarez Solidarités.
                  if ($Timeline[$Month->format('Y-m')]){
                     $dd = array_column($Timeline[$Month->format('Y-m')], 'Dons');
                     $Sum_Dons = array_sum($dd);
+                    $print = array_column($Timeline[$Month->format('Y-m')], 'Dons', 'Nom');
                  }else{
                     $Sum_Dons = 0;
+                    $print = 'Aucun don ce mois-ci';
                  };
               ?>
-                 <div class="timeline__item" data-toggle="tooltip" data-placement="top" title="<?print_r(array_column($Timeline[$Month->format('Y-m')], 'Dons', 'Nom'));?>">
+                 <div class="timeline__item" data-toggle="tooltip" data-placement="top" title="<?print_r($print);?>">
                    <div class="text-center timeline__content">
                      <h2><? echo strftime("%B %Y", strtotime($Month->format("F - Y"))); ?><br></h2>
                      <p>Somme des promesses de dons :</p>
@@ -185,10 +187,16 @@ L'association Jarez Solidarités.
               <? for ($i = 0; $i <= 12; $i++) {
                 $Date = DateTime::createFromFormat('Y-m-d', $Month_don . '-01');
                  $Month = $Date->modify('+'.$i.' months');
-                 $dd = array_column($Timeline[$Month->format('Y-m')], 'Dons');
-                 $Sum_Dons = array_sum($dd);
+                 if ($Timeline[$Month->format('Y-m')]){
+                  $dd = array_column($Timeline[$Month->format('Y-m')], 'Dons');
+                  $Sum_Dons = array_sum($dd);
+                  $print = array_column($Timeline[$Month->format('Y-m')], 'Dons', 'Nom');
+               }else{
+                  $Sum_Dons = 0;
+                  $print = 'Aucun don ce mois-ci';
+               };
               ?>
-                <div class="timeline__item" data-toggle="tooltip" data-placement="top" title="<?print_r(array_column($Timeline[$Month->format('Y-m')], 'Dons', 'Nom'));?>">
+                <div class="timeline__item" data-toggle="tooltip" data-placement="top" title="<?print_r($print);?>">
                    <div class="<? if ($i==0) {echo "border border-warning rounded ";}?> text-center timeline__content">
                      <h2><? echo strftime("%B %Y", strtotime($Month->format("F - Y"))); ?><br></h2>
                      <p>Somme des promesses de dons :</p>
@@ -284,18 +292,20 @@ L'association Jarez Solidarités.
               </thead>
               <tbody>
                 <? foreach($tableau as $i => $value){
-                    $DateRenouvellement = DateTime::createFromFormat('Y-m-d', $tableau[$i]['DateRenouvellement']);
-                    if ($DateRenouvellement->format('Y') == $Year_Don - 1) {
-                      ?>
-                      <tr>
-                        <td><input style="width:23px; height:23px" class="form-check-input mx-auto" type="checkbox"></td>
-                        <td><input style="width:23px; height:23px" class="form-check-input mx-auto" type="checkbox"></td>
-                        <td><? echo $tableau[$i]['Prenom']; ?></td>
-                        <td><? echo $tableau[$i]['Nom']; ?></td>
-                        <td><? echo $tableau[$i]['DateRenouvellement']; ?></td>
-                      </tr>
-                    <?}
-                }?>
+                    if ($tableau[$i]['DateRenouvellement']){
+                        $DateRenouvellement = DateTime::createFromFormat('Y-m-d', $tableau[$i]['DateRenouvellement']);
+                        if ($DateRenouvellement->format('Y') == $Year_Don - 1) {
+                          ?>
+                          <tr>
+                            <td><input style="width:23px; height:23px" class="form-check-input mx-auto" type="checkbox"></td>
+                            <td><input style="width:23px; height:23px" class="form-check-input mx-auto" type="checkbox"></td>
+                            <td><? echo $tableau[$i]['Prenom']; ?></td>
+                            <td><? echo $tableau[$i]['Nom']; ?></td>
+                            <td><? echo $tableau[$i]['DateRenouvellement']; ?></td>
+                          </tr>
+                        <?};
+                    };
+                };?>
               </tbody>
             </table>
           </div>
@@ -318,17 +328,19 @@ L'association Jarez Solidarités.
               </thead>
               <tbody>
                 <? foreach($tableau as $i => $value){
-                    $DateRenouvellement = DateTime::createFromFormat('Y-m-d', $tableau[$i]['DateRenouvellement']);
-                    if ($DateRenouvellement->format('Y') == $Year_Don - 1) {
-                      ?>
-                      <tr>
-                        <td><input style="width:23px; height:23px" class="form-check-input mx-auto" type="checkbox"></td>
-                        <td><? echo $tableau[$i]['Prenom']; ?></td>
-                        <td><? echo $tableau[$i]['Nom']; ?></td>
-                        <td><? echo $tableau[$i]['DateRenouvellement']; ?></td>
-                      </tr>
-                    <?}
-                }?>
+                    if ($tableau[$i]['DateRenouvellement']){
+                      $DateRenouvellement = DateTime::createFromFormat('Y-m-d', $tableau[$i]['DateRenouvellement']);
+                      if ($DateRenouvellement->format('Y') == $Year_Don - 1) {
+                        ?>
+                        <tr>
+                          <td><input style="width:23px; height:23px" class="form-check-input mx-auto" type="checkbox"></td>
+                          <td><? echo $tableau[$i]['Prenom']; ?></td>
+                          <td><? echo $tableau[$i]['Nom']; ?></td>
+                          <td><? echo $tableau[$i]['DateRenouvellement']; ?></td>
+                        </tr>
+                      <?};
+                    };
+                };?>
               </tbody>
             </table>
           </div>
@@ -385,5 +397,5 @@ L'association Jarez Solidarités.
 
 
 <script src="static/JS/timeline.min.js"></script>
+<script src="static/JS/Timeline.js"></script>
 <link href="static/css/timeline.min.css" rel="stylesheet">
-<script src="static/JS/timeline.js"></script>
