@@ -36,8 +36,16 @@ $Year_Don = $Month->format("Y");
 //< ---------------------- Création des tableaux de données------------------------->
 $Timeline = [];
 foreach($tableau as $i => $value){
-  $DerniereMensualiteAideUrgence = DateTime::createFromFormat('Y-m-d', $tableau[$i]['DerniereMensualiteAideUrgence']);
-  $Inscription = DateTime::createFromFormat('Y-m-d', $tableau[$i]['DateRenouvellement']);
+  if ($tableau[$i]['DateRenouvellement']){
+    $Inscription = DateTime::createFromFormat('Y-m-d', $tableau[$i]['DateRenouvellement']);
+  }else{
+    $Inscription = DateTime::createFromFormat('Y-m-d', $tableau[$i]['DateInscription']);
+  }
+  if ($tableau[$i]['DerniereMensualiteAideUrgence']){
+    $DerniereMensualiteAideUrgence = DateTime::createFromFormat('Y-m-d', $tableau[$i]['DerniereMensualiteAideUrgence']);
+  }else{
+    $DerniereMensualiteAideUrgence = $Inscription;
+  }
   $Dons = $tableau[$i]['MontantAideUrgence'];
   $Nom = $tableau[$i]['Nom'] . " " . $Prenom = $tableau[$i]['Prenom'];
   for ($j = 12; $j > 0; $j--) {
@@ -65,6 +73,10 @@ foreach($tableau as $i => $value){
 
 ?>
 <body>
+  <form class="text-center" action="/static/upload.php" method="post" enctype="multipart/form-data">
+    <input type="file" name="csv" value="" />
+    <input type="submit" name="submit" value="Save" />
+  </form>
  <!---------------------- Fenêtre modal de suivi des versements de dons / relance mail------------------------->
   <div id="Formulaire_yes" class="modal fade text-center" tabindex="-1" role="dialog">
     <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
@@ -80,7 +92,7 @@ foreach($tableau as $i => $value){
             <thead>
               <tr>
                 <th scope="col">Montant</th>
-                <th scope="col">Prénom</th>
+                <th scope="col">Prenom</th>
                 <th scope="col">Nom</th>
                 <th scope="col">Mail</th>
                 <th scope="col">Inscription</th>
@@ -155,8 +167,12 @@ L'association Jarez Solidarités.
               <? for ($i = 12; $i > 0; $i--) {
                 $Date = DateTime::createFromFormat('Y-m-d', $Month_don . '-01');
                  $Month = $Date->modify('-'.$i.' months');
-                 $dd = array_column($Timeline[$Month->format('Y-m')], 'Dons');
-                 $Sum_Dons = array_sum($dd);
+                 if ($Timeline[$Month->format('Y-m')]){
+                    $dd = array_column($Timeline[$Month->format('Y-m')], 'Dons');
+                    $Sum_Dons = array_sum($dd);
+                 }else{
+                    $Sum_Dons = 0;
+                 };
               ?>
                  <div class="timeline__item" data-toggle="tooltip" data-placement="top" title="<?print_r(array_column($Timeline[$Month->format('Y-m')], 'Dons', 'Nom'));?>">
                    <div class="text-center timeline__content">
@@ -200,7 +216,7 @@ L'association Jarez Solidarités.
             <thead>
               <tr>
                 <th scope="col">Choix</th>
-                <th scope="col">Prénom</th>
+                <th scope="col">Prenom</th>
                 <th scope="col">Nom</th>
                 <th scope="col">Inscription</th>
               </tr>
@@ -261,7 +277,7 @@ L'association Jarez Solidarités.
                 <tr>
                   <th scope="col">Carte de membre</th>
                   <th scope="col">Reçu fiscal</th>
-                  <th scope="col">Prénom</th>
+                  <th scope="col">Prenom</th>
                   <th scope="col">Nom</th>
                   <th scope="col">Inscription</th>
                 </tr>
@@ -295,7 +311,7 @@ L'association Jarez Solidarités.
               <thead>
                 <tr>
                   <th scope="col">Choix</th>
-                  <th scope="col">Prénom</th>
+                  <th scope="col">Prenom</th>
                   <th scope="col">Nom</th>
                   <th scope="col">Inscription</th>
                 </tr>

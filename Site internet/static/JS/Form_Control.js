@@ -270,7 +270,7 @@ function maj_BDD(){
 //    verifRadio_Montant()
 //    verifRadio_Duree()
 //    var NomOK = verifNom(f.nom);
-//    var PrenomOK = verifPrenom(f.prenom);
+//    var PrenomOK = verifPrenom(f.Prenom);
 //    var mailOk = verifMail(f.email);
 //    var ageOk = verifAge(f.age);
 //    var CPOk = verifCP(f.cp);

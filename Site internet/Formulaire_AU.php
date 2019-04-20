@@ -11,8 +11,8 @@
       <br><br>Avec nos remerciements Solidaires et fraternels !</small></p>
       <div class="form-row">
         <div class="form-group col-md-6">
-          <label for="Prenom">Prénom</label>
-          <input id="Prenom" type="text" class="form-control" name="Prenom" placeholder="Prénom" required>
+          <label for="Prenom">Prenom</label>
+          <input id="Prenom" type="text" class="form-control" name="Prenom" placeholder="Prenom" required>
         </div>
         <div class="form-group col-md-6">
           <label for="Nom">Nom</label>
@@ -170,7 +170,7 @@
       <div class="form-group mt-3">
         <div class="form-check form-check-inline">
           <label class="form-check-label font-weight-bold">
-            <input class="form-check-input" type="radio" name="Anonymat" id="Duree1" value="non" required> J'accepte que mes Nom et Prénom figurent sur notre site Web
+            <input class="form-check-input" type="radio" name="Anonymat" id="Duree1" value="non" required> J'accepte que mes Nom et Prenom figurent sur notre site Web
           </label>
         </div>
         <div class="form-check form-check-inline">
