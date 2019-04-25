@@ -21,7 +21,7 @@ String.prototype.sansAccent = function(){
 
 function show_Table(tableau) {
   $(tableau).find(".other_text").each(function(){
-    $(this).show(300);
+    $(this).show();
   })
   $(tableau).find('td').css("min-width","233px");
   $(tableau).parentsUntil("body").width($(tableau).width());

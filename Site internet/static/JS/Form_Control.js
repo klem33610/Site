@@ -54,7 +54,7 @@ function reveal_other(element) {
 }
 
 function Selection(ligne) {
-  if (ligne.checked == true){
+  if (ligne.checked == true) {
     $("#Formulaire_yes").find('#'+ ligne.id).show();
   } else {
     $("#Formulaire_yes").find('#'+ ligne.id).hide();

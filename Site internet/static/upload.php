@@ -106,7 +106,10 @@ for ( $i = 1; $i <= $l; $i++ ) {
     $tmp_fields = '';
     $tmp_value = '';
     $values = [];
-    array_unshift($csv[$i],$csv[$i][$col_Nom].$csv[$i][$col_Prenom].$csv[$i][$col_CodePostal]);
+    $ids = $csv[$i][$col_Nom].$csv[$i][$col_Prenom].$csv[$i][$col_CodePostal];
+    $ids = str_replace(' ','',$ids);
+    $ids = str_replace('&','et',$ids);
+    array_unshift($csv[$i],($ids));
     for ( $k = 0; $k <= $j; $k++ ) {
         $key = $csv[0][$k];
         $val = $csv[$i][$k];

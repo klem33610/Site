@@ -77,7 +77,9 @@ echo "</pre>";
       }
     }
 
-    $tmp_query = ("INSERT INTO Adherents_JS ($tmp_fields) VALUES ($tmp_value) ");
+    $tmp_query = ("INSERT INTO Adherents_JS ($tmp_fields) VALUES ($tmp_value) ON DUPLICATE KEY UPDATE
+      Prenom = IF(VALUES(Prenom) IS NOT NULL, VALUES(Prenom))
+    ");
     //le tmp_query affichera "INSERT INTO users (username, email, password) VALUES (:username, :email, :password)"
 
     //Préparation de la requête

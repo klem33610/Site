@@ -101,6 +101,11 @@ foreach($tableau as $i => $value){
             </thead>
             <tbody>
               <? foreach($tableau as $i => $value){
+                if ($tableau[$i]['DateRenouvellement']){
+                  $Inscription = DateTime::createFromFormat('Y-m-d', $tableau[$i]['DateRenouvellement']);
+                }else{
+                  $Inscription = DateTime::createFromFormat('Y-m-d', $tableau[$i]['DateInscription']);
+                }
                   $DerniereMensualiteAideUrgence = DateTime::createFromFormat('Y-m-d', $tableau[$i]['DerniereMensualiteAideUrgence']);
                   if ($tableau[$i]['DateValidationMensualite']){
                     $DateValidationMensualite = DateTime::createFromFormat('Y-m-d', $tableau[$i]['DateValidationMensualite']);
@@ -114,12 +119,12 @@ foreach($tableau as $i => $value){
                       <td> <? echo $tableau[$i]['Prenom']; ?></td>
                       <td><? echo $tableau[$i]['Nom']; ?></td>
                       <td id="Mail"><? echo $tableau[$i]['Mail']; ?></td>
-                      <td><? echo $tableau[$i]['DateRenouvellement']; ?></td>
+                      <td><? echo $Inscription->format('d-m-Y'); ?></td>
                       <td class="text-danger"><? echo $tableau[$i]['MailRappelDon']; ?></td>
                       <td class="d-none">
                         <textarea id="texte_mail" rows="10" class="text-left form-control">
 Bonjour <?echo $tableau[$i]['Prenom'] . " " .$tableau[$i]['Nom'];?>,
-Le <?echo $tableau[$i]['DateRenouvellement'];?>, vous avez rempli le formulaire de participation aux actions de l'association Jarez Solidarités. Et nous vous en remercions chaleureusement.
+Le <?echo $Inscription->format('d-m-Y')?>, vous avez rempli le formulaire de participation aux actions de l'association Jarez Solidarités. Et nous vous en remercions chaleureusement.
 Nous avons enregistré votre promesse de dons de <?echo $tableau[$i]['MontantAideUrgence'];?> euros. Et à ce jour, si nous ne faisons pas d'erreur, nous ne pouvons acter la réception de ce don.
 Nous nous permettons ainsi de vous envoyer ce mail de rappel.
 Merci de de votre compréhension,
@@ -230,12 +235,17 @@ L'association Jarez Solidarités.
               </tr>
             </thead>
             <tbody>
-              <? foreach($tableau as $i => $value){
+            <? foreach($tableau as $i => $value){
+                if ($tableau[$i]['DateRenouvellement']){
+                  $Inscription = DateTime::createFromFormat('Y-m-d', $tableau[$i]['DateRenouvellement']);
+                }else{
+                  $Inscription = DateTime::createFromFormat('Y-m-d', $tableau[$i]['DateInscription']);
+                }
                   $DerniereMensualiteAideUrgence = DateTime::createFromFormat('Y-m-d', $tableau[$i]['DerniereMensualiteAideUrgence']);
                   if ($tableau[$i]['DateValidationMensualite']){
                     $DateValidationMensualite = DateTime::createFromFormat('Y-m-d', $tableau[$i]['DateValidationMensualite']);
                   } else {
-                    $DateValidationMensualite = DateTime::createFromFormat('Y-m-d','2222-22-22');
+                    $DateValidationMensualite = DateTime::createFromFormat('Y-m-d','2223-10-22');
                   }
                   if ($DateValidationMensualite->format('Y-m-d') == '2223-10-22' || ($DateValidationMensualite < $DerniereMensualiteAideUrgence && $DateValidationMensualite->format('Y-m') < $Month_don)) {
                     ?>
@@ -243,7 +253,7 @@ L'association Jarez Solidarités.
                       <td name="<? echo $tableau[$i]['id'];?>"><input id="<? echo $tableau[$i]['id'];?>" style="width:23px; height:23px" onchange='Selection(this);' class="checkbox form-check-input mx-auto" type="checkbox"></td>
                       <td name="<? echo $tableau[$i]['MontantAideUrgence'];?>"><? echo $tableau[$i]['Prenom']; ?></td>
                       <td name="<? echo $tableau[$i]['mail'];?>"><? echo $tableau[$i]['Nom']; ?></td>
-                      <td name="<? echo $tableau[$i]['DateRenouvellement'];?>"><? echo $tableau[$i]['DateRenouvellement']; ?></td>
+                      <td name="<? echo $Inscription->format('d-m-Y');?>"><? echo $Inscription->format('d-m-Y'); ?></td>
                     </tr>
                   <?}
               }?>
@@ -293,18 +303,20 @@ L'association Jarez Solidarités.
               <tbody>
                 <? foreach($tableau as $i => $value){
                     if ($tableau[$i]['DateRenouvellement']){
-                        $DateRenouvellement = DateTime::createFromFormat('Y-m-d', $tableau[$i]['DateRenouvellement']);
-                        if ($DateRenouvellement->format('Y') == $Year_Don - 1) {
+                      $Inscription = DateTime::createFromFormat('Y-m-d', $tableau[$i]['DateRenouvellement']);
+                    }else{
+                      $Inscription = DateTime::createFromFormat('Y-m-d', $tableau[$i]['DateInscription']);
+                    }
+                    if ($Inscription->format('Y') == $Year_Don - 1) {
                           ?>
                           <tr>
                             <td><input style="width:23px; height:23px" class="form-check-input mx-auto" type="checkbox"></td>
                             <td><input style="width:23px; height:23px" class="form-check-input mx-auto" type="checkbox"></td>
                             <td><? echo $tableau[$i]['Prenom']; ?></td>
                             <td><? echo $tableau[$i]['Nom']; ?></td>
-                            <td><? echo $tableau[$i]['DateRenouvellement']; ?></td>
+                            <td><? echo $Inscription->format('d-m-Y'); ?></td>
                           </tr>
                         <?};
-                    };
                 };?>
               </tbody>
             </table>
@@ -329,17 +341,19 @@ L'association Jarez Solidarités.
               <tbody>
                 <? foreach($tableau as $i => $value){
                     if ($tableau[$i]['DateRenouvellement']){
-                      $DateRenouvellement = DateTime::createFromFormat('Y-m-d', $tableau[$i]['DateRenouvellement']);
-                      if ($DateRenouvellement->format('Y') == $Year_Don - 1) {
+                      $Inscription = DateTime::createFromFormat('Y-m-d', $tableau[$i]['DateRenouvellement']);
+                    }else{
+                      $Inscription = DateTime::createFromFormat('Y-m-d', $tableau[$i]['DateInscription']);
+                    }
+                    if ($Inscription->format('Y') == $Year_Don - 1) {
                         ?>
                         <tr>
                           <td><input style="width:23px; height:23px" class="form-check-input mx-auto" type="checkbox"></td>
                           <td><? echo $tableau[$i]['Prenom']; ?></td>
                           <td><? echo $tableau[$i]['Nom']; ?></td>
-                          <td><? echo $tableau[$i]['DateRenouvellement']; ?></td>
+                          <td><? echo $Inscription->format('d-m-Y'); ?></td>
                         </tr>
                       <?};
-                    };
                 };?>
               </tbody>
             </table>
