@@ -152,7 +152,20 @@ function membreDocs(){
       }
     }
   })
-  console.log(carte_tab)
+  if (carte_tab[0]) {
+    carte_tab = JSON.stringify(carte_tab);
+    $.ajax({
+      type: 'POST',
+      url: '/static/CarteMembre_template.php',
+      data: { 'carte_tab': carte_tab },
+      success: function () {
+        window.location.href ="/static/CarteMembre_template.php";
+      }
+    });
+  }
+  if (recus_tab[0]) { 
+    recus_tab = JSON.stringify(recus_tab);
+  }
 }
 
 //   if ($(".other1").prop('checked') == true && $(".other2").prop('checked') == true) {
