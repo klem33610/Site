@@ -125,6 +125,36 @@ function maj_BDD(){
   });
 }
 
+function membreDocs(){
+  var carte_tab =[];
+  var recus_tab =[];
+  $('#membercard').find(':checkbox').each(function () {
+    if ($(this).is(':checked')) {
+      tr = $("#membercard").find('#' + this.id).parent().parent();
+      prenom = $(tr).find('#prenom').text();
+      nom = $(tr).find('#nom').text();
+      date = $(tr).find('#date').text();
+      if ($(this).hasClass("card")) {
+        carte_tab.push({
+          'prenom': prenom,
+          'nom': nom,
+          'id': this.id,
+          'date' : date
+        });
+      } 
+      if ($(this).hasClass("fiscal")) {
+        recus_tab.push({
+          'prenom': prenom,
+          'nom': nom,
+          'id': this.id,
+          'date': date
+        });
+      }
+    }
+  })
+  console.log(carte_tab)
+}
+
 //   if ($(".other1").prop('checked') == true && $(".other2").prop('checked') == true) {
 //         if ($('.other1').siblings().val() && $('.other2').siblings().val()) {
 //           statut = true;
